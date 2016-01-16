@@ -24,9 +24,28 @@ namespace Pazaak
             }
         }
 
+        public short Val
+        {
+            get
+            {
+                return val;
+            }
+
+            set
+            {
+                val = value;
+            }
+        }
+
         public Card(Int16 val)
         {
             this.val = val;
+        }
+        public Card()
+        {
+            Random rnd = new Random();
+            Int16 value = (Int16)rnd.Next(1, 11);
+            this.val = value;
         }
     }
 }

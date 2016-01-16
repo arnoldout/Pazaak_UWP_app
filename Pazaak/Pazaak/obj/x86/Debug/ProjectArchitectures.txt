@@ -1,1 +1,1 @@
-C:\Users\Olivr\Documents\Visual Studio 2015\Projects\Pazaak\Pazaak\Pazaak.csproj;x86
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\Pazaak.csproj;x86

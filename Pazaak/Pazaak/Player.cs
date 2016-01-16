@@ -10,11 +10,13 @@ namespace Pazaak
     {
         private Card[] crdPool;
         private Card[] hand;
+        private Card[] onBrd;
         private String name;
+        private int trnCnt;
         private int rndsWn;
         private int gmsWn;
         private int currScr;
-
+        private Boolean stndng;
         public string Name
         {
             get
@@ -67,11 +69,52 @@ namespace Pazaak
             }
         }
 
+        public bool Stndng
+        {
+            get
+            {
+                return stndng;
+            }
+
+            set
+            {
+                stndng = value;
+            }
+        }
+
+        internal Card[] OnBrd
+        {
+            get
+            {
+                return onBrd;
+            }
+
+            set
+            {
+                onBrd = value;
+            }
+        }
+
+        public int TrnCnt
+        {
+            get
+            {
+                return trnCnt;
+            }
+
+            set
+            {
+                trnCnt = value;
+            }
+        }
+
         public Player(Card[] crdPool, String name) {
             this.crdPool = crdPool;
             this.hand = genHnd(crdPool);
+            this.onBrd = new Card[9];
             this.rndsWn = 0;
             this.gmsWn = 0;
+            this.trnCnt = 0;
             this.name = name;
             this.currScr = 0;   
         }
@@ -85,6 +128,11 @@ namespace Pazaak
                 hand[genLoop] = crdPool[card]; 
             }
             return hand;
+        }
+        public void addCrd(Card c)
+        {
+            onBrd[this.trnCnt] = c;
+
         }
     }
 }

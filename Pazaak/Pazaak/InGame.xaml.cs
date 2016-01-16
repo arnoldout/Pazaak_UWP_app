@@ -22,6 +22,7 @@ namespace Pazaak
     /// </summary>
     public sealed partial class InGame : Page
     {
+        private User pl;
         public InGame()
         {
             this.InitializeComponent();
@@ -30,10 +31,26 @@ namespace Pazaak
             {
                 Card c = new Card(l);
                 p[l] = c;
-                
+
             }
-            Player pl = new Player(p, "Oliver");
+            pl = new User(p, "Oliver");
             usrBlk.Text = pl.Name;
+        }
+
+        private void button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            turn(false);
+        }
+
+        private void stnd_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            turn(true);
+        }
+        public void turn(Boolean b)
+        {
+            Card c = new Card();
+            pl.tkTurn(c, b);
+            usrScr.Text = pl.CurrScr.ToString();
         }
     }
 }

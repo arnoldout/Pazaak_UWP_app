@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="6*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" >
-                    <TextBlock x:Name="usrBlk" Text="User" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                    <TextBlock x:ConnectionId='29' x:Name="usrBlk" Text="User" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                 </Grid>
                 <Grid Grid.Column="1">
 
@@ -49,7 +49,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <RadioButton x:Name="usrRd1"></RadioButton>
+                            <RadioButton x:ConnectionId='28' x:Name="usrRd1"></RadioButton>
                         </Grid>
                     </Grid>
                     <Grid Grid.Column="1" >
@@ -64,7 +64,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <RadioButton x:Name="usrRd2"></RadioButton>
+                            <RadioButton x:ConnectionId='27' x:Name="usrRd2"></RadioButton>
                         </Grid>
                     </Grid>
                     <Grid Grid.Column="2">
@@ -79,7 +79,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <RadioButton x:Name="usrRd3"></RadioButton>
+                            <RadioButton x:ConnectionId='26' x:Name="usrRd3"></RadioButton>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -99,16 +99,16 @@
                         <RowDefinition Height="4*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <Button x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd1_tap"></Button>
+                        <Button x:ConnectionId='25' x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <Button x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd2_tap"></Button>
+                        <Button x:ConnectionId='24' x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
                     </Grid>
                     <Grid Grid.Row="2">
-                        <Button x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd3_tap"></Button>
+                        <Button x:ConnectionId='23' x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
                     </Grid>
                     <Grid Grid.Row="3">
-                        <Button x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd4_tap"></Button>
+                        <Button x:ConnectionId='22' x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
                     </Grid>
                 </Grid>
                 <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2" >
@@ -125,13 +125,13 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <TextBlock x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:ConnectionId='21' x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <TextBlock x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:ConnectionId='20' x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
-                            <TextBlock x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:ConnectionId='19' x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
                     <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
@@ -141,13 +141,13 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <TextBlock x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='18' x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <TextBlock x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='17' x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </Grid>
                     <Grid Grid.Column="2">
-                        <TextBlock x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='16' x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </Grid>
                     </Grid>
                     <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2"><Grid.ColumnDefinitions>
@@ -156,13 +156,13 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <TextBlock x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='15' x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <TextBlock x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='14' x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </Grid>
                     <Grid Grid.Column="2">
-                        <TextBlock x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='13' x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </Grid></Grid>
                     <Grid Grid.Row="3" BorderBrush="Black" BorderThickness="2">
                         <Grid.ColumnDefinitions>
@@ -171,13 +171,13 @@
                             <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="2">
-                            <TextBlock x:Name="usrScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <TextBlock x:ConnectionId='12' x:Name="usrScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Grid>
                         <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                            <Button x:Name="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stand" Tapped="stnd_Tapped"/>
+                            <Button x:ConnectionId='11' x:Name="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stand"                     />
                         </Grid>
                         <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
-                            <Button x:Name="endBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn" Tapped="button_Tapped"/>
+                            <Button x:ConnectionId='10' x:Name="endBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn"                       />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -195,7 +195,7 @@
                     <ColumnDefinition Width="6*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBlock x:Name="enBlk" Text="AI" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                    <TextBlock x:ConnectionId='9' x:Name="enBlk" Text="AI" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                 </Grid>
                 <Grid Grid.Column="1">
 
@@ -216,7 +216,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <RadioButton x:Name="enRd1"></RadioButton>
+                            <RadioButton x:ConnectionId='8' x:Name="enRd1"></RadioButton>
                         </Grid>
                     </Grid>
                     <Grid Grid.Column="1">
@@ -231,7 +231,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <RadioButton x:Name="enRd2"></RadioButton>
+                            <RadioButton x:ConnectionId='7' x:Name="enRd2"></RadioButton>
                         </Grid>
                     </Grid>
                     <Grid Grid.Column="2">
@@ -246,7 +246,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <RadioButton x:Name="enRd3"></RadioButton>
+                            <RadioButton x:ConnectionId='6' x:Name="enRd3"></RadioButton>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -271,7 +271,7 @@
                             <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <TextBlock x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                            <TextBlock x:ConnectionId='5' x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Right" />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -283,19 +283,20 @@
                         <RowDefinition Height="4*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <Button x:Name="enHnd1"></Button>
+                        <Button x:ConnectionId='4' x:Name="enHnd1"></Button>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <Button x:Name="enHnd2"></Button>
+                        <Button x:ConnectionId='3' x:Name="enHnd2"></Button>
                     </Grid>
                     <Grid Grid.Row="2">
-                        <Button x:Name="enHnd3"></Button>
+                        <Button x:ConnectionId='2' x:Name="enHnd3"></Button>
                     </Grid>
                     <Grid Grid.Row="3">
-                        <Button x:Name="enHnd4"></Button>
+                        <Button x:ConnectionId='1' x:Name="enHnd4"></Button>
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
     </Grid>
 </Page>
+

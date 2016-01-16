@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace Pazaak
 {
@@ -17,6 +18,8 @@ namespace Pazaak
         private int gmsWn;
         private int currScr;
         private Boolean stndng;
+        private Boolean gotDk;
+        private Boolean isTrn;
         public string Name
         {
             get
@@ -108,6 +111,45 @@ namespace Pazaak
             }
         }
 
+        internal Card[] Hand
+        {
+            get
+            {
+                return hand;
+            }
+
+            set
+            {
+                hand = value;
+            }
+        }
+
+        public bool GotDk
+        {
+            get
+            {
+                return gotDk;
+            }
+
+            set
+            {
+                gotDk = value;
+            }
+        }
+
+        public bool IsTrn
+        {
+            get
+            {
+                return isTrn;
+            }
+
+            set
+            {
+                isTrn = value;
+            }
+        }
+
         public Player(Card[] crdPool, String name) {
             this.crdPool = crdPool;
             this.hand = genHnd(crdPool);
@@ -116,23 +158,26 @@ namespace Pazaak
             this.gmsWn = 0;
             this.trnCnt = 0;
             this.name = name;
-            this.currScr = 0;   
+            this.currScr = 0;
+            this.gotDk = false;
+            this.isTrn = true;
         }
         public Card[] genHnd(Card [] crdPool)
         {
             Card[] hand = new Card[4];
-            for(int genLoop = 0; genLoop<4; genLoop++)
+            Random r = new Random();
+            for (int genLoop = 0; genLoop<4; genLoop++)
             {
-                Random r = new Random();
                 int card = r.Next(0, crdPool.Length);
-                hand[genLoop] = crdPool[card]; 
+                Card c = crdPool[card];
+                hand[genLoop] = c;
+                crdPool = crdPool.Except(new Card[] {c }).ToArray();
             }
             return hand;
         }
         public void addCrd(Card c)
         {
             onBrd[this.trnCnt] = c;
-
         }
     }
 }

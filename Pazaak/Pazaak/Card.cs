@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    class Card
+    public class Card
     {
         private Int16 val;
         private String imgSrc;
+        private Random rnd = new Random();
 
         public string ImgSrc
         {
@@ -43,8 +44,7 @@ namespace Pazaak
         }
         public Card()
         {
-            Random rnd = new Random();
-            Int16 value = (Int16)rnd.Next(1, 11);
+            Int16 value = (Int16)this.rnd.Next(1, 11);
             this.val = value;
         }
     }

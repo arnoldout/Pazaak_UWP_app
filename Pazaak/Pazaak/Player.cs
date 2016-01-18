@@ -169,13 +169,13 @@ namespace Pazaak
         }
         public void rndWn()
         {
-            if(this.rndsWn<3)
+            if(this.rndsWn<4)
             {
-                rndsWn++; 
+                this.rndsWn++; 
             }
             else
             {
-                gmsWn++;
+                this.gmsWn++;
             }
         }
         public Card[] genHnd(Card [] crdPool)
@@ -195,13 +195,15 @@ namespace Pazaak
         {
             onBrd[this.trnCnt] = c;
         }
-        public void plyrRset()
+        public void reset()
         {
+            this.onBrd = new Card[9];
             this.trnCnt = 0;
             this.currScr = 0;
             this.gotDk = false;
             this.isTrn = true;
             this.isBust = false;
+            this.stndng = false;
         }
     }
 }

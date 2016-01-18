@@ -37,6 +37,7 @@ namespace Pazaak
             {
                 en = (AI)arr[0];
                 pl = (User)arr[1];
+                usrBtnsRset();
                 usrScrSwch();
                 enScrSwch();
                 enBlk.Text = en.Name;
@@ -72,10 +73,16 @@ namespace Pazaak
             Card c = new Card(r);
             enStatus();
             pl.deckCall(false, c, usrScr, this);
+            if (chkScrs())
+            {
+                newFrme();
+            }
         }
 
         private void newFrme()
         {
+            pl.reset();
+            en.reset();
             Player[] arr = new Player[2] { en, pl };
             Frame.Navigate(typeof(InGame), arr);
         }
@@ -83,7 +90,10 @@ namespace Pazaak
         public async Task endTurn()
         {
             clrUsrBtns();
-           
+            if (chkScrs())
+            {
+                newFrme();
+            }
             pl.GotDk = false;
             pl.IsTrn = false;
             //delaying the main process here gives the game a better flow
@@ -93,7 +103,6 @@ namespace Pazaak
             en.mkMove(pl, enScr, this, r);
             //delaying the main process gives the game the illusion that the AI is thinking
             await Task.Delay(1000);
-            
         }
 
         public void enStatus()
@@ -157,6 +166,7 @@ namespace Pazaak
                 else
                 {
                     //draw
+                    return true;
                 }
             }
             else if(en.IsBust)

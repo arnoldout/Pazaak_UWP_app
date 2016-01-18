@@ -8,13 +8,16 @@ using Windows.UI.Xaml.Media;
 
 namespace Pazaak
 {
-    class User : Player
+    public class User : Player
     {
         public User(Card[] crdPool, String name) : base(crdPool, name)
         {
 
         }
-        public void tkTurn(Card c, Boolean stnd)
+        
+        //called in the deckCall and the handCall methods
+        //processes the card generated from deck or hand
+        public void playCard(Card c, Boolean stnd)
         {
             if (stnd)
             {
@@ -25,28 +28,42 @@ namespace Pazaak
                 addCrd(c);
                 TrnCnt++;
                 CurrScr += c.Val;
-                
+                if(CurrScr>20)
+                {
+                    this.IsBust = true;
+                }
             }
         }
-        public void turn(Boolean b, Card c, TextBlock usrScr, InGame iG)
+        //user gets card from deck
+        public void deckCall(Boolean b, Card c, TextBlock usrScr, InGame iG)
         {
             if (this.CurrScr > 20)
             {
                 b = true;
+                this.IsBust = true;
+                iG.stand();
             }
-            iG.crdSwtch(c.Val);
-            tkTurn(c, b);
+            iG.plCrdSwtch(c.Val);
+            playCard(c, b);
             usrScr.Text = this.CurrScr.ToString();
         }
-        public void useCrd(Button b, InGame iG, TextBlock usrScr)
+        // use a card from hand
+        public void handCall(Button b, InGame iG, TextBlock usrScr)
         {
-            if (this.Stndng == false&&this.GotDk==true&&this.IsTrn&&!b.Content.Equals(""))
+            //can only use a card if the card is still there
+            if (this.Stndng == false&&this.IsTrn&&!b.Content.Equals(""))
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.White);
                 int val = (Int16)b.Content;
                 Card c = new Card((Int16)val);
-                turn(false, c, usrScr, iG);
+                deckCall(false, c, usrScr, iG);
                 b.Content = "";
+                this.IsTrn = false;
+                if(this.CurrScr>20)
+                {
+                    this.IsBust = true;
+                    iG.stand();
+                }
             }
         }
 

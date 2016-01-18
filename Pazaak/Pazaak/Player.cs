@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Pazaak
 {
-    class Player
+    public class Player
     {
         private Card[] crdPool;
         private Card[] hand;
@@ -20,6 +20,7 @@ namespace Pazaak
         private Boolean stndng;
         private Boolean gotDk;
         private Boolean isTrn;
+        private Boolean isBust;
         public string Name
         {
             get
@@ -32,7 +33,6 @@ namespace Pazaak
                 name = value;
             }
         }
-
         public int RndsWn
         {
             get
@@ -45,7 +45,6 @@ namespace Pazaak
                 rndsWn = value;
             }
         }
-
         public int GmsWn
         {
             get
@@ -58,7 +57,6 @@ namespace Pazaak
                 gmsWn = value;
             }
         }
-
         public int CurrScr
         {
             get
@@ -71,7 +69,6 @@ namespace Pazaak
                 currScr = value;
             }
         }
-
         public bool Stndng
         {
             get
@@ -84,7 +81,6 @@ namespace Pazaak
                 stndng = value;
             }
         }
-
         internal Card[] OnBrd
         {
             get
@@ -97,7 +93,6 @@ namespace Pazaak
                 onBrd = value;
             }
         }
-
         public int TrnCnt
         {
             get
@@ -110,7 +105,6 @@ namespace Pazaak
                 trnCnt = value;
             }
         }
-
         internal Card[] Hand
         {
             get
@@ -123,7 +117,6 @@ namespace Pazaak
                 hand = value;
             }
         }
-
         public bool GotDk
         {
             get
@@ -136,7 +129,6 @@ namespace Pazaak
                 gotDk = value;
             }
         }
-
         public bool IsTrn
         {
             get
@@ -147,6 +139,18 @@ namespace Pazaak
             set
             {
                 isTrn = value;
+            }
+        }
+        public bool IsBust
+        {
+            get
+            {
+                return isBust;
+            }
+
+            set
+            {
+                isBust = value;
             }
         }
 
@@ -161,6 +165,18 @@ namespace Pazaak
             this.currScr = 0;
             this.gotDk = false;
             this.isTrn = true;
+            this.isBust = false;
+        }
+        public void rndWn()
+        {
+            if(this.rndsWn<3)
+            {
+                rndsWn++; 
+            }
+            else
+            {
+                gmsWn++;
+            }
         }
         public Card[] genHnd(Card [] crdPool)
         {
@@ -178,6 +194,14 @@ namespace Pazaak
         public void addCrd(Card c)
         {
             onBrd[this.trnCnt] = c;
+        }
+        public void plyrRset()
+        {
+            this.trnCnt = 0;
+            this.currScr = 0;
+            this.gotDk = false;
+            this.isTrn = true;
+            this.isBust = false;
         }
     }
 }

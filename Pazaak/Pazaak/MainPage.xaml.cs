@@ -22,14 +22,28 @@ namespace Pazaak
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        AI en;
+        User pl;
         public MainPage()
         {
             this.InitializeComponent();
+            //populate the deck
+            Card[] p = new Card[15];
+            for (Int16 l = 0; l < 15; l++)
+            {
+                Card c = new Card(l);
+                p[l] = c;
+
+            }
+            //create new AI and user objects
+            en = new AI(p, "AI");
+            pl = new User(p, "Oliver");
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(InGame));
+            Player[] arr = new Player[2] {en, pl};
+            this.Frame.Navigate(typeof(InGame), arr);
         }
     }
 }

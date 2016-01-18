@@ -10,7 +10,7 @@ namespace Pazaak
     {
         private Int16 val;
         private String imgSrc;
-        private Random rnd = new Random();
+        private Random rnd;
 
         public string ImgSrc
         {
@@ -44,6 +44,13 @@ namespace Pazaak
         }
         public Card()
         {
+            this.rnd = new Random();
+            Int16 value = (Int16)this.rnd.Next(1, 11);
+            this.val = value;
+        }
+        public Card(Random r)
+        {
+            this.rnd = r;
             Int16 value = (Int16)this.rnd.Next(1, 11);
             this.val = value;
         }

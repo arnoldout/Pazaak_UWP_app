@@ -15,20 +15,21 @@ namespace Pazaak
           
         }
 
-        public void mkMove(User u, TextBlock enScr, InGame iG, Random r)
+        public void mkMove(User u, TextBlock enScr, InGame iG, List<Card> deck)
         {
             //not the user's turn right now
             u.IsTrn = false;
             u.GotDk = false;
             if (TrnCnt < 9 && this.Stndng == false)
             {
-                Card c = new Card(r);
+                Card c = deck[0];
+                deck.Remove(deck[0]);
                 prcesCrd(iG, c);
                 scnHnd(iG, u);
             }
 
             //be given a card 
-            if (this.CurrScr > 16&& this.CurrScr<21)
+            if (this.CurrScr > 16 && this.CurrScr<21)
             {
                 this.Stndng = true;
             }

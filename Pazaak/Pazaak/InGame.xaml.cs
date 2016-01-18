@@ -23,9 +23,9 @@ namespace Pazaak
     /// </summary>
     public sealed partial class InGame : Page
     {
-        Random r = new Random();
         private User pl;
         private AI en;
+        private List<Card> deck;
         public InGame()
         {
             this.InitializeComponent();
@@ -45,10 +45,44 @@ namespace Pazaak
                 //make hands for the user and en
                 popHndCrds();
                 Card crd = new Card();
+                mkDeck();
                 //initially gives user a card
-                pl.deckCall(false, crd, usrScr, this);
+                pl.deckCall(false, usrScr, this, deck);
             }
         }
+
+        private void mkDeck()
+        {
+            Random random = new Random();
+            deck = new List<Card>();
+            for (Int16 card = 1; card < 5; card++)
+            {
+                for(Int16 val = 1; val < 11; val++)
+                {
+                    deck.Add(new Card(val));
+                }
+            }
+            deck = Shuffle(deck);
+        }
+        public List<Card> Shuffle(List<Card> list)
+        {
+            Random r = new Random();
+            int n = list.Count;
+            //looping through the list from bottom to top
+            while (n > 1)
+            {
+                n--;
+                //randomly select a number 
+                int k = r.Next(n + 1);
+                //numer in list is saved in a temporary Card object
+                Card value = list[k];
+                //curren
+                list[k] = list[n];
+                list[n] = value;
+            }
+            return list;
+        }      
+
         public void popHndCrds()
         {
             usrHnd1.Content = pl.Hand[0].Val;
@@ -70,9 +104,8 @@ namespace Pazaak
                 newFrme();
             }
             usrBtnsRset();
-            Card c = new Card(r);
             enStatus();
-            pl.deckCall(false, c, usrScr, this);
+            pl.deckCall(false,  usrScr, this, deck);
             if (chkScrs())
             {
                 newFrme();
@@ -100,7 +133,7 @@ namespace Pazaak
             //it slows down the deal
             //using process pausing also ensures that the random object dosnt keep generating the same cards
             await Task.Delay(100);
-            en.mkMove(pl, enScr, this, r);
+            en.mkMove(pl, enScr, this, deck);
             //delaying the main process gives the game the illusion that the AI is thinking
             await Task.Delay(1000);
         }
@@ -136,9 +169,8 @@ namespace Pazaak
             while (en.Stndng == false && en.IsBust == false&&over==false)
             {
 
-                Card c = new Card(r);
                 await Task.Delay(1000);
-                en.mkMove(pl, enScr, this, r);
+                en.mkMove(pl, enScr, this, deck);
                 enStatus();
                 over = chkScrs();
             }

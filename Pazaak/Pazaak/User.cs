@@ -14,7 +14,7 @@ namespace Pazaak
         {
 
         }
-        
+
         //called in the deckCall and the handCall methods
         //processes the card generated from deck or hand
         public void playCard(Card c, Boolean stnd)
@@ -28,14 +28,14 @@ namespace Pazaak
                 addCrd(c);
                 TrnCnt++;
                 CurrScr += c.Val;
-                if(CurrScr>20)
+                if (CurrScr > 20)
                 {
                     this.IsBust = true;
                 }
             }
         }
         //user gets card from deck
-        public void deckCall(Boolean b, Card c, TextBlock usrScr, InGame iG)
+        public void deckCall(Boolean b, TextBlock usrScr, InGame iG, List<Card> deck)
         {
             if (this.CurrScr > 20)
             {
@@ -43,23 +43,29 @@ namespace Pazaak
                 this.IsBust = true;
                 iG.stand();
             }
-            iG.plCrdSwtch(c.Val);
-            playCard(c, b);
+
+            Card crd = deck[0];
+            deck.Remove(deck[0]);
+            iG.plCrdSwtch(crd.Val);
+            playCard(crd, b);
             usrScr.Text = this.CurrScr.ToString();
         }
         // use a card from hand
         public void handCall(Button b, InGame iG, TextBlock usrScr)
         {
             //can only use a card if the card is still there
-            if (this.Stndng == false&&this.IsTrn&&!b.Content.Equals(""))
+            if (this.Stndng == false && this.IsTrn && !b.Content.Equals(""))
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.White);
                 int val = (Int16)b.Content;
-                Card c = new Card((Int16)val);
-                deckCall(false, c, usrScr, iG);
+                Card crd = new Card((Int16)val);
+                iG.plCrdSwtch(crd.Val);
+                playCard(crd, false);
+                usrScr.Text = this.CurrScr.ToString();
                 b.Content = "";
                 this.IsTrn = false;
-                if(this.CurrScr>20)
+                this.Hand = this.Hand.Except(new Card[] { crd }).ToArray();
+                if (this.CurrScr > 20)
                 {
                     this.IsBust = true;
                     iG.stand();

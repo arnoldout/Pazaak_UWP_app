@@ -82,18 +82,29 @@ namespace Pazaak
             }
             return list;
         }      
-
+        public void showCard(Button b, Player p,  int placer)
+        {
+            try
+            {
+                b.Content = p.Hand[placer].Val;
+            }
+            catch (NullReferenceException)
+            {
+                b.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                b.BorderThickness = new Thickness(0);
+            }
+        }
+       
         public void popHndCrds()
         {
-            usrHnd1.Content = pl.Hand[0].Val;
-            usrHnd2.Content = pl.Hand[1].Val;
-            usrHnd3.Content = pl.Hand[2].Val;
-            usrHnd4.Content = pl.Hand[3].Val;
-
-            enHnd1.Content = en.Hand[0].Val;
-            enHnd2.Content = en.Hand[1].Val;
-            enHnd3.Content = en.Hand[2].Val;
-            enHnd4.Content = en.Hand[3].Val;
+            showCard(usrHnd1, pl, 0);
+            showCard(usrHnd2, pl, 1);
+            showCard(usrHnd3, pl, 2);
+            showCard(usrHnd4, pl, 3);
+            showCard(enHnd1, en, 0);
+            showCard(enHnd2, en, 1);
+            showCard(enHnd3, en, 2);
+            showCard(enHnd4, en, 3);
         }
 
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
@@ -179,19 +190,45 @@ namespace Pazaak
 
         public Boolean chkScrs()
         {
-            if(en.Stndng&&pl.Stndng)
+            if(en.TrnCnt>9)
             {
-                if(en.CurrScr>pl.CurrScr)
+                en.rndWn(en);
+                usrScrSwch();
+                return true;
+            }
+            else if(pl.TrnCnt>9)
+            {
+                pl.rndWn(en);
+                usrScrSwch();
+                return true;
+            }
+            else if (en.IsBust)
+            {
+                //user wins
+                pl.rndWn(en);
+                usrScrSwch();
+                return true;
+            }
+            else if (pl.IsBust)
+            {
+                //enemy wins
+                en.rndWn(en);
+                enScrSwch();
+                return true;
+            }
+            else if (en.Stndng && pl.Stndng)
+            {
+                if (en.CurrScr > pl.CurrScr)
                 {
                     //enemy Wins
-                    en.rndWn();
+                    en.rndWn(en);
                     enScrSwch();
                     return true;
                 }
-                else if(pl.CurrScr>en.CurrScr)
+                else if (pl.CurrScr > en.CurrScr)
                 {
                     //user wins
-                    pl.rndWn();
+                    pl.rndWn(en);
                     usrScrSwch();
                     return true;
                 }
@@ -201,21 +238,10 @@ namespace Pazaak
                     return true;
                 }
             }
-            else if(en.IsBust)
+            else
             {
-                //user wins
-                pl.rndWn();
-                usrScrSwch();
-                return true;
+                return false;
             }
-            else if(pl.IsBust)
-            {
-                //enemy wins
-                en.rndWn();
-                enScrSwch();
-                return true;
-            }
-            return false;
         }
 
         private void usrScrSwch()
@@ -375,25 +401,30 @@ namespace Pazaak
         private void crd1_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd1;
-            pl.handCall(b, this, usrScr); 
+            pl.handCall(b, this, usrScr);
+            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            usrHnd1.BorderThickness = new Thickness(0);
         }
         private void crd2_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd2;
             pl.handCall(b, this, usrScr);
+            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            usrHnd1.BorderThickness = new Thickness(0);
         }
         private void crd3_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd3;
             pl.handCall(b, this, usrScr);
-
-
+            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            usrHnd1.BorderThickness = new Thickness(0);
         }
         private void crd4_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd4;
             pl.handCall(b, this, usrScr);
-
+            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            usrHnd1.BorderThickness = new Thickness(0);
         }
 
     }

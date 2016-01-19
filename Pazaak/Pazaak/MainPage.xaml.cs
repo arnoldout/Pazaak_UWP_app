@@ -31,7 +31,8 @@ namespace Pazaak
             Card[] p = new Card[15];
             for (Int16 l = 0; l < 15; l++)
             {
-                Card c = new Card(l);
+                Int16 i = (Int16) (-1 * l);
+                Card c = new Card(i);
                 p[l] = c;
 
             }

@@ -58,13 +58,29 @@ namespace Pazaak
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.White);
                 int val = (Int16)b.Content;
+                Card c = null;
+                int i =0;
+                for (i = 0; i<this.Hand.Length;i++)
+                {
+                    try {
+                        if (this.Hand[i].Val == (val))
+                        {
+                            break;
+                        }
+                    }
+                    catch (NullReferenceException)
+                    {
+                        //everything is fine
+                        //maybe change this in future
+                    }
+                 }
                 Card crd = new Card((Int16)val);
                 iG.plCrdSwtch(crd.Val);
                 playCard(crd, false);
                 usrScr.Text = this.CurrScr.ToString();
                 b.Content = "";
                 this.IsTrn = false;
-                this.Hand = this.Hand.Except(new Card[] { crd }).ToArray();
+                this.Hand[i] = null;
                 if (this.CurrScr > 20)
                 {
                     this.IsBust = true;

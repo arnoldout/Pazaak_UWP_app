@@ -167,11 +167,12 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
         }
-        public void rndWn()
+        public void rndWn(AI en)
         {
             if(this.rndsWn<4)
             {
-                this.rndsWn++; 
+                this.rndsWn++;
+                en.CurrScr = en.CurrScr;
             }
             else
             {
@@ -193,7 +194,9 @@ namespace Pazaak
         }
         public void addCrd(Card c)
         {
+            
             onBrd[this.trnCnt] = c;
+            
         }
         public void reset()
         {

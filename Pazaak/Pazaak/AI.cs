@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Pazaak
 {
@@ -52,6 +53,7 @@ namespace Pazaak
         //scan the current hand to see if AI should use a card
         public void scnHnd(InGame iG,User u)
         {
+            Boolean wasUsed = false;
             for(int hndLoop = 0; hndLoop<this.Hand.Length; hndLoop++ )
             {
                 //make sure the selection wouldnt bust the AI
@@ -61,7 +63,7 @@ namespace Pazaak
                     if(this.Hand[hndLoop].Val<0)
                     {
                         //use this card
-                        useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop); 
+                        wasUsed = useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop); 
                     }
                     //positive card
                     else
@@ -70,7 +72,7 @@ namespace Pazaak
                         if(this.CurrScr + this.Hand[hndLoop].Val == 20)
                         {
                             //use this card
-                            useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop);
+                            wasUsed = useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop);
                         }
                         //if the user has stood, the AI only needs to beat their score now
                         if(u.Stndng)
@@ -79,7 +81,7 @@ namespace Pazaak
                             if(this.CurrScr + this.Hand[hndLoop].Val >u.CurrScr)
                             {
                                 //use this score
-                                useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop);
+                                wasUsed = useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop);
                             }
                         }
                         //keep cards unless needed, only use a card if they're currently losing
@@ -88,19 +90,27 @@ namespace Pazaak
                             if(this.CurrScr + this.Hand[hndLoop].Val >15)
                             {
                                 //use card
-                                useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop);
+                                wasUsed = useCrd(this.Hand, this.Hand[hndLoop], u, iG, hndLoop);
                             }
                         }
+                    }
+                    if (wasUsed)
+                    {
+                        this.Hand[hndLoop] = null;
                     }
                 }
             }
         }
 
-        public void useCrd(Card[] arr, Card arrEle, User u, InGame iG, int elNum)
+        public void handCall()
+        {
+        }
+        public Boolean useCrd(Card[] arr, Card arrEle, User u, InGame iG, int elNum)
         {
             prcesCrd(iG,arrEle);
             arr = arr.Except(new Card[] { arrEle }).ToArray();
             iG.clrEnHndCrd(elNum);
+            return true;
         }
     }
 }

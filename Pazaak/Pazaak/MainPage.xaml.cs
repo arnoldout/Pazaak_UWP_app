@@ -32,7 +32,7 @@ namespace Pazaak
             for (Int16 l = 0; l < 15; l++)
             {
                 Int16 i = (Int16) (-1 * l);
-                Card c = new Card(i);
+                Card c = new Card(l);
                 p[l] = c;
 
             }

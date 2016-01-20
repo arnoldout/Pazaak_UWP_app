@@ -194,9 +194,7 @@ namespace Pazaak
         }
         public void addCrd(Card c)
         {
-            
-            onBrd[this.trnCnt] = c;
-            
+            onBrd[this.trnCnt] = c;    
         }
         public void reset()
         {

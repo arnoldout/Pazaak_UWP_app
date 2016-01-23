@@ -397,3 +397,4 @@ C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pa
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\Pazaak.csprojResolveAssemblyReference.cache

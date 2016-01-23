@@ -22,7 +22,7 @@ namespace Pazaak
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        AI en;
+        SkyNet en;
         User pl;
         public MainPage()
         {
@@ -37,7 +37,7 @@ namespace Pazaak
 
             }
             //create new AI and user objects
-            en = new AI(p, "AI");
+            en = new SkyNet (p, "AI");
             pl = new User(p, "Oliver");
         }
 

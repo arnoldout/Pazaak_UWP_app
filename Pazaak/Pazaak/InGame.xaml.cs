@@ -24,7 +24,7 @@ namespace Pazaak
     public sealed partial class InGame : Page
     {
         private User pl;
-        private AI en;
+        private SkyNet en;
         private List<Card> deck;
         public InGame()
         {
@@ -35,7 +35,7 @@ namespace Pazaak
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
-                en = (AI)arr[0];
+                en = (SkyNet)arr[0];
                 pl = (User)arr[1];
                 usrBtnsRset();
                 usrScrSwch();
@@ -84,31 +84,76 @@ namespace Pazaak
         }      
         public void showCard(Button b, Player p,  int placer)
         {
-            try
-            {
-                b.Content = p.Hand[placer].Val;
-            }
-            catch (NullReferenceException)
-            {
-                b.Background = new SolidColorBrush(Windows.UI.Colors.White);
-                b.BorderThickness = new Thickness(0);
-            }
+            b.Content = p.Hand[placer].Val;
         }
        
         public void popHndCrds()
         {
-            showCard(usrHnd1, pl, 0);
-            showCard(usrHnd2, pl, 1);
-            showCard(usrHnd3, pl, 2);
-            showCard(usrHnd4, pl, 3);
-            showCard(enHnd1, en, 0);
-            showCard(enHnd2, en, 1);
-            showCard(enHnd3, en, 2);
-            showCard(enHnd4, en, 3);
+            for (int usrHndLoop = 0; usrHndLoop < pl.Hand.Length; usrHndLoop++)
+            {
+                if (usrHndLoop < en.Hand.Length)
+                {
+                    drawUsrHand(usrHndLoop);
+                }
+            }
+            for (int enHndLoop = 0; enHndLoop<en.Hand.Length; enHndLoop++)
+            {
+                if(enHndLoop<en.Hand.Length)
+                {
+                    drawEnHand(enHndLoop);
+                }
+            }
+            
         }
-
+        public void drawUsrHand(int i)
+        {
+            Button hand;
+            switch (i)
+            {
+                case 0:
+                    hand = usrHnd1;
+                    break;
+                case 1:
+                    hand = usrHnd2;
+                    break;
+                case 2:
+                    hand = usrHnd3;
+                    break;
+                case 3:
+                    hand = usrHnd4;
+                    break;
+                default:
+                    hand = usrHnd1;
+                    break;
+            }
+            showCard(hand, pl, i);
+        }
+        public void drawEnHand(int i)
+        {
+            Button hand;
+            switch (i)
+            {
+                case 0:
+                    hand = enHnd1;
+                    break;
+                case 1:
+                    hand = enHnd2;
+                    break;
+                case 2:
+                    hand = enHnd3;
+                    break;
+                case 3:
+                    hand = enHnd4;
+                    break;
+                default:
+                    hand = enHnd1;
+                    break;
+            }
+            showCard(hand, en, i);
+        }
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            popHndCrds();
             await endTurn();
             if(chkScrs())
             {
@@ -313,6 +358,7 @@ namespace Pazaak
                     break;
             }
         }
+        
         //reset the Button's content
         public void usrBtnsRset()
         {

@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-19T22:39:59.143</Modified>
+      <Modified>2016-01-23T20:12:48.433</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Pazaak.exe">
       <PackagePath>entrypoint\Pazaak.exe</PackagePath>
-      <Modified>2016-01-19T22:39:55.863</Modified>
+      <Modified>2016-01-23T20:12:48.184</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -494,19 +494,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Pazaak.xr.xml">
       <PackagePath>Pazaak.xr.xml</PackagePath>
-      <Modified>2016-01-17T18:38:54.180</Modified>
+      <Modified>2016-01-23T14:55:31.941</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-01-15T11:33:54.142</Modified>
+      <Modified>2016-01-20T11:27:52.078</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-01-19T22:39:58.240</Modified>
+      <Modified>2016-01-23T18:56:45.317</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Core\Pazaak.exe">
       <PackagePath>Pazaak.exe</PackagePath>
-      <Modified>2016-01-19T22:39:59.141</Modified>
+      <Modified>2016-01-23T20:12:48.430</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

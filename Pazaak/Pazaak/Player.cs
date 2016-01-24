@@ -167,7 +167,7 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
         }
-        public void rndWn(AI en)
+        public void rndWn(SkyNet en)
         {
             if(this.rndsWn<4)
             {
@@ -194,9 +194,7 @@ namespace Pazaak
         }
         public void addCrd(Card c)
         {
-            
-            onBrd[this.trnCnt] = c;
-            
+            onBrd[this.trnCnt] = c;    
         }
         public void reset()
         {

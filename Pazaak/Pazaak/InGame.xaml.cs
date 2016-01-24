@@ -24,8 +24,8 @@ namespace Pazaak
     public sealed partial class InGame : Page
     {
         private User pl;
-        private AI en;
-        private List<Card> deck;
+        private SkyNet en;
+        private Queue<Card> deck;
         public InGame()
         {
             this.InitializeComponent();
@@ -35,7 +35,7 @@ namespace Pazaak
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
-                en = (AI)arr[0];
+                en = (SkyNet)arr[0];
                 pl = (User)arr[1];
                 usrBtnsRset();
                 usrScrSwch();
@@ -53,62 +53,104 @@ namespace Pazaak
 
         private void mkDeck()
         {
-            Random random = new Random();
-            deck = new List<Card>();
-            for (Int16 card = 1; card < 5; card++)
+            int[] deckVals = new int[40] {1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10 };
+            deckVals = Shuffle(deckVals);
+            deck = new Queue<Card>();
+            for (Int16 card = 1; card < 40; card++)
             {
-                for(Int16 val = 1; val < 11; val++)
-                {
-                    deck.Add(new Card(val));
-                }
+                deck.Enqueue(new Card((Int16)deckVals[card]));
             }
-            deck = Shuffle(deck);
         }
-        public List<Card> Shuffle(List<Card> list)
+        public int[] Shuffle(int[] crdVals)
         {
             Random r = new Random();
-            int n = list.Count;
+            int counter = crdVals.Length;
             //looping through the list from bottom to top
-            while (n > 1)
+            while (counter > 1)
             {
-                n--;
+                counter--;
                 //randomly select a number 
-                int k = r.Next(n + 1);
+                int val1 = r.Next(counter + 1);
                 //numer in list is saved in a temporary Card object
-                Card value = list[k];
+                int val2 = crdVals[val1];
                 //curren
-                list[k] = list[n];
-                list[n] = value;
+                crdVals[val1] = crdVals[counter];
+                crdVals[counter] = val2;
             }
-            return list;
+            return crdVals;
         }      
         public void showCard(Button b, Player p,  int placer)
         {
-            try
-            {
-                b.Content = p.Hand[placer].Val;
-            }
-            catch (NullReferenceException)
-            {
-                b.Background = new SolidColorBrush(Windows.UI.Colors.White);
-                b.BorderThickness = new Thickness(0);
-            }
+            b.Content = p.Hand[placer].Val;
         }
        
         public void popHndCrds()
         {
-            showCard(usrHnd1, pl, 0);
-            showCard(usrHnd2, pl, 1);
-            showCard(usrHnd3, pl, 2);
-            showCard(usrHnd4, pl, 3);
-            showCard(enHnd1, en, 0);
-            showCard(enHnd2, en, 1);
-            showCard(enHnd3, en, 2);
-            showCard(enHnd4, en, 3);
+            for (int usrHndLoop = 0; usrHndLoop < pl.Hand.Length; usrHndLoop++)
+            {
+                if (usrHndLoop < en.Hand.Length)
+                {
+                    drawUsrHand(usrHndLoop);
+                }
+            }
+            for (int enHndLoop = 0; enHndLoop<en.Hand.Length; enHndLoop++)
+            {
+                if(enHndLoop<en.Hand.Length)
+                {
+                    drawEnHand(enHndLoop);
+                }
+            }
+            
         }
-
+        public void drawUsrHand(int i)
+        {
+            Button hand;
+            switch (i)
+            {
+                case 0:
+                    hand = usrHnd1;
+                    break;
+                case 1:
+                    hand = usrHnd2;
+                    break;
+                case 2:
+                    hand = usrHnd3;
+                    break;
+                case 3:
+                    hand = usrHnd4;
+                    break;
+                default:
+                    hand = usrHnd1;
+                    break;
+            }
+            showCard(hand, pl, i);
+        }
+        public void drawEnHand(int i)
+        {
+            Button hand;
+            switch (i)
+            {
+                case 0:
+                    hand = enHnd1;
+                    break;
+                case 1:
+                    hand = enHnd2;
+                    break;
+                case 2:
+                    hand = enHnd3;
+                    break;
+                case 3:
+                    hand = enHnd4;
+                    break;
+                default:
+                    hand = enHnd1;
+                    break;
+            }
+            showCard(hand, en, i);
+        }
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            popHndCrds();
             await endTurn();
             if(chkScrs())
             {
@@ -123,8 +165,9 @@ namespace Pazaak
             }
         }
 
-        private void newFrme()
+        private async void newFrme()
         {
+            await Task.Delay(500);
             pl.reset();
             en.reset();
             Player[] arr = new Player[2] { en, pl };
@@ -313,6 +356,7 @@ namespace Pazaak
                     break;
             }
         }
+        
         //reset the Button's content
         public void usrBtnsRset()
         {

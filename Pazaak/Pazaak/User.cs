@@ -35,7 +35,7 @@ namespace Pazaak
             }
         }
         //user gets card from deck
-        public void deckCall(Boolean b, TextBlock usrScr, InGame iG, List<Card> deck)
+        public void deckCall(Boolean b, TextBlock usrScr, InGame iG, Queue<Card> deck)
         {
             if (this.CurrScr > 20)
             {
@@ -44,8 +44,7 @@ namespace Pazaak
                 iG.stand();
             }
 
-            Card crd = deck[0];
-            deck.Remove(deck[0]);
+            Card crd = deck.Dequeue();
             iG.plCrdSwtch(crd.Val);
             playCard(crd, b);
             usrScr.Text = this.CurrScr.ToString();
@@ -53,34 +52,28 @@ namespace Pazaak
         // use a card from hand
         public void handCall(Button b, InGame iG, TextBlock usrScr)
         {
+            usrScr.Text = this.CurrScr.ToString();
+
             //can only use a card if the card is still there
             if (this.Stndng == false && this.IsTrn && !b.Content.Equals(""))
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.White);
                 int val = (Int16)b.Content;
-                Card c = null;
-                int i =0;
-                for (i = 0; i<this.Hand.Length;i++)
+                int i = 0;
+                for (i = 0; i < this.Hand.Length; i++)
                 {
-                    try {
-                        if (this.Hand[i].Val == (val))
-                        {
-                            break;
-                        }
-                    }
-                    catch (NullReferenceException)
+                    if (this.Hand[i].Val == (val))
                     {
-                        //everything is fine
-                        //maybe change this in future
+                        //found card
+                        break;
                     }
-                 }
-                Card crd = new Card((Int16)val);
+                }
+                Card crd = this.Hand[i];
                 iG.plCrdSwtch(crd.Val);
                 playCard(crd, false);
-                usrScr.Text = this.CurrScr.ToString();
                 b.Content = "";
                 this.IsTrn = false;
-                this.Hand[i] = null;
+                this.Hand = this.Hand.Except(new Card[] { this.Hand[i] }).ToArray();
                 if (this.CurrScr > 20)
                 {
                     this.IsBust = true;

@@ -25,7 +25,7 @@ namespace Pazaak
     {
         private User pl;
         private SkyNet en;
-        private List<Card> deck;
+        private Queue<Card> deck;
         public InGame()
         {
             this.InitializeComponent();
@@ -53,34 +53,31 @@ namespace Pazaak
 
         private void mkDeck()
         {
-            Random random = new Random();
-            deck = new List<Card>();
-            for (Int16 card = 1; card < 5; card++)
+            int[] deckVals = new int[40] {1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10 };
+            deckVals = Shuffle(deckVals);
+            deck = new Queue<Card>();
+            for (Int16 card = 1; card < 40; card++)
             {
-                for(Int16 val = 1; val < 11; val++)
-                {
-                    deck.Add(new Card(val));
-                }
+                deck.Enqueue(new Card((Int16)deckVals[card]));
             }
-            deck = Shuffle(deck);
         }
-        public List<Card> Shuffle(List<Card> list)
+        public int[] Shuffle(int[] crdVals)
         {
             Random r = new Random();
-            int n = list.Count;
+            int counter = crdVals.Length;
             //looping through the list from bottom to top
-            while (n > 1)
+            while (counter > 1)
             {
-                n--;
+                counter--;
                 //randomly select a number 
-                int k = r.Next(n + 1);
+                int val1 = r.Next(counter + 1);
                 //numer in list is saved in a temporary Card object
-                Card value = list[k];
+                int val2 = crdVals[val1];
                 //curren
-                list[k] = list[n];
-                list[n] = value;
+                crdVals[val1] = crdVals[counter];
+                crdVals[counter] = val2;
             }
-            return list;
+            return crdVals;
         }      
         public void showCard(Button b, Player p,  int placer)
         {
@@ -168,8 +165,9 @@ namespace Pazaak
             }
         }
 
-        private void newFrme()
+        private async void newFrme()
         {
+            await Task.Delay(500);
             pl.reset();
             en.reset();
             Player[] arr = new Player[2] { en, pl };

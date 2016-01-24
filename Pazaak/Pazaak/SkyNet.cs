@@ -15,7 +15,7 @@ namespace Pazaak
           
         }
 
-        public void mkMove(User u, TextBlock enScr, InGame iG, List<Card> deck)
+        public void mkMove(User u, TextBlock enScr, InGame iG, Queue<Card> deck)
         {
             
             //not the user's turn right now
@@ -28,7 +28,11 @@ namespace Pazaak
                 deckDeal(iG, deck);
 
                 ScrTypePair futMv = decideMove(this.CurrScr);
-                if (futMv.Score < 4)
+                if (this.CurrScr > 20)
+                {
+                    this.IsBust = true;
+                }
+                else if (futMv.Score < 4)
                 {
                     //stand
                     this.Stndng = true;
@@ -37,11 +41,6 @@ namespace Pazaak
                 {
                     //play hand card of value crdType-1
                     handDeal(currMv.CrdType-1, iG);
-                }
-
-                else if (this.CurrScr > 20)
-                {
-                    this.IsBust = true;
                 }
             }
             enScr.Text = this.CurrScr.ToString();
@@ -53,10 +52,9 @@ namespace Pazaak
             this.Hand = this.Hand.Except(new Card[] { this.Hand[hndNum] }).ToArray();
         }
 
-        private void deckDeal(InGame iG, List<Card> deck)
+        private void deckDeal(InGame iG, Queue<Card> deck)
         {
-            Card c = deck[0];
-            deck.Remove(deck[0]);
+            Card c = deck.Dequeue();
             prcesCrd(iG, c);
         }
 

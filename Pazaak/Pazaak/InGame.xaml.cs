@@ -218,10 +218,16 @@ namespace Pazaak
             da.To = 2;
             da.AutoReverse = true;
             da.EnableDependentAnimation = true;
-            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 100));
+            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 75));
             sb.Children.Add(da);
             sb.Begin();
-            await Task.Delay(100);
+            await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds / 2);
+            Task t = new Task(async () =>
+            {
+                await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds/2);
+                sb.Stop();
+            });
+            
             sb.Stop();
         }
         private async void stopAnim(Storyboard sb)

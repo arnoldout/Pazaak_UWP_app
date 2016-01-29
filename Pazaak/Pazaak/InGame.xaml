@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="AliceBlue" >
         <!--Name Tags-->
         <Grid.ColumnDefinitions>
             <!--Left Side-->
@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <!--Left Side -->
-        <Grid Grid.Column="0" >
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="8*"></RowDefinition>
@@ -85,7 +85,6 @@
                 </Grid>
             </Grid>
             <!--Bottom Row-->
-
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -125,12 +124,16 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <TextBlock x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+
+                            <Image x:Name="usrCrdImg1" Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                            <TextBlock x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
+                            <Image x:Name="usrCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <Image x:Name="usrCrdImg3"  Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
@@ -141,12 +144,15 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
+                            <Image x:Name="usrCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
+                            <Image x:Name="usrCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <Image x:Name="usrCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
@@ -157,12 +163,15 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
+                            <Image x:Name="usrCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
+                            <Image x:Name="usrCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <Image x:Name="usrCrdImg9" HorizontalAlignment="Center"  Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
@@ -180,6 +189,7 @@
                         </Grid>
                         <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
                             <Button x:Name="endBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn" Tapped="button_Tapped"/>
+
                         </Grid>
                     </Grid>
                 </Grid>
@@ -273,12 +283,15 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
+                            <Image x:Name="enCrdImg1" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
+                            <Image x:Name="enCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <Image x:Name="enCrdImg3" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
@@ -289,12 +302,15 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
+                            <Image x:Name="enCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
+                            <Image x:Name="enCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <Image x:Name="enCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
@@ -305,12 +321,15 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
+                            <Image x:Name="enCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="1">
+                            <Image x:Name="enCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <Image x:Name="enCrdImg9" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
                             <TextBlock x:Name="enCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
@@ -327,7 +346,7 @@
                                 <TextBlock x:Name="enStsMsg" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                              <TextBlock x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <TextBlock x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                         </Grid>
                     </Grid>

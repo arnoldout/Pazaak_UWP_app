@@ -9,6 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="276,239,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="199,107,0,0" VerticalAlignment="Top" Width="100" Source="Resources/NegativeCard.png"/>
 
     </Grid>
 </Page>

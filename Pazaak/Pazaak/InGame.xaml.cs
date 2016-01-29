@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,12 +27,16 @@ namespace Pazaak
         private User pl;
         private SkyNet en;
         private Queue<Card> deck;
+        Image[] usrImgs;
+        Image[] enImgs;
         public InGame()
         {
             this.InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            usrImgs = new Image[9] { usrCrdImg1, usrCrdImg2, usrCrdImg3, usrCrdImg4, usrCrdImg5, usrCrdImg6, usrCrdImg7, usrCrdImg8, usrCrdImg9 };
+            enImgs = new Image[9] { enCrdImg1, enCrdImg2, enCrdImg3, enCrdImg4, enCrdImg5, enCrdImg6, enCrdImg7, enCrdImg8, enCrdImg9 };
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
@@ -47,8 +52,182 @@ namespace Pazaak
                 Card crd = new Card();
                 mkDeck();
                 //initially gives user a card
+                int i = ((21 % 10) * 10);
                 pl.deckCall(false, usrScr, this, deck);
+                srchGrid(pl);
+                //Storyboard.SetTargetName(mvCard, "image");
+                //mvCard.Begin();
             }
+        }
+        public Image srchImg(String str, Image[] crds)
+        {
+            for(int i = 0; i<crds.Length; i++)
+            {
+                if(crds[i].Name==str)
+                {
+                    return crds[i];
+                }
+            }
+            return null;
+        }
+        public async void srchGrid(Player p)
+        {
+            /*
+                11 12 13
+                21 22 23
+                31 32 33
+            */
+            int currPos = 0;
+            if (p.GetType() == typeof(User))
+            {
+                currPos = 33;
+            }
+            else if (p.GetType() == typeof(SkyNet))
+            {
+                currPos = 31;
+            }
+            int finalPos = getCurrGridSq(p.TrnCnt, p);
+
+            if (finalPos != 0)
+            {
+                while (currPos != finalPos)
+                {
+                    if (p.GetType() == typeof(User))
+                    {
+                        await animateCard("usrCrdImg" + getImgSq(currPos), p);
+                    }
+                    else if (p.GetType() == typeof(SkyNet))
+                    {
+                        int y = getImgSq(currPos);
+                        await animateCard("enCrdImg" + getImgSq(currPos), p);
+                    }
+                    if (currPos % 10 != finalPos % 10)
+                    {
+                        //mvLeft
+                        if (p.GetType() == typeof(User))
+                        {
+                            currPos--;
+                        }
+                        else if (p.GetType() == typeof(SkyNet))
+                        {
+                            currPos++;
+                        }
+                    }
+                    if ((int)currPos / 10 > (int)finalPos / 10)
+                    {
+                        currPos -= 10;
+                    }
+                }
+                Image i;
+                if (p.GetType() == typeof(User))
+                {
+                    i = srchImg("usrCrdImg" + getImgSq(finalPos), getImgArr(p));
+                }
+                else
+                {
+                    i = srchImg("enCrdImg" + getImgSq(finalPos), getImgArr(p));
+                }
+                
+                if (i != null)
+                {
+                    i.Opacity = 2;
+                }
+            }
+        }
+        public Image[] getImgArr(Player p)
+        {
+            if (p.GetType() == typeof(User))
+            {
+                return usrImgs;
+            }
+            else
+            {
+                return enImgs;
+            }
+        }
+        public int getImgSq(int gridSq)
+        {
+            /*
+                11 12 13
+                21 22 23
+                31 32 33
+            */
+            switch (gridSq)
+            {
+                case 11:
+                    return 1;
+                case 12:
+                    return 2;
+                case 13:
+                    return 3;
+                case 21:
+                    return 4;
+                case 22:
+                    return 5;
+                case 23:
+                    return 6;
+                case 31:
+                    return 7;
+                case 32:
+                    return 8;
+                case 33:
+                    return 9;
+                default:
+                    return 0;
+            }
+        }
+        public int getCurrGridSq(int trnCnt, Player p)
+        {
+            /*
+                11 12 13
+                21 22 23
+                31 32 33
+            */
+            switch (trnCnt)
+            {
+                case 1:
+                    return 11;
+                case 2:
+                    return 12;
+                case 3:
+                    return 13;
+                case 4:
+                    return 21;
+                case 5:
+                    return 22;
+                case 6:
+                    return 23;
+                case 7:
+                    return 31;
+                case 8:
+                    return 32;
+                case 9:
+                    return 33;
+                default:
+                    return 0;
+            }
+        }
+        private async Task animateCard(String imageNm, Player p)
+        {
+            Storyboard sb = new Storyboard();
+
+            DoubleAnimation da = new DoubleAnimation();
+            Storyboard.SetTargetProperty(da, "Opacity");
+            Storyboard.SetTarget(da, srchImg(imageNm, getImgArr(p)));
+            da.From = 0;
+            da.To = 2;
+            da.AutoReverse = true;
+            da.EnableDependentAnimation = true;
+            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 100));
+            sb.Children.Add(da);
+            sb.Begin();
+            await Task.Delay(100);
+            sb.Stop();
+        }
+        private async void stopAnim(Storyboard sb)
+        {
+            await Task.Delay(1000);
+            sb.Stop();
         }
 
         private void mkDeck()
@@ -61,6 +240,7 @@ namespace Pazaak
                 deck.Enqueue(new Card((Int16)deckVals[card]));
             }
         }
+        
         public int[] Shuffle(int[] crdVals)
         {
             Random r = new Random();
@@ -162,6 +342,10 @@ namespace Pazaak
             if (chkScrs())
             {
                 newFrme();
+            }
+            else
+            {
+                srchGrid(pl);
             }
         }
 

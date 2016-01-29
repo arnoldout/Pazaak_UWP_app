@@ -24,9 +24,9 @@ namespace Pazaak
             if (TrnCnt < 9 && this.Stndng == false)
             {
                 ScrTypePair currMv = decideMove(this.CurrScr);
-
+                
                 deckDeal(iG, deck);
-
+                iG.srchGrid(this);
                 ScrTypePair futMv = decideMove(this.CurrScr);
                 if (this.CurrScr > 20)
                 {

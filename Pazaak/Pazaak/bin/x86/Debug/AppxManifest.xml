@@ -19,6 +19,7 @@
   </Dependencies>
   <Resources>
     <Resource Language="EN-US" />
+    <Resource Language="EN-GB" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="Pazaak.exe" EntryPoint="Pazaak.App">

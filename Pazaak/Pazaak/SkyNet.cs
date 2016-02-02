@@ -15,52 +15,54 @@ namespace Pazaak
           
         }
 
-        public void mkMove(User u, TextBlock enScr, InGame iG, Queue<Card> deck)
+        public async Task mkMove(User u, TextBlock enScr, InGame iG, Queue<Card> deck)
         {
-            
+
             //not the user's turn right now
             u.IsTrn = false;
             u.GotDk = false;
             if (TrnCnt < 9 && this.Stndng == false)
             {
                 ScrTypePair currMv = decideMove(this.CurrScr);
-                
-                deckDeal(iG, deck);
-                iG.srchGrid(this);
+
+                await deckDeal(iG, deck);
                 ScrTypePair futMv = decideMove(this.CurrScr);
                 if (this.CurrScr > 20)
                 {
                     this.IsBust = true;
                 }
-                else if (futMv.Score < 4)
+                else if (futMv.Score < 9)
                 {
                     //stand
                     this.Stndng = true;
                 }
-                else if(currMv.CrdType!=0)
+                else if (currMv.CrdType != 0)
                 {
                     //play hand card of value crdType-1
-                    handDeal(currMv.CrdType-1, iG);
+                    await handDeal(currMv.CrdType - 1, iG);
                 }
             }
             enScr.Text = this.CurrScr.ToString();
             u.IsTrn = true;
         }
-        private void handDeal(int hndNum, InGame iG)
+        private async Task handDeal(int hndNum, InGame iG)
         {
             prcesCrd(iG, this.Hand[hndNum]);
+            await iG.srchGrid(this);
+            iG.printHandCard(this.TrnCnt, Hand[hndNum].Val, this);
             this.Hand = this.Hand.Except(new Card[] { this.Hand[hndNum] }).ToArray();
         }
 
-        private void deckDeal(InGame iG, Queue<Card> deck)
+        private async Task deckDeal(InGame iG, Queue<Card> deck)
         {
             Card c = deck.Dequeue();
             prcesCrd(iG, c);
+            await(iG.srchGrid(this));
+            iG.txtCardVal(c.Val, this);
         }
 
         private void prcesCrd(InGame iG, Card c)
         {   
-            iG.enCrdSwtch(c.Val);
             addCrd(c);
             TrnCnt++;
             CurrScr += c.Val;

@@ -339,8 +339,30 @@
     <AppxPackagedFile Include="C:\Users\Olivr\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\-6.png">
       <PackagePath>Resources\-6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\background.png">
+      <PackagePath>Resources\background.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\CardBack.png">
+      <PackagePath>Resources\CardBack.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\Card_Neg.png">
+      <PackagePath>Resources\Card_Neg.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\Card_Pos.png">
+      <PackagePath>Resources\Card_Pos.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\Deck.png">
+      <PackagePath>Resources\Deck.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\DeckCard.png">
+      <PackagePath>Resources\DeckCard.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\NegativeCard.png">
       <PackagePath>Resources\NegativeCard.png</PackagePath>

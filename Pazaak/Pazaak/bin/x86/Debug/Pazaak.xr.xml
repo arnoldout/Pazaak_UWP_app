@@ -8,9 +8,8 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="Background" />
-      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Children" />
+      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
@@ -21,6 +20,13 @@
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
     </RootType>
@@ -30,6 +36,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Background" />
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
       <RootEvent Name="Tapped" />
@@ -41,22 +48,11 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Foreground" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Opacity" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Source" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Ellipse">
       <RootProperty Name="Fill" />
-      <RootProperty Name="Stroke" />
       <RootProperty Name="Stretch" />
     </RootType>
     <RootType FullName="Pazaak.InGame" />
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Pazaak.MainPage" />
   </Roots.RootTypes>
 </Roots>

@@ -90,6 +90,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <PRIResource Include="Strings\en-GB\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -115,7 +116,14 @@
     <None Include="Pazaak_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Resources\-6.png" />
+    <Content Include="Resources\background.png" />
+    <Content Include="Resources\CardBack.png" />
+    <Content Include="Resources\Card_Neg.png" />
+    <Content Include="Resources\Card_Pos.png" />
+    <Content Include="Resources\Deck.png" />
+    <Content Include="Resources\DeckCard.png" />
     <Content Include="Resources\NegativeCard.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -141,6 +149,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

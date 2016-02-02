@@ -515,7 +515,6 @@ C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileApp
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\Pazaak.csprojResolveAssemblyReference.cache
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\App.g.i.cs
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\App.g.cs
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\InGame.g.i.cs
@@ -598,3 +597,4 @@ C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileApp
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\Pazaak.csprojResolveAssemblyReference.cache

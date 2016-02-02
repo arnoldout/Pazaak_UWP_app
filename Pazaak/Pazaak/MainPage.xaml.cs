@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -27,13 +28,25 @@ namespace Pazaak
         public MainPage()
         {
             this.InitializeComponent();
+            App.posCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/Card_Pos.png"));
+            App.negCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/Card_Neg.png"));
+            App.deckCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/DeckCard.png"));
             //populate the deck
             Card[] p = new Card[15];
-            for (Int16 l = 0; l < 15; l++)
+            int cntTracker = 8;
+            for (Int16 l = -8; l < 8; l++)
             {
-                Int16 i = (Int16) (-1 * l);
-                Card c = new Card(l);
-                p[l] = c;
+                
+                if (l != 0)
+                {
+                    Int16 i = (Int16)(-1 * l);
+                    Card c = new Card(l);
+                    p[l+cntTracker] = c;
+                }
+                else
+                {
+                    cntTracker--;
+                }
 
             }
             //create new AI and user objects

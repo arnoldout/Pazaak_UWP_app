@@ -7,9 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:ConnectionId='1' x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="276,239,0,0" VerticalAlignment="Top"                     />
-        <Image x:ConnectionId='2' x:Name="image" HorizontalAlignment="Left" Height="100" Margin="199,107,0,0" VerticalAlignment="Top" Width="100" Source="Resources/NegativeCard.png"/>
+    <Grid>
+        <Image x:ConnectionId='1' x:Name="bkGround" Stretch="Fill" Source="/Resources/background.png"></Image>
+        <Button x:ConnectionId='2' x:Uid="menuStartGame" HorizontalAlignment="Left" Margin="343,201,0,0" VerticalAlignment="Top"                     />
 
     </Grid>
 </Page>

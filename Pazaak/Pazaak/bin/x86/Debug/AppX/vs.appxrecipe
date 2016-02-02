@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>8264506a-6e70-4299-a917-a341f72c7a77</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>0072F5A15150396F628B72B7C5A64488A94220B4FDBC56231DE5A8608CAB12FE</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>A183C2E60FC72F4B43C8E9F51B1AAB30D16D1D86B39CEBD25C9E0A3700AF4C04</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8264506a-6e70-4299-a917-a341f72c7a77_1.0.0.0_x86__vxsd0nwhftwqa</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8264506a-6e70-4299-a917-a341f72c7a77_vxsd0nwhftwqa!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8264506a-6e70-4299-a917-a341f72c7a77</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-29T21:12:10.353</Modified>
+      <Modified>2016-02-02T22:49:02.900</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Pazaak.exe">
       <PackagePath>entrypoint\Pazaak.exe</PackagePath>
-      <Modified>2016-01-29T21:12:10.038</Modified>
+      <Modified>2016-02-02T22:49:02.593</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -454,9 +454,38 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-01-15T14:34:13.219</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-02-02T15:09:07.346</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\-6.png">
       <PackagePath>Resources\-6.png</PackagePath>
       <Modified>2016-01-25T14:00:57.452</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\background.png">
+      <PackagePath>Resources\background.png</PackagePath>
+      <Modified>2016-02-01T20:06:33.317</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\CardBack.png">
+      <PackagePath>Resources\CardBack.png</PackagePath>
+      <Modified>2016-01-29T21:34:55.439</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\Card_Neg.png">
+      <PackagePath>Resources\Card_Neg.png</PackagePath>
+      <Modified>2016-01-31T13:34:23.716</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\Card_Pos.png">
+      <PackagePath>Resources\Card_Pos.png</PackagePath>
+      <Modified>2016-01-31T13:35:36.086</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\Deck.png">
+      <PackagePath>Resources\Deck.png</PackagePath>
+      <Modified>2016-01-30T20:43:30.602</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\DeckCard.png">
+      <PackagePath>Resources\DeckCard.png</PackagePath>
+      <Modified>2016-01-31T14:25:45.967</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\Resources\NegativeCard.png">
       <PackagePath>Resources\NegativeCard.png</PackagePath>
@@ -506,7 +535,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Pazaak.xr.xml">
       <PackagePath>Pazaak.xr.xml</PackagePath>
-      <Modified>2016-01-29T16:57:52.755</Modified>
+      <Modified>2016-02-01T23:47:47.321</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -514,11 +543,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-01-29T16:57:54.516</Modified>
+      <Modified>2016-02-02T20:56:33.092</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Core\Pazaak.exe">
       <PackagePath>Pazaak.exe</PackagePath>
-      <Modified>2016-01-29T21:12:10.351</Modified>
+      <Modified>2016-02-02T22:49:02.898</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

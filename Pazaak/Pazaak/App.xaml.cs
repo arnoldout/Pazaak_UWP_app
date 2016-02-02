@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace Pazaak
@@ -22,6 +23,10 @@ namespace Pazaak
     /// </summary>
     sealed partial class App : Application
     {
+        public static BitmapImage posCard;
+        public static BitmapImage negCard;
+        public static BitmapImage deckCard;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

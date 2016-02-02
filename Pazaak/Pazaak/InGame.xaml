@@ -7,372 +7,376 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="AliceBlue" >
-        <!--Name Tags-->
-        <Grid.ColumnDefinitions>
-            <!--Left Side-->
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <!--Right Side-->
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <Grid x:Name="fullGrid">
+        <Image x:Name="bkGround" Stretch="Fill" Source="/Resources/background.png"></Image>
+        <Grid >
+            <!--Name Tags-->
+            <Grid.ColumnDefinitions>
+                <!--Left Side-->
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <!--Right Side-->
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <!--Left Side -->
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                    <ColumnDefinition Width="6*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" >
-                    <TextBlock x:Name="usrBlk" Text="User" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
-                </Grid>
-                <Grid Grid.Column="1">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="1" Grid.Column="1">
-                            <Ellipse x:Name="plCrcl1" Fill="White" Stroke="Black" Stretch="Uniform" ></Ellipse>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Column="1" >
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="1" Grid.Column="1">
-                            <Ellipse x:Name="plCrcl2" Fill="White" Stroke="Black" Stretch="Uniform" ></Ellipse>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="1" Grid.Column="1">
-                            <Ellipse x:Name="plCrcl3" Fill="White" Stroke="Black" Stretch="Uniform" ></Ellipse>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <!--Bottom Row-->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                    <ColumnDefinition Width="8*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+            <!--Left Side -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="8*"></RowDefinition>
+                </Grid.RowDefinitions>
                 <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Button x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd1_tap"></Button>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Button x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd2_tap"></Button>
-                    </Grid>
-                    <Grid Grid.Row="2">
-                        <Button x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd3_tap"></Button>
-                    </Grid>
-                    <Grid Grid.Row="3">
-                        <Button x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd4_tap"></Button>
-                    </Grid>
-                </Grid>
-                <Grid Grid.Column="1"  >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-
-                            <Image x:Name="usrCrdImg1" Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Image x:Name="usrCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Image x:Name="usrCrdImg3"  Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image x:Name="usrCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Image x:Name="usrCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Image x:Name="usrCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image x:Name="usrCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Image x:Name="usrCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Image x:Name="usrCrdImg9" HorizontalAlignment="Center"  Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="3" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="2">
-                            <TextBlock x:Name="usrScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </Grid>
-                        <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                            <Button x:Name="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stand" Tapped="stnd_Tapped"/>
-                        </Grid>
-                        <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
-                            <Button x:Name="endBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn" Tapped="button_Tapped"/>
-
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Column="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                    <ColumnDefinition Width="6*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <TextBlock x:Name="enBlk" Text="AI" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
-                </Grid>
-                <Grid Grid.Column="1">
-
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                        <ColumnDefinition Width="6*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="1" Grid.Column="1">
-                            <!--<RadioButton x:Name="enRd1"></RadioButton>-->
-                            <Ellipse x:Name="enCrcl1" Fill="White" Stroke="Black" Stretch="Uniform" ></Ellipse>
-                        </Grid>
+                    <Grid Grid.Column="0" >
+                        <TextBlock x:Name="usrBlk" Text="User" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
+
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="1" Grid.Column="1">
-                            <Ellipse x:Name="enCrcl2" Fill="White" Stroke="Black" Stretch="Uniform" ></Ellipse>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="1" Grid.Column="1">
-                            <Ellipse x:Name="enCrcl3" Fill="White" Stroke="Black" Stretch="Uniform" ></Ellipse>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="1" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="8*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image x:Name="enCrdImg1" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Image x:Name="enCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Image x:Name="enCrdImg3" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image x:Name="enCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Image x:Name="enCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Image x:Name="enCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image x:Name="enCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Image x:Name="enCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Image x:Name="enCrdImg9" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                            <TextBlock x:Name="enCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="3" BorderBrush="Black" BorderThickness="2">
-                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
                             <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Ellipse x:Name="plCrcl1" Fill="White"  Stretch="Uniform" ></Ellipse>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Ellipse x:Name="plCrcl2" Fill="White"  Stretch="Uniform" ></Ellipse>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Ellipse x:Name="plCrcl3" Fill="White"  Stretch="Uniform" ></Ellipse>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <!--Bottom Row-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Button x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd1_tap"></Button>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Button x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd2_tap"></Button>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Button x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd3_tap"></Button>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Button x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd4_tap"></Button>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <TextBlock x:Name="enStsMsg" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                <Image x:Name="usrCrdImg1" Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <TextBlock x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Image x:Name="usrCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Image x:Name="usrCrdImg3"  Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image x:Name="usrCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Image x:Name="usrCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Image x:Name="usrCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image x:Name="usrCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Image x:Name="usrCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Image x:Name="usrCrdImg9" HorizontalAlignment="Center"  Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="2">
+                                <TextBlock x:Name="usrScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
+                                <Button x:Name="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stand" Tapped="stnd_Tapped"/>
+                            </Grid>
+                            <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
+                                <Button x:Name="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn" Tapped="button_Tapped"/>
+
                             </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                        <RowDefinition Height="4*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Button x:Name="enHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+            </Grid>
+
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="8*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBlock x:Name="enBlk" Text="AI" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <Button x:Name="enHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                    <Grid Grid.Column="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <!--<RadioButton x:Name="enRd1"></RadioButton>-->
+                                <Ellipse x:Name="enCrcl1" Fill="White"  Stretch="Uniform" ></Ellipse>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Ellipse x:Name="enCrcl2" Fill="White"  Stretch="Uniform" ></Ellipse>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Ellipse x:Name="enCrcl3" Fill="White"  Stretch="Uniform" ></Ellipse>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Row="2">
-                        <Button x:Name="enHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
-                    </Grid>
-                    <Grid Grid.Row="3">
+                </Grid>
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="18*"/>
-                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Button x:Name="enHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></Button>
+                        <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image x:Name="enCrdImg1" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Image x:Name="enCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Image x:Name="enCrdImg3" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image x:Name="enCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Image x:Name="enCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Image x:Name="enCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image x:Name="enCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock Foreground="White" x:Name="enCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Image x:Name="enCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:Name="enCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Image x:Name="enCrdImg9" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:Name="enCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3" BorderBrush="Black" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Image Source="Resources/Deck.png" Stretch="Fill"></Image>
+                                    <TextBlock x:Name="enStsMsg" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBlock x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Button x:Name="enHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Button x:Name="enHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Button x:Name="enHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="18*"/>
+                                <RowDefinition Height="17*"/>
+                            </Grid.RowDefinitions>
+                            <Button x:Name="enHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

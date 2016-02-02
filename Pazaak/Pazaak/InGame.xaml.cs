@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -29,14 +30,19 @@ namespace Pazaak
         private Queue<Card> deck;
         Image[] usrImgs;
         Image[] enImgs;
+        TextBlock[] enTxtBlks;
+        TextBlock[] usrTxtBlks;
+
         public InGame()
         {
             this.InitializeComponent();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             usrImgs = new Image[9] { usrCrdImg1, usrCrdImg2, usrCrdImg3, usrCrdImg4, usrCrdImg5, usrCrdImg6, usrCrdImg7, usrCrdImg8, usrCrdImg9 };
             enImgs = new Image[9] { enCrdImg1, enCrdImg2, enCrdImg3, enCrdImg4, enCrdImg5, enCrdImg6, enCrdImg7, enCrdImg8, enCrdImg9 };
+            enTxtBlks = new TextBlock[9] { enCrd1, enCrd2, enCrd3, enCrd4, enCrd5, enCrd6, enCrd7, enCrd8, enCrd9 };
+            usrTxtBlks = new TextBlock[9] { usrCrd1, usrCrd2, usrCrd3, usrCrd4, usrCrd5, usrCrd6, usrCrd7, usrCrd8, usrCrd9 };
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
@@ -52,25 +58,22 @@ namespace Pazaak
                 Card crd = new Card();
                 mkDeck();
                 //initially gives user a card
-                int i = ((21 % 10) * 10);
                 pl.deckCall(false, usrScr, this, deck);
-                srchGrid(pl);
-                //Storyboard.SetTargetName(mvCard, "image");
-                //mvCard.Begin();
+                await srchGrid(pl);
             }
         }
         public Image srchImg(String str, Image[] crds)
         {
-            for(int i = 0; i<crds.Length; i++)
+            for (int i = 0; i < crds.Length; i++)
             {
-                if(crds[i].Name==str)
+                if (crds[i].Name == str)
                 {
                     return crds[i];
                 }
             }
             return null;
         }
-        public async void srchGrid(Player p)
+        public async Task srchGrid(Player p)
         {
             /*
                 11 12 13
@@ -78,6 +81,7 @@ namespace Pazaak
                 31 32 33
             */
             int currPos = 0;
+
             if (p.GetType() == typeof(User))
             {
                 currPos = 33;
@@ -86,6 +90,7 @@ namespace Pazaak
             {
                 currPos = 31;
             }
+
             int finalPos = getCurrGridSq(p.TrnCnt, p);
 
             if (finalPos != 0)
@@ -118,19 +123,20 @@ namespace Pazaak
                         currPos -= 10;
                     }
                 }
-                Image i;
+                Image img;
                 if (p.GetType() == typeof(User))
                 {
-                    i = srchImg("usrCrdImg" + getImgSq(finalPos), getImgArr(p));
+                    img = srchImg("usrCrdImg" + getImgSq(finalPos), getImgArr(p));
                 }
                 else
                 {
-                    i = srchImg("enCrdImg" + getImgSq(finalPos), getImgArr(p));
+                    img = srchImg("enCrdImg" + getImgSq(finalPos), getImgArr(p));
                 }
-                
-                if (i != null)
+
+                if (img != null)
                 {
-                    i.Opacity = 2;
+                    img.Opacity = 2;
+                    img.Source = App.deckCard;
                 }
             }
         }
@@ -214,31 +220,24 @@ namespace Pazaak
             DoubleAnimation da = new DoubleAnimation();
             Storyboard.SetTargetProperty(da, "Opacity");
             Storyboard.SetTarget(da, srchImg(imageNm, getImgArr(p)));
+            srchImg(imageNm, getImgArr(p)).Source = new BitmapImage(new Uri(base.BaseUri, "/Resources/CardBack.png"));
             da.From = 0;
             da.To = 2;
             da.AutoReverse = true;
             da.EnableDependentAnimation = true;
-            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 75));
+            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 100));
             sb.Children.Add(da);
             sb.Begin();
             await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds / 2);
             Task t = new Task(async () =>
             {
-                await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds/2);
+                await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds / 2);
                 sb.Stop();
-            });
-            
-            sb.Stop();
+            });            
         }
-        private async void stopAnim(Storyboard sb)
-        {
-            await Task.Delay(1000);
-            sb.Stop();
-        }
-
         private void mkDeck()
         {
-            int[] deckVals = new int[40] {1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10 };
+            int[] deckVals = new int[40] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             deckVals = Shuffle(deckVals);
             deck = new Queue<Card>();
             for (Int16 card = 1; card < 40; card++)
@@ -246,7 +245,7 @@ namespace Pazaak
                 deck.Enqueue(new Card((Int16)deckVals[card]));
             }
         }
-        
+
         public int[] Shuffle(int[] crdVals)
         {
             Random r = new Random();
@@ -264,12 +263,12 @@ namespace Pazaak
                 crdVals[counter] = val2;
             }
             return crdVals;
-        }      
-        public void showCard(Button b, Player p,  int placer)
+        }
+        public void showCard(Button b, Player p, int placer)
         {
             b.Content = p.Hand[placer].Val;
         }
-       
+
         public void popHndCrds()
         {
             for (int usrHndLoop = 0; usrHndLoop < pl.Hand.Length; usrHndLoop++)
@@ -279,14 +278,14 @@ namespace Pazaak
                     drawUsrHand(usrHndLoop);
                 }
             }
-            for (int enHndLoop = 0; enHndLoop<en.Hand.Length; enHndLoop++)
+            for (int enHndLoop = 0; enHndLoop < en.Hand.Length; enHndLoop++)
             {
-                if(enHndLoop<en.Hand.Length)
+                if (enHndLoop < en.Hand.Length)
                 {
                     drawEnHand(enHndLoop);
                 }
             }
-            
+
         }
         public void drawUsrHand(int i)
         {
@@ -338,23 +337,20 @@ namespace Pazaak
         {
             popHndCrds();
             await endTurn();
-            if(chkScrs())
+            if (chkScrs())
             {
                 newFrme();
             }
             usrBtnsRset();
             enStatus();
-            pl.deckCall(false,  usrScr, this, deck);
+            pl.deckCall(false, usrScr, this, deck);
+            await srchGrid(pl);
             if (chkScrs())
             {
                 newFrme();
             }
-            else
-            {
-                srchGrid(pl);
-            }
-        }
 
+        }
         private async void newFrme()
         {
             await Task.Delay(500);
@@ -377,7 +373,7 @@ namespace Pazaak
             //it slows down the deal
             //using process pausing also ensures that the random object dosnt keep generating the same cards
             await Task.Delay(100);
-            en.mkMove(pl, enScr, this, deck);
+            await en.mkMove(pl, enScr, this, deck);
             //delaying the main process gives the game the illusion that the AI is thinking
             await Task.Delay(1000);
         }
@@ -386,35 +382,35 @@ namespace Pazaak
         {
             if (en.CurrScr == 20)
             {
-                enStsMsg.Text = en.Name+": Huzaa!";
+                enStsMsg.Text = en.Name + ": Huzaa!";
             }
-            else if(en.IsBust)
+            else if (en.IsBust)
             {
                 enStsMsg.Text = en.Name + ": Bust";
             }
-            else if(en.Stndng)
+            else if (en.Stndng)
             {
                 enStsMsg.Text = en.Name + ": I Stand";
             }
-            
+
         }
-        private void stnd_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void stnd_Tapped(object sender, TappedRoutedEventArgs e)
         {
             pl.GotDk = false;
             pl.IsTrn = false;
             pl.Stndng = true;
-            stand();
+            await stand();
         }
 
-        public async void stand()
+        public async Task stand()
         {
             clrUsrBtns();
             Boolean over = false;
-            while (en.Stndng == false && en.IsBust == false&&over==false)
+            while (en.Stndng == false && en.IsBust == false && over == false)
             {
 
                 await Task.Delay(1000);
-                en.mkMove(pl, enScr, this, deck);
+                await en.mkMove(pl, enScr, this, deck);
                 enStatus();
                 over = chkScrs();
             }
@@ -423,13 +419,13 @@ namespace Pazaak
 
         public Boolean chkScrs()
         {
-            if(en.TrnCnt>9)
+            if (en.TrnCnt > 9)
             {
                 en.rndWn(en);
                 usrScrSwch();
                 return true;
             }
-            else if(pl.TrnCnt>9)
+            else if (pl.TrnCnt > 9)
             {
                 pl.rndWn(en);
                 usrScrSwch();
@@ -479,7 +475,7 @@ namespace Pazaak
 
         private void usrScrSwch()
         {
-            SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.Red);
+            SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
             //using code numbers to identify who's score has incremented was the easiest way i found to update the round ellipses
             switch (pl.RndsWn)
             {
@@ -500,7 +496,7 @@ namespace Pazaak
 
         private void enScrSwch()
         {
-            SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.Red);
+            SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
             //using code numbers to identify who's score has incremented was the easiest way i found to update the round ellipses
             switch (en.RndsWn)
             {
@@ -528,7 +524,7 @@ namespace Pazaak
 
         public void clrEnHndCrd(int i)
         {
-            switch(i)
+            switch (i)
             {
                 case 0:
                     enHnd1.Content = "";
@@ -541,125 +537,113 @@ namespace Pazaak
                     break;
                 case 3:
                     enHnd4.Content = "";
-                    break; 
+                    break;
                 default:
                     break;
             }
         }
-        
+
         //reset the Button's content
         public void usrBtnsRset()
         {
             endBtn.Content = "End Turn";
             stndBtn.Content = "Stand";
         }
-
-        public void plCrdSwtch(Int16 val)
-        {
-            if (!pl.Stndng)
+         public void printHandCard(int trnCnt, int crdVal, Player p)
+         {
+            BitmapSource bmS = chkCardSign(crdVal);
+            Type t = chkImgTurn(p);
+            if (t == typeof(User))
             {
-                switch (pl.TrnCnt)
+                Image thisImg = srchImg("usrCrdImg" + trnCnt, usrImgs);
+                thisImg.Source = bmS;
+                thisImg.Opacity = 2;
+            }
+            else
+            {
+                Image thisImg = srchImg("enCrdImg" + trnCnt, enImgs);
+                enCrdImg1.Source = bmS;
+                enCrdImg1.Opacity = 2;
+            }
+        }
+        public Type chkImgTurn(Player p)
+        {
+            if (p.GetType() == typeof(User))
+            {
+                return typeof(User);
+            }
+            else
+            {
+                return typeof(SkyNet);
+            }
+        }
+        public BitmapSource chkCardSign(int crdVal)
+        {
+            if (crdVal > 0)
+            {
+                return App.posCard;
+            }
+            else
+            {
+                return App.negCard;
+            }
+        }
+       
+        public TextBlock srchTxtBlks(String block, TextBlock[] blocks)
+        {
+            for(int counter = 0; counter<blocks.Length; counter++)
+            {
+                if(blocks[counter].Name.Equals(block))
                 {
-                    case 0:
-                        usrCrd1.Text = val.ToString();
-                        break;
-                    case 1:
-                        usrCrd2.Text = val.ToString();
-                        break;
-                    case 2:
-                        usrCrd3.Text = val.ToString();
-                        break;
-                    case 3:
-                        usrCrd4.Text = val.ToString();
-                        break;
-                    case 4:
-                        usrCrd5.Text = val.ToString();
-                        break;
-                    case 5:
-                        usrCrd6.Text = val.ToString();
-                        break;
-                    case 6:
-                        usrCrd7.Text = val.ToString();
-                        break;
-                    case 7:
-                        usrCrd8.Text = val.ToString();
-                        break;
-                    case 8:
-                        usrCrd9.Text = val.ToString();
-                        break;
-                    default:
-                        break;
+                    return blocks[counter];
+                }
+            }
+            return null;
+        }
+        public void txtCardVal(Int16 val, Player p)
+        {
+            if (!p.Stndng)
+            {
+                if (p.GetType() == typeof(SkyNet))
+                {
+                    srchTxtBlks("enCrd" + (en.TrnCnt), enTxtBlks).Text = val.ToString();
+                    srchImg("enCrdImg" + (en.TrnCnt), enImgs).Source = App.deckCard;
+                }
+                else
+                {
+                    srchTxtBlks("usrCrd" + (pl.TrnCnt), usrTxtBlks).Text = val.ToString();
+                    srchImg("usrCrdImg" + (pl.TrnCnt), usrImgs).Source = App.deckCard;
                 }
             }
         }
 
-        public void enCrdSwtch(Int16 val)
-        {
-            if (!en.Stndng)
-            {
-                switch (en.TrnCnt)
-                {
-                    case 0:
-                        enCrd1.Text = val.ToString();
-                        break;
-                    case 1:
-                        enCrd2.Text = val.ToString();
-                        break;
-                    case 2:
-                        enCrd3.Text = val.ToString();
-                        break;
-                    case 3:
-                        enCrd4.Text = val.ToString();
-                        break;
-                    case 4:
-                        enCrd5.Text = val.ToString();
-                        break;
-                    case 5:
-                        enCrd6.Text = val.ToString();
-                        break;
-                    case 6:
-                        enCrd7.Text = val.ToString();
-                        break;
-                    case 7:
-                        enCrd8.Text = val.ToString();
-                        break;
-                    case 8:
-                        enCrd9.Text = val.ToString();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        private void crd1_tap(object sender, TappedRoutedEventArgs e)
+        private async void crd1_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd1;
-            pl.handCall(b, this, usrScr);
+            await pl.handCall(b, this, usrScr);
             usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
             usrHnd1.BorderThickness = new Thickness(0);
         }
-        private void crd2_tap(object sender, TappedRoutedEventArgs e)
+        private async void crd2_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd2;
-            pl.handCall(b, this, usrScr);
+            await pl.handCall(b, this, usrScr);
             usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
             usrHnd1.BorderThickness = new Thickness(0);
         }
-        private void crd3_tap(object sender, TappedRoutedEventArgs e)
+        private async void crd3_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd3;
-            pl.handCall(b, this, usrScr);
+            await pl.handCall(b, this, usrScr);
             usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
             usrHnd1.BorderThickness = new Thickness(0);
         }
-        private void crd4_tap(object sender, TappedRoutedEventArgs e)
+        private async void crd4_tap(object sender, TappedRoutedEventArgs e)
         {
             Button b = usrHnd4;
-            pl.handCall(b, this, usrScr);
+            await pl.handCall(b, this, usrScr);
             usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
             usrHnd1.BorderThickness = new Thickness(0);
         }
-
     }
 }

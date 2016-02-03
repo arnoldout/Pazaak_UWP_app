@@ -55,11 +55,30 @@ namespace Pazaak
                 usrBlk.Text = pl.Name;
                 //make hands for the user and en
                 popHndCrds();
+                initHands();
                 Card crd = new Card();
                 mkDeck();
                 //initially gives user a card
                 pl.deckCall(false, usrScr, this, deck);
                 await srchGrid(pl);
+            }
+        }
+        public void initHands()
+        {
+            setCardCol(Convert.ToInt16(tbEnHnd1.Text), usrHnd1);
+            setCardCol(Convert.ToInt16(tbEnHnd2.Text), usrHnd2);
+            setCardCol(Convert.ToInt16(tbEnHnd3.Text), usrHnd3);
+            setCardCol(Convert.ToInt16(tbEnHnd4.Text), usrHnd4);
+        } 
+        public void setCardCol(int val, Image i)
+        {
+            if(val>0)
+            {
+                i.Source = App.posCard;
+            }
+            else
+            {
+                i.Source = App.negCard;
             }
         }
         public Image srchImg(String str, Image[] crds)
@@ -225,15 +244,11 @@ namespace Pazaak
             da.To = 2;
             da.AutoReverse = true;
             da.EnableDependentAnimation = true;
-            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 100));
+            da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 50));
             sb.Children.Add(da);
             sb.Begin();
-            await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds / 2);
-            Task t = new Task(async () =>
-            {
-                await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds / 2);
-                sb.Stop();
-            });            
+            await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds);
+            sb.Stop();
         }
         private void mkDeck()
         {
@@ -264,9 +279,9 @@ namespace Pazaak
             }
             return crdVals;
         }
-        public void showCard(Button b, Player p, int placer)
+        public void showCardValue(TextBlock tb, Player p, int placer)
         {
-            b.Content = p.Hand[placer].Val;
+            tb.Text = p.Hand[placer].Val.ToString();
         }
 
         public void popHndCrds()
@@ -289,49 +304,50 @@ namespace Pazaak
         }
         public void drawUsrHand(int i)
         {
-            Button hand;
+            Image hand;
+            TextBlock tBlock;
             switch (i)
             {
                 case 0:
-                    hand = usrHnd1;
+                    tBlock = tbHnd1;
                     break;
                 case 1:
-                    hand = usrHnd2;
+                    tBlock = tbHnd2;
                     break;
                 case 2:
-                    hand = usrHnd3;
+                    tBlock = tbHnd3;
                     break;
                 case 3:
-                    hand = usrHnd4;
+                    tBlock = tbHnd4;
                     break;
                 default:
-                    hand = usrHnd1;
+                    tBlock = tbHnd1;
                     break;
             }
-            showCard(hand, pl, i);
+            showCardValue(tBlock, pl, i);
         }
         public void drawEnHand(int i)
         {
-            Button hand;
+            TextBlock hand;
             switch (i)
             {
                 case 0:
-                    hand = enHnd1;
+                    hand = tbEnHnd1;
                     break;
                 case 1:
-                    hand = enHnd2;
+                    hand = tbEnHnd2;
                     break;
                 case 2:
-                    hand = enHnd3;
+                    hand = tbEnHnd3;
                     break;
                 case 3:
-                    hand = enHnd4;
+                    hand = tbEnHnd4;
                     break;
                 default:
-                    hand = enHnd1;
+                    hand = tbEnHnd1;
                     break;
             }
-            showCard(hand, en, i);
+            showCardValue(hand, en, i);
         }
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -527,16 +543,16 @@ namespace Pazaak
             switch (i)
             {
                 case 0:
-                    enHnd1.Content = "";
+                    tbEnHnd1.Text = "";
                     break;
                 case 1:
-                    enHnd2.Content = "";
+                    tbEnHnd2.Text = "";
                     break;
                 case 2:
-                    enHnd3.Content = "";
+                    tbEnHnd3.Text = "";
                     break;
                 case 3:
-                    enHnd4.Content = "";
+                    tbEnHnd4.Text = "";
                     break;
                 default:
                     break;
@@ -556,15 +572,18 @@ namespace Pazaak
             if (t == typeof(User))
             {
                 Image thisImg = srchImg("usrCrdImg" + trnCnt, usrImgs);
-                thisImg.Source = bmS;
-                thisImg.Opacity = 2;
+                setImg(thisImg, bmS);
             }
             else
             {
                 Image thisImg = srchImg("enCrdImg" + trnCnt, enImgs);
-                enCrdImg1.Source = bmS;
-                enCrdImg1.Opacity = 2;
+                setImg(thisImg, bmS);
             }
+        }
+        public void setImg(Image i, BitmapSource bms)
+        {
+            i.Source = bms;
+            i.Opacity = 2;
         }
         public Type chkImgTurn(Player p)
         {
@@ -619,31 +638,27 @@ namespace Pazaak
 
         private async void crd1_tap(object sender, TappedRoutedEventArgs e)
         {
-            Button b = usrHnd1;
+            TextBlock b = tbHnd1;
             await pl.handCall(b, this, usrScr);
-            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            usrHnd1.BorderThickness = new Thickness(0);
+            usrHnd1.Opacity = 0;
         }
         private async void crd2_tap(object sender, TappedRoutedEventArgs e)
         {
-            Button b = usrHnd2;
+            TextBlock b = tbHnd2;
             await pl.handCall(b, this, usrScr);
-            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            usrHnd1.BorderThickness = new Thickness(0);
+            usrHnd2.Opacity = 0;
         }
         private async void crd3_tap(object sender, TappedRoutedEventArgs e)
         {
-            Button b = usrHnd3;
+            TextBlock b = tbHnd3;
             await pl.handCall(b, this, usrScr);
-            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            usrHnd1.BorderThickness = new Thickness(0);
+            usrHnd3.Opacity = 0;
         }
         private async void crd4_tap(object sender, TappedRoutedEventArgs e)
         {
-            Button b = usrHnd4;
+            TextBlock b = tbHnd4;
             await pl.handCall(b, this, usrScr);
-            usrHnd1.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            usrHnd1.BorderThickness = new Thickness(0);
+            usrHnd4.Opacity = 0;
         }
     }
 }

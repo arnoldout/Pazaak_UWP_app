@@ -50,13 +50,12 @@ namespace Pazaak
             usrScr.Text = this.CurrScr.ToString();
         }
         // use a card from hand
-        public async Task handCall(Button b, InGame iG, TextBlock usrScr)
+        public async Task handCall(TextBlock tb, InGame iG, TextBlock usrScr)
         {
             //can only use a card if the card is still there
-            if (this.Stndng == false && this.IsTrn && !b.Content.Equals(""))
+            if (this.Stndng == false && this.IsTrn && !tb.Text.Equals(""))
             {
-                b.Background = new SolidColorBrush(Windows.UI.Colors.White);
-                int val = (Int16)b.Content;
+                int val = Convert.ToInt16(tb.Text);
                 Card crd = null;
                 for (int i = 0; i < this.Hand.Length; i++)
                 {
@@ -71,7 +70,7 @@ namespace Pazaak
                 iG.printHandCard(this.TrnCnt, crd.Val, this);
                 iG.txtCardVal(crd.Val, this);
 
-                b.Content = "";
+                tb.Text = "";
                 this.IsTrn = false;
 
                 this.Hand = this.Hand.Except(new Card[] { crd }).ToArray();

@@ -23,23 +23,21 @@ namespace Pazaak
             u.GotDk = false;
             if (TrnCnt < 9 && this.Stndng == false)
             {
-                ScrTypePair currMv = decideMove(this.CurrScr);
-
                 await deckDeal(iG, deck);
-                ScrTypePair futMv = decideMove(this.CurrScr);
+                ScrTypePair currMv = decideMove(this.CurrScr);
+                if (currMv.CrdType != 0)
+                {
+                    ScrTypePair futMv = decideMove(this.CurrScr + currMv.Score);
+                    await handDeal(currMv.CrdType - 1, iG);
+                    if (futMv.Score < 4&&futMv.CrdType==0)
+                    {
+                        //stand
+                        this.Stndng = true;
+                    }
+                }
                 if (this.CurrScr > 20)
                 {
                     this.IsBust = true;
-                }
-                else if (futMv.Score < 9)
-                {
-                    //stand
-                    this.Stndng = true;
-                }
-                else if (currMv.CrdType != 0)
-                {
-                    //play hand card of value crdType-1
-                    await handDeal(currMv.CrdType - 1, iG);
                 }
             }
             enScr.Text = this.CurrScr.ToString();
@@ -80,7 +78,6 @@ namespace Pazaak
             {
                 crdVals[0] = 10;
             }
-            currHiScr = 0;
             //score the hand values
             for(int possLoop = 0; possLoop<this.Hand.Length; possLoop++)
             {
@@ -97,7 +94,15 @@ namespace Pazaak
         }
         public int scrCrd(int crdVal, int currScr)
         {
-            int s = 20 - crdVal;
+            int s;
+            if (crdVal > 0)
+            {
+                s = 20 - crdVal;
+            }
+            else
+            {
+                s = 20 + crdVal;
+            }
             s = s - currScr;
             if (s < 0)
             {

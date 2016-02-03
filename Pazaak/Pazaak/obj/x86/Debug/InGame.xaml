@@ -30,7 +30,7 @@
                         <ColumnDefinition Width="6*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" >
-                        <TextBlock x:ConnectionId='59' x:Name="usrBlk" Text="User" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                        <TextBlock x:ConnectionId='67' x:Name="usrBlk" Text="User" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                     </Grid>
                     <Grid Grid.Column="1">
 
@@ -51,7 +51,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="1" Grid.Column="1">
-                                <Ellipse x:ConnectionId='58' x:Name="plCrcl1" Fill="White"  Stretch="Uniform" ></Ellipse>
+                                <Ellipse x:ConnectionId='66' x:Name="plCrcl1" Fill="White"  Stretch="Uniform" ></Ellipse>
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="1" >
@@ -66,7 +66,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="1" Grid.Column="1">
-                                <Ellipse x:ConnectionId='57' x:Name="plCrcl2" Fill="White"  Stretch="Uniform" ></Ellipse>
+                                <Ellipse x:ConnectionId='65' x:Name="plCrcl2" Fill="White"  Stretch="Uniform" ></Ellipse>
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -81,7 +81,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="1" Grid.Column="1">
-                                <Ellipse x:ConnectionId='56' x:Name="plCrcl3" Fill="White"  Stretch="Uniform" ></Ellipse>
+                                <Ellipse x:ConnectionId='64' x:Name="plCrcl3" Fill="White"  Stretch="Uniform" ></Ellipse>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -100,16 +100,20 @@
                             <RowDefinition Height="4*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Button x:ConnectionId='55' x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
+                            <Image x:ConnectionId='62' x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Image>
+                            <TextBlock x:ConnectionId='63' x:Name="tbHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <Button x:ConnectionId='54' x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
+                            <Image x:ConnectionId='60' x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Image>
+                            <TextBlock x:ConnectionId='61' x:Name="tbHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="2">
-                            <Button x:ConnectionId='53' x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
+                            <Image x:ConnectionId='58' x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Image>
+                            <TextBlock x:ConnectionId='59' x:Name="tbHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="3">
-                            <Button x:ConnectionId='52' x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Button>
+                            <Image x:ConnectionId='56' x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"                  ></Image>
+                            <TextBlock x:ConnectionId='57' x:Name="tbHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
                     <Grid Grid.Column="1"  >
@@ -126,16 +130,16 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='50' x:Name="usrCrdImg1" Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='51' Foreground="White" x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='54' x:Name="usrCrdImg1" Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='55' Foreground="White" x:Name="usrCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Image x:ConnectionId='48' x:Name="usrCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='49' Foreground="White" x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='52' x:Name="usrCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='53' Foreground="White" x:Name="usrCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Image x:ConnectionId='46' x:Name="usrCrdImg3"  Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='47' Foreground="White" x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='50' x:Name="usrCrdImg3"  Opacity="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='51' Foreground="White" x:Name="usrCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
@@ -145,16 +149,16 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='44' x:Name="usrCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='45' Foreground="White" x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='48' x:Name="usrCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='49' Foreground="White" x:Name="usrCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Image x:ConnectionId='42' x:Name="usrCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='43' Foreground="White" x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='46' x:Name="usrCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='47' Foreground="White" x:Name="usrCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Image x:ConnectionId='40' x:Name="usrCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='41' Foreground="White" x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='44' x:Name="usrCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='45' Foreground="White" x:Name="usrCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2">
@@ -164,16 +168,16 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='38' x:Name="usrCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='39' Foreground="White" x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='42' x:Name="usrCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='43' Foreground="White" x:Name="usrCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Image x:ConnectionId='36' x:Name="usrCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='37' Foreground="White" x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='40' x:Name="usrCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='41' Foreground="White" x:Name="usrCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Image x:ConnectionId='34' x:Name="usrCrdImg9" HorizontalAlignment="Center"  Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='35' Foreground="White" x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='38' x:Name="usrCrdImg9" HorizontalAlignment="Center"  Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='39' Foreground="White" x:Name="usrCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="3" >
@@ -183,13 +187,13 @@
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="2">
-                                <TextBlock x:ConnectionId='33' x:Name="usrScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <TextBlock x:ConnectionId='37' x:Name="usrScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                                <Button x:ConnectionId='32' x:Name="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stand"                     />
+                                <Button x:ConnectionId='36' x:Name="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stand"                     />
                             </Grid>
                             <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
-                                <Button x:ConnectionId='31' x:Name="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn"                       />
+                                <Button x:ConnectionId='35' x:Name="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Content="End Turn"                       />
 
                             </Grid>
                         </Grid>
@@ -208,7 +212,7 @@
                         <ColumnDefinition Width="6*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <TextBlock x:ConnectionId='30' x:Name="enBlk" Text="AI" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                        <TextBlock x:ConnectionId='34' x:Name="enBlk" Text="AI" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
                     </Grid>
                     <Grid Grid.Column="1">
 
@@ -230,7 +234,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="1" Grid.Column="1">
                                 <!--<RadioButton x:Name="enRd1"></RadioButton>-->
-                                <Ellipse x:ConnectionId='29' x:Name="enCrcl1" Fill="White"  Stretch="Uniform" ></Ellipse>
+                                <Ellipse x:ConnectionId='33' x:Name="enCrcl1" Fill="White"  Stretch="Uniform" ></Ellipse>
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="1">
@@ -245,7 +249,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="1" Grid.Column="1">
-                                <Ellipse x:ConnectionId='28' x:Name="enCrcl2" Fill="White"  Stretch="Uniform" ></Ellipse>
+                                <Ellipse x:ConnectionId='32' x:Name="enCrcl2" Fill="White"  Stretch="Uniform" ></Ellipse>
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -260,7 +264,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="1" Grid.Column="1">
-                                <Ellipse x:ConnectionId='27' x:Name="enCrcl3" Fill="White"  Stretch="Uniform" ></Ellipse>
+                                <Ellipse x:ConnectionId='31' x:Name="enCrcl3" Fill="White"  Stretch="Uniform" ></Ellipse>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -284,16 +288,16 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='25' x:Name="enCrdImg1" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='26' Foreground="White" x:Name="enCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='29' x:Name="enCrdImg1" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='30' Foreground="White" x:Name="enCrd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Image x:ConnectionId='23' x:Name="enCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='24' Foreground="White" x:Name="enCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='27' x:Name="enCrdImg2" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='28' Foreground="White" x:Name="enCrd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Image x:ConnectionId='21' x:Name="enCrdImg3" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='22' Foreground="White" x:Name="enCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='25' x:Name="enCrdImg3" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='26' Foreground="White" x:Name="enCrd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="2">
@@ -304,16 +308,16 @@
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='19' x:Name="enCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='20' Foreground="White" x:Name="enCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='23' x:Name="enCrdImg4" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='24' Foreground="White" x:Name="enCrd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Image x:ConnectionId='17' x:Name="enCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='18' Foreground="White" x:Name="enCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='21' x:Name="enCrdImg5" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='22' Foreground="White" x:Name="enCrd5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Image x:ConnectionId='15' x:Name="enCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='16' Foreground="White" x:Name="enCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='19' x:Name="enCrdImg6" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='20' Foreground="White" x:Name="enCrd6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2">
@@ -323,16 +327,16 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <Image x:ConnectionId='13' x:Name="enCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='14' Foreground="White" x:Name="enCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='17' x:Name="enCrdImg7" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='18' Foreground="White" x:Name="enCrd7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Image x:ConnectionId='11' x:Name="enCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='12' x:Name="enCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='15' x:Name="enCrdImg8" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='16' x:Name="enCrd8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Image x:ConnectionId='9' x:Name="enCrdImg9" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
-                                <TextBlock x:ConnectionId='10' x:Name="enCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                <Image x:ConnectionId='13' x:Name="enCrdImg9" HorizontalAlignment="Center" Opacity="0" VerticalAlignment="Center"  Source="Resources/-6.png"/>
+                                <TextBlock x:ConnectionId='14' x:Name="enCrd9" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="3" BorderBrush="Black" BorderThickness="2">
@@ -346,10 +350,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Image Source="Resources/Deck.png" Stretch="Fill"></Image>
-                                    <TextBlock x:ConnectionId='8' x:Name="enStsMsg" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock x:ConnectionId='12' x:Name="enStsMsg" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
                                 <Grid Grid.Column="1">
-                                    <TextBlock x:ConnectionId='7' x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    <TextBlock x:ConnectionId='11' x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -362,20 +366,24 @@
                             <RowDefinition Height="4*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Button x:ConnectionId='6' x:Name="enHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                            <Image x:ConnectionId='9' x:Name="enHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                            <TextBlock x:ConnectionId='10' x:Name="tbEnHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <Button x:ConnectionId='5' x:Name="enHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                            <Image x:ConnectionId='7' x:Name="enHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                            <TextBlock x:ConnectionId='8' x:Name="tbEnHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="2">
-                            <Button x:ConnectionId='4' x:Name="enHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+                            <Image x:ConnectionId='5' x:Name="enHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                            <TextBlock x:ConnectionId='6' x:Name="tbEnHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="3">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="18*"/>
                                 <RowDefinition Height="17*"/>
                             </Grid.RowDefinitions>
-                            <Button x:ConnectionId='3' x:Name="enHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></Button>
+                            <Image x:ConnectionId='3' x:Name="enHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></Image>
+                            <TextBlock x:ConnectionId='4' x:Name="tbEnHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
                 </Grid>

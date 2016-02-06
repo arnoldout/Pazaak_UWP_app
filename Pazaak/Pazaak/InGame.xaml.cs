@@ -422,7 +422,6 @@ namespace Pazaak
         }
         public async Task showMsg()
         {
-            chkScrs();
             var c = new ContentDialog()
             {
                 Title = status + "\nUsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr,
@@ -447,8 +446,7 @@ namespace Pazaak
                 await en.mkMove(pl, enScr, this, deck);
                 over = chkScrs();
             }
-          
-            chkScrs();
+         
             await showMsg();
             newFrme();
           
@@ -462,14 +460,14 @@ namespace Pazaak
                 status = "UsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr;
                 b = false;
             }
-            else if (en.TrnCnt > 9)
+            else if (en.TrnCnt > 8&&en.CurrScr<21)
             {
                 en.rndWn(en);
                 usrScrSwch();
                 status = "You Lost";
                 b = true;
             }
-            else if (pl.TrnCnt > 9)
+            else if (pl.TrnCnt > 8&&pl.CurrScr<21)
             {
                 pl.rndWn(en);
                 usrScrSwch();
@@ -489,7 +487,7 @@ namespace Pazaak
                 //enemy wins
                 en.rndWn(en);
                 enScrSwch();
-                status = "You Lost";
+                status = "You Bust";
                 b = true;
             }
             else if (en.Stndng && pl.Stndng)

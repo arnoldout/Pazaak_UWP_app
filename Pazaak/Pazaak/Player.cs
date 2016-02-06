@@ -167,28 +167,32 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
         }
-        public void rndWn(SkyNet en)
+        public void rndWn(Player p)
         {
             if(this.rndsWn<4)
             {
                 this.rndsWn++;
-                en.CurrScr = en.CurrScr;
             }
             else
             {
                 this.gmsWn++;
+                HighScore h = new HighScore(this.gmsWn, p.gmsWn);
+                h.readScores();
+                h.writeScores();
                 reset();
+                p.reset();
             }
         }
         public Card[] genHnd(Card [] crdPool)
         {
+            Card[] pool = crdPool;
             Card[] hand = new Card[4];
             for (int genLoop = 0; genLoop<4; genLoop++)
             {
-                int card = App.randomizer.Next(0, crdPool.Length);
-                Card c = crdPool[card];
+                int card = App.randomizer.Next(0, pool.Length);
+                Card c = pool[card];
                 hand[genLoop] = c;
-                crdPool = crdPool.Except(new Card[] {c }).ToArray();
+                pool = pool.Except(new Card[] {c }).ToArray();
             }
             return hand;
         }
@@ -205,6 +209,7 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
             this.stndng = false;
+            genHnd(this.crdPool);
         }
     }
 }

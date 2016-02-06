@@ -28,8 +28,8 @@ namespace Pazaak
         public MainPage()
         {
             this.InitializeComponent();
-            App.posCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/Card_Pos.png"));
-            App.negCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/Card_Neg.png"));
+            App.posCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/CardPos.png"));
+            App.negCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/CardNeg.png"));
             App.deckCard = new BitmapImage(new Uri(base.BaseUri, "/Resources/DeckCard.png"));
             //populate the deck
             Card[] p = new Card[15];

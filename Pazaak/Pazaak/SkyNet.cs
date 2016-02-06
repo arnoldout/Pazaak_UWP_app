@@ -35,10 +35,6 @@ namespace Pazaak
                         this.Stndng = true;
                     }
                 }
-                if (this.CurrScr > 20)
-                {
-                    this.IsBust = true;
-                }
             }
             enScr.Text = this.CurrScr.ToString();
             u.IsTrn = true;
@@ -47,8 +43,9 @@ namespace Pazaak
         {
             prcesCrd(iG, this.Hand[hndNum]);
             await iG.srchGrid(this);
+            this.Hand[hndNum].IsUsed = true;
             iG.printHandCard(this.TrnCnt, Hand[hndNum].Val, this);
-            this.Hand = this.Hand.Except(new Card[] { this.Hand[hndNum] }).ToArray();
+            //this.Hand = this.Hand.Except(new Card[] { this.Hand[hndNum] }).ToArray();
         }
 
         private async Task deckDeal(InGame iG, Queue<Card> deck)

@@ -101,19 +101,19 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <Image x:Name="usrHnd1" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd1_tap"></Image>
-                            <TextBlock x:Name="tbHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbHnd1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Image x:Name="usrHnd2" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd2_tap"></Image>
-                            <TextBlock x:Name="tbHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbHnd2" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="2">
                             <Image x:Name="usrHnd3" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd3_tap"></Image>
-                            <TextBlock x:Name="tbHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbHnd3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="3">
                             <Image x:Name="usrHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="crd4_tap"></Image>
-                            <TextBlock x:Name="tbHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbHnd4" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
                     <Grid Grid.Column="1"  >
@@ -350,7 +350,6 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Image Source="Resources/Deck.png" Stretch="Fill"></Image>
-                                    <TextBlock x:Name="enStsMsg" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <TextBlock x:Name="enScr" Text="Score" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -367,23 +366,19 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <Image x:Name="enHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
-                            <TextBlock x:Name="tbEnHnd1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbEnHnd1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Image x:Name="enHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
-                            <TextBlock x:Name="tbEnHnd2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbEnHnd2" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="2">
                             <Image x:Name="enHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
-                            <TextBlock x:Name="tbEnHnd3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbEnHnd3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="3">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="18*"/>
-                                <RowDefinition Height="17*"/>
-                            </Grid.RowDefinitions>
                             <Image x:Name="enHnd4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></Image>
-                            <TextBlock x:Name="tbEnHnd4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="tbEnHnd4" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                         </Grid>
                     </Grid>
                 </Grid>

@@ -177,15 +177,15 @@ namespace Pazaak
             else
             {
                 this.gmsWn++;
+                reset();
             }
         }
         public Card[] genHnd(Card [] crdPool)
         {
             Card[] hand = new Card[4];
-            Random r = new Random();
             for (int genLoop = 0; genLoop<4; genLoop++)
             {
-                int card = r.Next(0, crdPool.Length);
+                int card = App.randomizer.Next(0, crdPool.Length);
                 Card c = crdPool[card];
                 hand[genLoop] = c;
                 crdPool = crdPool.Except(new Card[] {c }).ToArray();

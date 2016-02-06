@@ -9,12 +9,9 @@ Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 Pazaak.xr.xml
 Properties\Default.rd.xml
-Resources\-6.png
 Resources\background.png
-Resources\Card_Neg.png
-Resources\Card_Pos.png
 Resources\CardBack.png
+Resources\CardNeg.png
+Resources\CardPos.png
 Resources\Deck.png
 Resources\DeckCard.png
-Resources\NegativeCard.png
-Resources\starBg.jpg

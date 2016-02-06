@@ -32,6 +32,7 @@ namespace Pazaak
         Image[] enImgs;
         TextBlock[] enTxtBlks;
         TextBlock[] usrTxtBlks;
+        String status = null;
 
         public InGame()
         {
@@ -43,11 +44,13 @@ namespace Pazaak
             enImgs = new Image[9] { enCrdImg1, enCrdImg2, enCrdImg3, enCrdImg4, enCrdImg5, enCrdImg6, enCrdImg7, enCrdImg8, enCrdImg9 };
             enTxtBlks = new TextBlock[9] { enCrd1, enCrd2, enCrd3, enCrd4, enCrd5, enCrd6, enCrd7, enCrd8, enCrd9 };
             usrTxtBlks = new TextBlock[9] { usrCrd1, usrCrd2, usrCrd3, usrCrd4, usrCrd5, usrCrd6, usrCrd7, usrCrd8, usrCrd9 };
+
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
                 en = (SkyNet)arr[0];
                 pl = (User)arr[1];
+                pl.TrnCnt = pl.TrnCnt;
                 usrBtnsRset();
                 usrScrSwch();
                 enScrSwch();
@@ -56,7 +59,6 @@ namespace Pazaak
                 //make hands for the user and en
                 popHndCrds();
                 initHands();
-                Card crd = new Card();
                 mkDeck();
                 //initially gives user a card
                 pl.deckCall(false, usrScr, this, deck);
@@ -65,20 +67,41 @@ namespace Pazaak
         }
         public void initHands()
         {
-            setCardCol(Convert.ToInt16(tbEnHnd1.Text), usrHnd1);
-            setCardCol(Convert.ToInt16(tbEnHnd2.Text), usrHnd2);
-            setCardCol(Convert.ToInt16(tbEnHnd3.Text), usrHnd3);
-            setCardCol(Convert.ToInt16(tbEnHnd4.Text), usrHnd4);
-        } 
-        public void setCardCol(int val, Image i)
-        {
-            if(val>0)
+            setCardCol(tbHnd1.Text, usrHnd1);
+            setCardCol(tbHnd2.Text, usrHnd2);
+            setCardCol(tbHnd3.Text, usrHnd3);
+            setCardCol(tbHnd4.Text, usrHnd4);
+            setCardCol(tbEnHnd1.Text, enHnd1);
+            setCardCol(tbEnHnd2.Text, enHnd2);
+            setCardCol(tbEnHnd3.Text, enHnd3);
+            setCardCol(tbEnHnd4.Text, enHnd4);
+
+        }
+        public void setCardCol(String val, Image i)
+        {   
+            if (validateStrNum(val))
             {
-                i.Source = App.posCard;
+                int digit = Convert.ToInt16(val);
+                if (digit > 0)
+                {
+                    i.Source = App.posCard;
+                }
+                else
+                {
+                    i.Source = App.negCard;
+                }
             }
-            else
+        }
+        public Boolean validateStrNum(String s)
+        {
+            try
             {
-                i.Source = App.negCard;
+                Convert.ToInt16(s);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
         public Image srchImg(String str, Image[] crds)
@@ -288,23 +311,16 @@ namespace Pazaak
         {
             for (int usrHndLoop = 0; usrHndLoop < pl.Hand.Length; usrHndLoop++)
             {
-                if (usrHndLoop < en.Hand.Length)
-                {
-                    drawUsrHand(usrHndLoop);
-                }
+                drawUsrHand(usrHndLoop);
             }
             for (int enHndLoop = 0; enHndLoop < en.Hand.Length; enHndLoop++)
             {
-                if (enHndLoop < en.Hand.Length)
-                {
-                    drawEnHand(enHndLoop);
-                }
+                drawEnHand(enHndLoop);
             }
 
         }
         public void drawUsrHand(int i)
         {
-            Image hand;
             TextBlock tBlock;
             switch (i)
             {
@@ -324,7 +340,11 @@ namespace Pazaak
                     tBlock = tbHnd1;
                     break;
             }
-            showCardValue(tBlock, pl, i);
+
+            if (pl.Hand[i].IsUsed == false)
+            {
+                showCardValue(tBlock, pl, i);
+            }
         }
         public void drawEnHand(int i)
         {
@@ -347,25 +367,31 @@ namespace Pazaak
                     hand = tbEnHnd1;
                     break;
             }
-            showCardValue(hand, en, i);
+            if (en.Hand[i].IsUsed == false)
+            {
+                showCardValue(hand, en, i);
+            }
         }
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            popHndCrds();
-            await endTurn();
-            if (chkScrs())
+            if (pl.autoBust(this))
             {
-                newFrme();
+                if (chkScrs())
+                {
+                    await showMsg();
+                    newFrme();
+                }
+                else
+                {
+                    await stand();
+                }
             }
-            usrBtnsRset();
-            enStatus();
-            pl.deckCall(false, usrScr, this, deck);
-            await srchGrid(pl);
-            if (chkScrs())
+            else
             {
-                newFrme();
+                await endTurn();
+                usrBtnsRset();
+                pl.deckCall(false, usrScr, this, deck);
             }
-
         }
         private async void newFrme()
         {
@@ -378,37 +404,31 @@ namespace Pazaak
 
         public async Task endTurn()
         {
-            clrUsrBtns();
-            if (chkScrs())
-            {
-                newFrme();
-            }
             pl.GotDk = false;
             pl.IsTrn = false;
             //delaying the main process here gives the game a better flow
             //it slows down the deal
             //using process pausing also ensures that the random object dosnt keep generating the same cards
+
             await Task.Delay(100);
+
             await en.mkMove(pl, enScr, this, deck);
-            //delaying the main process gives the game the illusion that the AI is thinking
-            await Task.Delay(1000);
+            if (!en.Stndng)
+            {
+                //delaying the main process gives the game the illusion that the AI is thinking
+                await Task.Delay(1000);
+            }
+
         }
-
-        public void enStatus()
+        public async Task showMsg()
         {
-            if (en.CurrScr == 20)
+            chkScrs();
+            var c = new ContentDialog()
             {
-                enStsMsg.Text = en.Name + ": Huzaa!";
-            }
-            else if (en.IsBust)
-            {
-                enStsMsg.Text = en.Name + ": Bust";
-            }
-            else if (en.Stndng)
-            {
-                enStsMsg.Text = en.Name + ": I Stand";
-            }
-
+                Title = status + "\nUsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr,
+                PrimaryButtonText = "OK"
+            };
+            await c.ShowAsync();
         }
         private async void stnd_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -420,46 +440,57 @@ namespace Pazaak
 
         public async Task stand()
         {
-            clrUsrBtns();
             Boolean over = false;
-            while (en.Stndng == false && en.IsBust == false && over == false)
+            while (!over)
             {
-
                 await Task.Delay(1000);
                 await en.mkMove(pl, enScr, this, deck);
-                enStatus();
                 over = chkScrs();
             }
+          
+            chkScrs();
+            await showMsg();
             newFrme();
+          
         }
 
         public Boolean chkScrs()
         {
-            if (en.TrnCnt > 9)
+            Boolean b = false;
+            if(!en.IsBust&&!pl.IsBust&&!en.Stndng&&!pl.Stndng)
+            {
+                status = "UsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr;
+                b = false;
+            }
+            else if (en.TrnCnt > 9)
             {
                 en.rndWn(en);
                 usrScrSwch();
-                return true;
+                status = "You Lost";
+                b = true;
             }
             else if (pl.TrnCnt > 9)
             {
                 pl.rndWn(en);
                 usrScrSwch();
-                return true;
+                status = "You Win";
+                b = true;
             }
             else if (en.IsBust)
             {
                 //user wins
                 pl.rndWn(en);
                 usrScrSwch();
-                return true;
+                status = "You Win";
+                b = true;
             }
             else if (pl.IsBust)
             {
                 //enemy wins
                 en.rndWn(en);
                 enScrSwch();
-                return true;
+                status = "You Lost";
+                b = true;
             }
             else if (en.Stndng && pl.Stndng)
             {
@@ -468,25 +499,32 @@ namespace Pazaak
                     //enemy Wins
                     en.rndWn(en);
                     enScrSwch();
-                    return true;
+                    status = "You Lost";
+                    b = true;
                 }
                 else if (pl.CurrScr > en.CurrScr)
                 {
                     //user wins
                     pl.rndWn(en);
                     usrScrSwch();
-                    return true;
+                    status = "You Win";
+                    b = true;
                 }
                 else
                 {
                     //draw
-                    return true;
+                    status = "It's A Tie";
+                    b = true;
                 }
             }
-            else
+            if(en.CurrScr==20&&pl.CurrScr==20)
             {
-                return false;
+                //draw
+                status = "It's A Tie";
+                b = true;
             }
+           
+            return b;
         }
 
         private void usrScrSwch()
@@ -530,35 +568,6 @@ namespace Pazaak
                     break;
             }
         }
-
-        //clear the button's content
-        public void clrUsrBtns()
-        {
-            endBtn.Content = "";
-            stndBtn.Content = "";
-        }
-
-        public void clrEnHndCrd(int i)
-        {
-            switch (i)
-            {
-                case 0:
-                    tbEnHnd1.Text = "";
-                    break;
-                case 1:
-                    tbEnHnd2.Text = "";
-                    break;
-                case 2:
-                    tbEnHnd3.Text = "";
-                    break;
-                case 3:
-                    tbEnHnd4.Text = "";
-                    break;
-                default:
-                    break;
-            }
-        }
-
         //reset the Button's content
         public void usrBtnsRset()
         {
@@ -572,11 +581,13 @@ namespace Pazaak
             if (t == typeof(User))
             {
                 Image thisImg = srchImg("usrCrdImg" + trnCnt, usrImgs);
+                srchTxtBlks("usrCrd" + (pl.TrnCnt), usrTxtBlks).Text = crdVal.ToString();
                 setImg(thisImg, bmS);
             }
             else
             {
                 Image thisImg = srchImg("enCrdImg" + trnCnt, enImgs);
+                srchTxtBlks("enCrd" + (en.TrnCnt), enTxtBlks).Text = crdVal.ToString();
                 setImg(thisImg, bmS);
             }
         }
@@ -638,27 +649,39 @@ namespace Pazaak
 
         private async void crd1_tap(object sender, TappedRoutedEventArgs e)
         {
-            TextBlock b = tbHnd1;
-            await pl.handCall(b, this, usrScr);
-            usrHnd1.Opacity = 0;
+            if (pl.IsTrn)
+            {
+                TextBlock b = tbHnd1;
+                await pl.handCall(b, this, usrScr);
+                usrHnd1.Opacity = 0;
+            }
         }
         private async void crd2_tap(object sender, TappedRoutedEventArgs e)
         {
-            TextBlock b = tbHnd2;
-            await pl.handCall(b, this, usrScr);
-            usrHnd2.Opacity = 0;
+            if (pl.IsTrn)
+            {
+                TextBlock b = tbHnd2;
+                await pl.handCall(b, this, usrScr);
+                usrHnd2.Opacity = 0;
+            }
         }
         private async void crd3_tap(object sender, TappedRoutedEventArgs e)
         {
-            TextBlock b = tbHnd3;
-            await pl.handCall(b, this, usrScr);
-            usrHnd3.Opacity = 0;
+            if (pl.IsTrn)
+            {
+                TextBlock b = tbHnd3;
+                await pl.handCall(b, this, usrScr);
+                usrHnd3.Opacity = 0;
+            }
         }
         private async void crd4_tap(object sender, TappedRoutedEventArgs e)
         {
-            TextBlock b = tbHnd4;
-            await pl.handCall(b, this, usrScr);
-            usrHnd4.Opacity = 0;
+            if (pl.IsTrn)
+            {
+                TextBlock b = tbHnd4;
+                await pl.handCall(b, this, usrScr);
+                usrHnd4.Opacity = 0;
+            }
         }
     }
 }

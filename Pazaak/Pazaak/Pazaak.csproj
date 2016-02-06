@@ -117,14 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-400.png" />
-    <Content Include="Resources\-6.png" />
     <Content Include="Resources\background.png" />
     <Content Include="Resources\CardBack.png" />
-    <Content Include="Resources\Card_Neg.png" />
-    <Content Include="Resources\Card_Pos.png" />
+    <Content Include="Resources\CardNeg.png" />
+    <Content Include="Resources\CardPos.png" />
     <Content Include="Resources\Deck.png" />
     <Content Include="Resources\DeckCard.png" />
-    <Content Include="Resources\NegativeCard.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -133,7 +131,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="Resources\starBg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

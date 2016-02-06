@@ -17,37 +17,40 @@ namespace Pazaak
 
         //called in the deckCall and the handCall methods
         //processes the card generated from deck or hand
-        public void playCard(Card c, Boolean stnd)
+        public void playCard(Card c, Boolean stnd, TextBlock tb)
         {
             if (stnd)
             {
                 this.Stndng = true;
             }
-            if (TrnCnt < 9 && this.Stndng == false)
+            if (TrnCnt < 9 && this.Stndng == false&&IsTrn==true)
             {
+                //IsTrn = false;
                 addCrd(c);
                 TrnCnt++;
                 CurrScr += c.Val;
-                if (CurrScr > 20)
+                tb.Text = this.CurrScr.ToString();
+               /* if (CurrScr > 20)
                 {
                     this.IsBust = true;
-                }
+                }*/
             }
         }
         //user gets card from deck
         public async void deckCall(Boolean b, TextBlock usrScr, InGame iG, Queue<Card> deck)
         {
-            if (this.CurrScr > 20)
+            /*if (this.CurrScr > 20)
             {
                 b = true;
                 this.IsBust = true;
                 await iG.stand();
-            }
+            }*/
 
             Card crd = deck.Dequeue();
-            playCard(crd, b);
+            playCard(crd, b, usrScr);
+            await iG.srchGrid(this);
             iG.txtCardVal(crd.Val, this);
-            usrScr.Text = this.CurrScr.ToString();
+            
         }
         // use a card from hand
         public async Task handCall(TextBlock tb, InGame iG, TextBlock usrScr)
@@ -63,31 +66,35 @@ namespace Pazaak
                     {
                         //found card
                         crd = this.Hand[i];
+                        this.Hand[i].IsUsed = true;
                         break;
                     }
                 }
-                playCard(crd, false);
-                iG.printHandCard(this.TrnCnt, crd.Val, this);
-                iG.txtCardVal(crd.Val, this);
-
+                playCard(crd, false, usrScr);
+                iG.printHandCard(TrnCnt, crd.Val, this);
+                //iG.txtCardVal(crd.Val, this);
+                autoBust(iG);
                 tb.Text = "";
                 this.IsTrn = false;
-
-                this.Hand = this.Hand.Except(new Card[] { crd }).ToArray();
-                if (this.CurrScr > 19)
-                {
-                    if (this.CurrScr < 20)
-                    {
-                        this.Stndng = true;
-                    }
-                    else
-                    {
-                        this.IsBust = true;
-                    }
-                    await iG.stand();
-                }
-
             }
+        }
+        public Boolean autoBust(InGame iG)
+        {
+            if (this.CurrScr > 19)
+            {
+                if (this.CurrScr == 20)
+                {
+                    this.Stndng = true;
+                    this.IsBust = false;
+                }
+                else
+                {
+                    this.IsBust = true;
+                    this.Stndng = false;
+                }
+                return true;
+            }
+            return false;
         }
 
     }

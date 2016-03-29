@@ -21,19 +21,35 @@ namespace Pazaak
             //not the user's turn right now
             u.IsTrn = false;
             u.GotDk = false;
-            if (TrnCnt < 9 && this.Stndng == false)
+
+            if (TrnCnt < 9 && Stndng == false && IsBust==false)
             {
                 await deckDeal(iG, deck);
                 ScrTypePair currMv = decideMove(this.CurrScr);
-                if (currMv.CrdType != 0)
+                //refactor this, logic seems off
+                if (currMv.CrdType != 0&&currMv.Score>App.gmDifficulty)
                 {
-                    ScrTypePair futMv = decideMove(this.CurrScr + currMv.Score);
+                    //move is good, make move, then ponder future later
+                    ScrTypePair fustMv = decideMove(this.CurrScr);
                     await handDeal(currMv.CrdType - 1, iG);
-                    if (futMv.Score < 4&&futMv.CrdType==0)
+                    ScrTypePair futMv = decideMove(this.CurrScr);
+                    //enemy will stand if its score is winning, and is as close to 20 as the difficulty allows
+                    //will adjust and play more aggressively if for example the user is on 19, and the enemy is on 18
+                    //enemy will play to win and try its hardest to get a higher score than the user
+                    if (futMv.Score < App.gmDifficulty&&futMv.CrdType==0&&u.CurrScr<=this.CurrScr)
                     {
                         //stand
                         this.Stndng = true;
                     }
+                }
+                if(this.CurrScr>20)
+                {
+                    this.IsBust = true;
+                }
+
+                else if((currMv.Score < App.gmDifficulty && (this.CurrScr >= u.CurrScr&&u.Stndng)) || this.CurrScr == 20)
+                {
+                    this.Stndng = true;
                 }
             }
             enScr.Text = this.CurrScr.ToString();
@@ -41,11 +57,13 @@ namespace Pazaak
         }
         private async Task handDeal(int hndNum, InGame iG)
         {
-            prcesCrd(iG, this.Hand[hndNum]);
-            await iG.srchGrid(this);
-            this.Hand[hndNum].IsUsed = true;
-            iG.printHandCard(this.TrnCnt, Hand[hndNum].Val, this);
-            //this.Hand = this.Hand.Except(new Card[] { this.Hand[hndNum] }).ToArray();
+            if (this.Hand[hndNum].IsUsed == false)
+            {
+                prcesCrd(iG, this.Hand[hndNum]);
+                await iG.srchGrid(this);
+                this.Hand[hndNum].IsUsed = true;
+                iG.printHandCard(this.TrnCnt, Hand[hndNum].Val, this);
+            }
         }
 
         private async Task deckDeal(InGame iG, Queue<Card> deck)
@@ -80,11 +98,17 @@ namespace Pazaak
             {
                 int i = possLoop + 1;
                 int score = this.Hand[possLoop].Val;
-                //crdVals[i] = scrCrd(score, currScr);
-                crdVals[i] = scrCrd(score, currScr);
-                if (crdVals[i]>crdVals[currHiScr])
+                if ((score < 0 && currScr > 20) || (score > 0 && currScr < 20))
                 {
-                    currHiScr = i;
+                    crdVals[i] = scrCrd(score, currScr);
+                    if (crdVals[i] > crdVals[currHiScr])
+                    {
+                        currHiScr = i;
+                    }
+                }
+                else
+                {
+                    crdVals[i] = -100;
                 }
             }
             return new ScrTypePair(crdVals[currHiScr], currHiScr);
@@ -95,12 +119,14 @@ namespace Pazaak
             if (crdVal > 0)
             {
                 s = 20 - crdVal;
+                s = s - currScr;
             }
             else
             {
-                s = 20 + crdVal;
+                s = crdVal+currScr;
+                s = 20 - s;
             }
-            s = s - currScr;
+            
             if (s < 0)
             {
                 //dont use this card

@@ -30,10 +30,12 @@ namespace Pazaak
         private Queue<Card> deck;
         Image[] usrImgs;
         Image[] enImgs;
+        Image[] enHndImgs;
+        TextBlock[] enTbHnds;
         TextBlock[] enTxtBlks;
         TextBlock[] usrTxtBlks;
-        String status = null;
-
+        public String status = null;
+        Boolean btnPressed;
         public InGame()
         {
             this.InitializeComponent();
@@ -44,7 +46,9 @@ namespace Pazaak
             enImgs = new Image[9] { enCrdImg1, enCrdImg2, enCrdImg3, enCrdImg4, enCrdImg5, enCrdImg6, enCrdImg7, enCrdImg8, enCrdImg9 };
             enTxtBlks = new TextBlock[9] { enCrd1, enCrd2, enCrd3, enCrd4, enCrd5, enCrd6, enCrd7, enCrd8, enCrd9 };
             usrTxtBlks = new TextBlock[9] { usrCrd1, usrCrd2, usrCrd3, usrCrd4, usrCrd5, usrCrd6, usrCrd7, usrCrd8, usrCrd9 };
-
+            enHndImgs = new Image[4] { enHnd1, enHnd2, enHnd3, enHnd4 };
+            enTbHnds = new TextBlock[4] { tbEnHnd1, tbEnHnd2, tbEnHnd3, tbEnHnd4 };
+            btnPressed = true;
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
@@ -258,7 +262,6 @@ namespace Pazaak
         private async Task animateCard(String imageNm, Player p)
         {
             Storyboard sb = new Storyboard();
-
             DoubleAnimation da = new DoubleAnimation();
             Storyboard.SetTargetProperty(da, "Opacity");
             Storyboard.SetTarget(da, srchImg(imageNm, getImgArr(p)));
@@ -302,7 +305,7 @@ namespace Pazaak
             }
             return crdVals;
         }
-        public void showCardValue(TextBlock tb, Player p, int placer)
+        public void showUsrCardValue(TextBlock tb, Player p, int placer)
         {
             tb.Text = p.Hand[placer].Val.ToString();
         }
@@ -317,7 +320,6 @@ namespace Pazaak
             {
                 drawEnHand(enHndLoop);
             }
-
         }
         public void drawUsrHand(int i)
         {
@@ -343,7 +345,7 @@ namespace Pazaak
 
             if (pl.Hand[i].IsUsed == false)
             {
-                showCardValue(tBlock, pl, i);
+                showUsrCardValue(tBlock, pl, i);
             }
         }
         public void drawEnHand(int i)
@@ -369,28 +371,33 @@ namespace Pazaak
             }
             if (en.Hand[i].IsUsed == false)
             {
-                showCardValue(hand, en, i);
+                showUsrCardValue(hand, en, i);
             }
         }
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.autoBust(this))
+            if (btnPressed&&!(pl.Stndng))
             {
-                if (chkScrs())
+                btnPressed = false;
+                if (pl.autoBust(this))
                 {
-                    await showMsg();
-                    newFrme();
+                    if (chkScrs())
+                    {
+                        await showMsg();
+                        newFrme();
+                    }
+                    else
+                    {
+                        await stand();
+                    }
                 }
                 else
                 {
-                    await stand();
+                    await endTurn();
+                    usrBtnsRset();
+                    pl.deckCall(false, usrScr, this, deck);
                 }
-            }
-            else
-            {
-                await endTurn();
-                usrBtnsRset();
-                pl.deckCall(false, usrScr, this, deck);
+                btnPressed = true;
             }
         }
         private async void newFrme()
@@ -409,9 +416,7 @@ namespace Pazaak
             //delaying the main process here gives the game a better flow
             //it slows down the deal
             //using process pausing also ensures that the random object dosnt keep generating the same cards
-
             await Task.Delay(100);
-
             await en.mkMove(pl, enScr, this, deck);
             if (!en.Stndng)
             {
@@ -419,9 +424,10 @@ namespace Pazaak
                 await Task.Delay(1000);
             }
 
-        }
+       }    
         public async Task showMsg()
         {
+            
             var c = new ContentDialog()
             {
                 Title = status + "\nUsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr,
@@ -431,10 +437,13 @@ namespace Pazaak
         }
         private async void stnd_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            pl.GotDk = false;
-            pl.IsTrn = false;
-            pl.Stndng = true;
-            await stand();
+            if (pl.IsTrn)
+            {
+                pl.GotDk = false;
+                pl.IsTrn = false;
+                pl.Stndng = true;
+                await stand();
+            }
         }
 
         public async Task stand()
@@ -446,10 +455,8 @@ namespace Pazaak
                 await en.mkMove(pl, enScr, this, deck);
                 over = chkScrs();
             }
-         
             await showMsg();
             newFrme();
-          
         }
 
         public Boolean chkScrs()
@@ -462,14 +469,14 @@ namespace Pazaak
             }
             else if (en.TrnCnt > 8&&en.CurrScr<21)
             {
-                en.rndWn(en);
+                en.rndWn(en, this);
                 usrScrSwch();
                 status = "You Lost";
                 b = true;
             }
             else if (pl.TrnCnt > 8&&pl.CurrScr<21)
             {
-                pl.rndWn(en);
+                pl.rndWn(en, this);
                 usrScrSwch();
                 status = "You Win";
                 b = true;
@@ -477,7 +484,7 @@ namespace Pazaak
             else if (en.IsBust)
             {
                 //user wins
-                pl.rndWn(en);
+                pl.rndWn(en, this);
                 usrScrSwch();
                 status = "You Win";
                 b = true;
@@ -485,7 +492,7 @@ namespace Pazaak
             else if (pl.IsBust)
             {
                 //enemy wins
-                en.rndWn(en);
+                en.rndWn(en, this);
                 enScrSwch();
                 status = "You Bust";
                 b = true;
@@ -495,15 +502,15 @@ namespace Pazaak
                 if (en.CurrScr > pl.CurrScr)
                 {
                     //enemy Wins
-                    en.rndWn(en);
+                    en.rndWn(en, this);
                     enScrSwch();
-                    status = "You Lost";
+                    
                     b = true;
                 }
                 else if (pl.CurrScr > en.CurrScr)
                 {
                     //user wins
-                    pl.rndWn(en);
+                    pl.rndWn(en, this);
                     usrScrSwch();
                     status = "You Win";
                     b = true;
@@ -528,7 +535,6 @@ namespace Pazaak
         private void usrScrSwch()
         {
             SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
-            //using code numbers to identify who's score has incremented was the easiest way i found to update the round ellipses
             switch (pl.RndsWn)
             {
                 //user score is 3
@@ -545,7 +551,6 @@ namespace Pazaak
                     break;
             }
         }
-
         private void enScrSwch()
         {
             SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
@@ -565,6 +570,17 @@ namespace Pazaak
                     enCrcl1.Fill = scb;
                     break;
             }
+        }
+        public void resetScrCircles()
+        {
+            SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.White);
+            //using code numbers to identify who's score has incremented was the easiest way i found to update the round ellipses
+            enCrcl3.Fill = scb;
+            enCrcl2.Fill = scb;
+            enCrcl1.Fill = scb;
+            plCrcl3.Fill = scb;
+            plCrcl2.Fill = scb;
+            plCrcl1.Fill = scb;
         }
         //reset the Button's content
         public void usrBtnsRset()
@@ -587,6 +603,18 @@ namespace Pazaak
                 Image thisImg = srchImg("enCrdImg" + trnCnt, enImgs);
                 srchTxtBlks("enCrd" + (en.TrnCnt), enTxtBlks).Text = crdVal.ToString();
                 setImg(thisImg, bmS);
+                rmvEnHnd(crdVal.ToString());
+            }
+        }
+        public void rmvEnHnd(String crd)
+        {
+            for(int i = 0; i< enTbHnds.Length; i++)
+            {
+                if(enTbHnds[i].Text.Equals(crd))
+                {
+                    enHndImgs[i].Opacity = 0;
+                    enTbHnds[i].Text = "";
+                }
             }
         }
         public void setImg(Image i, BitmapSource bms)
@@ -682,4 +710,4 @@ namespace Pazaak
             }
         }
     }
-}
+}   

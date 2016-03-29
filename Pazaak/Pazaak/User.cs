@@ -75,7 +75,7 @@ namespace Pazaak
                 //iG.txtCardVal(crd.Val, this);
                 autoBust(iG);
                 tb.Text = "";
-                this.IsTrn = false;
+                //this.IsTrn = false;
             }
         }
         public Boolean autoBust(InGame iG)

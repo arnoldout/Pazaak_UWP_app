@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>8264506a-6e70-4299-a917-a341f72c7a77</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>A183C2E60FC72F4B43C8E9F51B1AAB30D16D1D86B39CEBD25C9E0A3700AF4C04</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>94CC83445DA027B82E6757191B218B19A29054E50F24E28E97E62AA8C1E269D0</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8264506a-6e70-4299-a917-a341f72c7a77_1.0.0.0_x86__vxsd0nwhftwqa</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8264506a-6e70-4299-a917-a341f72c7a77_vxsd0nwhftwqa!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8264506a-6e70-4299-a917-a341f72c7a77</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-06T18:31:36.984</Modified>
+      <Modified>2016-03-25T16:39:38.751</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Pazaak.exe">
       <PackagePath>entrypoint\Pazaak.exe</PackagePath>
-      <Modified>2016-02-06T18:31:36.629</Modified>
+      <Modified>2016-03-25T16:39:36.512</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -523,7 +523,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Pazaak.xr.xml">
       <PackagePath>Pazaak.xr.xml</PackagePath>
-      <Modified>2016-02-03T19:20:29.747</Modified>
+      <Modified>2016-03-25T13:43:34.255</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -531,11 +531,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-06T17:01:03.567</Modified>
+      <Modified>2016-03-25T16:39:37.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x86\Debug\Core\Pazaak.exe">
       <PackagePath>Pazaak.exe</PackagePath>
-      <Modified>2016-02-06T18:31:36.982</Modified>
+      <Modified>2016-03-25T16:39:38.744</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

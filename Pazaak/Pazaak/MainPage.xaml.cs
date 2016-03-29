@@ -59,5 +59,10 @@ namespace Pazaak
             Player[] arr = new Player[2] {en, pl};
             this.Frame.Navigate(typeof(InGame), arr);
         }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
     }
 }

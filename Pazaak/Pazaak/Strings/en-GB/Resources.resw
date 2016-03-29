@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bckBtn.Content" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="easyBtn.Content" xml:space="preserve">
+    <value>Easy</value>
+  </data>
+  <data name="enBlk.Text" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="endBtn.Content" xml:space="preserve">
+    <value>End Turn</value>
+  </data>
+  <data name="enScr.Text" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="hrdBtn.Content" xml:space="preserve">
+    <value>Hard</value>
+  </data>
+  <data name="medBtn.Content" xml:space="preserve">
+    <value>Medium</value>
+  </data>
   <data name="menuStartGame.Content" xml:space="preserve">
     <value>Start Game</value>
+  </data>
+  <data name="settingsBtn.Content" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="stndBtn.Content" xml:space="preserve">
+    <value>Stand</value>
+  </data>
+  <data name="txtDiff.Text" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+  <data name="usrBlk.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="usrScr.Text" xml:space="preserve">
+    <value>Score</value>
   </data>
 </root>

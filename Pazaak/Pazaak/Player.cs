@@ -167,20 +167,24 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
         }
-        public void rndWn(Player p)
+        public void rndWn(Player p, InGame ig)
         {
-            if(this.rndsWn<4)
+            //wassup wit dat?
+            if(this.rndsWn<2)
             {
                 this.rndsWn++;
+                ig.status = "You Lost";
             }
             else
             {
+                ig.status = "New Game? ";
                 this.gmsWn++;
                 HighScore h = new HighScore(this.gmsWn, p.gmsWn);
-                h.readScores();
-                h.writeScores();
-                reset();
-                p.reset();
+ //               h.readScores();
+   //             h.writeScores();
+                hardReset();
+                p.hardReset();
+                ig.resetScrCircles();
             }
         }
         public Card[] genHnd(Card [] crdPool)
@@ -209,7 +213,13 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
             this.stndng = false;
-            genHnd(this.crdPool);
+            
+        }
+        public void hardReset()
+        {
+            reset();
+            this.rndsWn = 0;
+            this.hand = genHnd(this.crdPool);
         }
     }
 }

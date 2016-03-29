@@ -27,6 +27,7 @@ namespace Pazaak
         public static BitmapImage negCard;
         public static BitmapImage deckCard;
         public static Random randomizer = new Random();
+        public static int gmDifficulty = 4;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

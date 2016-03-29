@@ -21,7 +21,7 @@ namespace Pazaak
             //not the user's turn right now
             u.IsTrn = false;
             u.GotDk = false;
-
+            
             if (TrnCnt < 9 && Stndng == false && IsBust==false)
             {
                 await deckDeal(iG, deck);
@@ -47,7 +47,7 @@ namespace Pazaak
                     this.IsBust = true;
                 }
 
-                else if((currMv.Score < App.gmDifficulty && (this.CurrScr >= u.CurrScr&&u.Stndng)) || this.CurrScr == 20)
+                else if((currMv.Score < App.gmDifficulty || (this.CurrScr > u.CurrScr&&u.Stndng&&u.IsBust==false)) || this.CurrScr == 20)
                 {
                     this.Stndng = true;
                 }
@@ -59,22 +59,30 @@ namespace Pazaak
         {
             if (this.Hand[hndNum].IsUsed == false)
             {
-                prcesCrd(iG, this.Hand[hndNum]);
+                prcesCrd(this.Hand[hndNum]);
                 await iG.srchGrid(this);
-                this.Hand[hndNum].IsUsed = true;
+                setHnd(hndNum); 
+                
                 iG.printHandCard(this.TrnCnt, Hand[hndNum].Val, this);
             }
+        }
+
+        private void setHnd(int hndNum)
+        {
+            Card c = Hand[hndNum];
+            c.IsUsed = true;
+            //Hand[hndNum].IsUsed = true;
         }
 
         private async Task deckDeal(InGame iG, Queue<Card> deck)
         {
             Card c = deck.Dequeue();
-            prcesCrd(iG, c);
+            prcesCrd(c);
             await(iG.srchGrid(this));
             iG.txtCardVal(c.Val, this);
         }
 
-        private void prcesCrd(InGame iG, Card c)
+        private void prcesCrd(Card c)
         {   
             addCrd(c);
             TrnCnt++;

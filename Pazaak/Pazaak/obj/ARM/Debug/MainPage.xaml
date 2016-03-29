@@ -6,8 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <!--
+    *
+    *   Font used on Main Page to display the title Pazaak, was RedFive
+    *   RedFive is free for commercial use and can be found for download 
+    *   at: http://www.1001fonts.com/redfive-font.html
+    *
+    -->
     <Grid>
-        <Image x:ConnectionId='1' x:Name="bkGround" Stretch="Fill" Source="/Resources/background.png"></Image>
+        <Image x:ConnectionId='1' x:Name="bkGround" Stretch="Fill" Source="/Resources/backgroundMenu.png"></Image>
     
     <Grid>
         

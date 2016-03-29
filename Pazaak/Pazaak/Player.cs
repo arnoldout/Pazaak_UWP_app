@@ -177,14 +177,13 @@ namespace Pazaak
             }
             else
             {
+                this.rndsWn++;
                 ig.status = "New Game? ";
                 this.gmsWn++;
                 HighScore h = new HighScore(this.gmsWn, p.gmsWn);
  //               h.readScores();
    //             h.writeScores();
-                hardReset();
-                p.hardReset();
-                ig.resetScrCircles();
+                
             }
         }
         public Card[] genHnd(Card [] crdPool)
@@ -220,6 +219,14 @@ namespace Pazaak
             reset();
             this.rndsWn = 0;
             this.hand = genHnd(this.crdPool);
+        }
+        public Card[] copyHnd(Card[] hnd2)
+        {
+            for(int i = 0; i<Hand.Length; i++)
+            {
+                hnd2[i] = new Card(Hand[i].Val);
+            }
+            return hnd2;
         }
     }
 }

@@ -35,7 +35,9 @@ namespace Pazaak
         TextBlock[] enTxtBlks;
         TextBlock[] usrTxtBlks;
         public String status = null;
-        Boolean btnPressed;
+        Boolean endTurnTapped;
+        Boolean standTapped;
+        Boolean usedCard;
         public InGame()
         {
             this.InitializeComponent();
@@ -48,14 +50,17 @@ namespace Pazaak
             usrTxtBlks = new TextBlock[9] { usrCrd1, usrCrd2, usrCrd3, usrCrd4, usrCrd5, usrCrd6, usrCrd7, usrCrd8, usrCrd9 };
             enHndImgs = new Image[4] { enHnd1, enHnd2, enHnd3, enHnd4 };
             enTbHnds = new TextBlock[4] { tbEnHnd1, tbEnHnd2, tbEnHnd3, tbEnHnd4 };
-            btnPressed = true;
+
+
+            endTurnTapped = false;
+            standTapped = false;
+            usedCard = false;
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
                 en = (SkyNet)arr[0];
                 pl = (User)arr[1];
                 pl.TrnCnt = pl.TrnCnt;
-                usrBtnsRset();
                 usrScrSwch();
                 enScrSwch();
                 enBlk.Text = en.Name;
@@ -347,6 +352,10 @@ namespace Pazaak
             {
                 showUsrCardValue(tBlock, pl, i);
             }
+            else
+            {
+                String s = "boskdof";
+            }
         }
         public void drawEnHand(int i)
         {
@@ -373,12 +382,14 @@ namespace Pazaak
             {
                 showUsrCardValue(hand, en, i);
             }
+            
         }
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (btnPressed&&!(pl.Stndng))
+            if (!endTurnTapped&&!(pl.Stndng))
             {
-                btnPressed = false;
+                usedCard = false;
+                endTurnTapped = true;
                 if (pl.autoBust(this))
                 {
                     if (chkScrs())
@@ -394,10 +405,9 @@ namespace Pazaak
                 else
                 {
                     await endTurn();
-                    usrBtnsRset();
                     pl.deckCall(false, usrScr, this, deck);
                 }
-                btnPressed = true;
+                endTurnTapped = false;
             }
         }
         private async void newFrme()
@@ -427,22 +437,54 @@ namespace Pazaak
        }    
         public async Task showMsg()
         {
-            
-            var c = new ContentDialog()
+            /*
+            * I got a lot of help on the content dialog boxes from here
+            *    http://www.reflectionit.nl/blog/2015/windows-10-xaml-tips-messagedialog-and-contentdialog
+            */
+
+            var message = new ContentDialog()
             {
                 Title = status + "\nUsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr,
-                PrimaryButtonText = "OK"
+                PrimaryButtonText = "OK",
+                
             };
-            await c.ShowAsync();
+            if (status.Equals("New Game? "))
+            {
+                message.SecondaryButtonText = "Cancel";
+                var result = await message.ShowAsync();
+                if (result == ContentDialogResult.Primary)
+                {
+                    resetScrCircles();
+                    en.hardReset();
+                    pl.hardReset();
+                    newFrme();
+                }
+                else if(result == ContentDialogResult.Secondary)
+                {
+                    //navigate to home page
+                    Frame.Navigate(typeof(MainPage));
+                }
+            }
+            else
+            {
+                await message.ShowAsync();
+                newFrme();
+            }
         }
         private async void stnd_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn)
+            if (pl.IsTrn&&!standTapped)
             {
+                standTapped = true;
+                if(pl.CurrScr>20)
+                {
+                    pl.IsBust = true;
+                }
                 pl.GotDk = false;
                 pl.IsTrn = false;
                 pl.Stndng = true;
                 await stand();
+                standTapped = false;
             }
         }
 
@@ -456,7 +498,7 @@ namespace Pazaak
                 over = chkScrs();
             }
             await showMsg();
-            newFrme();
+            
         }
 
         public Boolean chkScrs()
@@ -582,12 +624,7 @@ namespace Pazaak
             plCrcl2.Fill = scb;
             plCrcl1.Fill = scb;
         }
-        //reset the Button's content
-        public void usrBtnsRset()
-        {
-            endBtn.Content = "End Turn";
-            stndBtn.Content = "Stand";
-        }
+       
          public void printHandCard(int trnCnt, int crdVal, Player p)
          {
             BitmapSource bmS = chkCardSign(crdVal);
@@ -675,8 +712,9 @@ namespace Pazaak
 
         private async void crd1_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn)
+            if (pl.IsTrn && usedCard == true)
             {
+                usedCard = true;
                 TextBlock b = tbHnd1;
                 await pl.handCall(b, this, usrScr);
                 usrHnd1.Opacity = 0;
@@ -684,8 +722,9 @@ namespace Pazaak
         }
         private async void crd2_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn)
+            if (pl.IsTrn && usedCard == true)
             {
+                usedCard = true;
                 TextBlock b = tbHnd2;
                 await pl.handCall(b, this, usrScr);
                 usrHnd2.Opacity = 0;
@@ -693,8 +732,9 @@ namespace Pazaak
         }
         private async void crd3_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn)
+            if (pl.IsTrn && usedCard == true)
             {
+                usedCard = true;
                 TextBlock b = tbHnd3;
                 await pl.handCall(b, this, usrScr);
                 usrHnd3.Opacity = 0;
@@ -702,8 +742,9 @@ namespace Pazaak
         }
         private async void crd4_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn)
+            if (pl.IsTrn && usedCard == true)
             {
+                usedCard = true;
                 TextBlock b = tbHnd4;
                 await pl.handCall(b, this, usrScr);
                 usrHnd4.Opacity = 0;

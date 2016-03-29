@@ -190,11 +190,10 @@
                                 <TextBlock x:Name="usrScr" x:Uid="usrScr" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                                <Button x:Name="stndBtn" x:Uid="stndBtn" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="stnd_Tapped"/>
+                                <Button x:Name="endBtn" x:Uid="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="button_Tapped"/>
                             </Grid>
                             <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
-                                <Button x:Name="endBtn" x:Uid="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="button_Tapped"/>
-
+                                <Button x:Name="stndBtn" x:Uid="stndBtn"  Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="stnd_Tapped"/>
                             </Grid>
                         </Grid>
                     </Grid>

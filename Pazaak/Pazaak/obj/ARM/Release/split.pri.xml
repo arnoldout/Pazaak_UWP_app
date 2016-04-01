@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="43030arnoldout.PazaakClone" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Language>EN-GB</Language>
+			<Scale>200</Scale>
+			<TargetSize>256,16,24,48</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="App.xbf" uri="ms-resource://43030arnoldout.PazaakClone/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InGame.xbf" uri="ms-resource://43030arnoldout.PazaakClone/Files/InGame.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Instructions.xbf" uri="ms-resource://43030arnoldout.PazaakClone/Files/Instructions.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MainPage.xbf" uri="ms-resource://43030arnoldout.PazaakClone/Files/MainPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Pazaak.xr.xml" uri="ms-resource://43030arnoldout.PazaakClone/Files/Pazaak.xr.xml">
+				<Candidate type="Path">
+					<Value>Pazaak.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Settings.xbf" uri="ms-resource://43030arnoldout.PazaakClone/Files/Settings.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="BadgeLogo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/BadgeLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\BadgeLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LockScreenLogo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/LockScreenLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\LockScreenLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square310x310Logo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/Square310x310Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square310x310Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-48" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-48.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-256" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-256.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-24" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24.png</Value>
+					</Candidate>
+					<Candidate qualifiers="TargetSize-16" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-16.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square71x71Logo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/Square71x71Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square71x71Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/StoreLogo.png">
+					<Candidate type="Path">
+						<Value>Assets\StoreLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Properties">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://43030arnoldout.PazaakClone/Files/Properties/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>Properties\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Resources">
+				<NamedResource name="background.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/background.png">
+					<Candidate type="Path">
+						<Value>Resources\background.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="backgroundMenu.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/backgroundMenu.png">
+					<Candidate type="Path">
+						<Value>Resources\backgroundMenu.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CardBack.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/CardBack.png">
+					<Candidate type="Path">
+						<Value>Resources\CardBack.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CardNeg.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/CardNeg.png">
+					<Candidate type="Path">
+						<Value>Resources\CardNeg.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CardPos.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/CardPos.png">
+					<Candidate type="Path">
+						<Value>Resources\CardPos.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Deck.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/Deck.png">
+					<Candidate type="Path">
+						<Value>Resources\Deck.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DeckCard.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/DeckCard.png">
+					<Candidate type="Path">
+						<Value>Resources\DeckCard.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="inGmBackground.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Resources/inGmBackground.png">
+					<Candidate type="Path">
+						<Value>Resources\inGmBackground.png</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://43030arnoldout.PazaakClone/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Resources">
+			<NamedResource name="bust" uri="ms-resource://43030arnoldout.PazaakClone/Resources/bust">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>You Bust</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="cancel" uri="ms-resource://43030arnoldout.PazaakClone/Resources/cancel">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>Cancel</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="lost" uri="ms-resource://43030arnoldout.PazaakClone/Resources/lost">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>You Lost</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="newGm" uri="ms-resource://43030arnoldout.PazaakClone/Resources/newGm">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>New Game?</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ok" uri="ms-resource://43030arnoldout.PazaakClone/Resources/ok">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>Ok</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="tie" uri="ms-resource://43030arnoldout.PazaakClone/Resources/tie">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>It's A Tie</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="win" uri="ms-resource://43030arnoldout.PazaakClone/Resources/win">
+				<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+					<Value>You Won!</Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="bckBtn">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/bckBtn/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Back</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="easyBtn">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/easyBtn/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Easy</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="enBlk">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/enBlk/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>AI</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="endTurnTxt">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/endTurnTxt/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>End Turn</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="enScr">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/enScr/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Score</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="hrdBtn">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/hrdBtn/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Hard</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="instructions">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/instructions/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Aim: The aim of Pazaak is to get a higher score than your opponent, while still having a score below or equal to 20.
+
+Rules: A game is broken down into turns, when its a your turn, you will be given a card from the deck, which will increase your score.
+You can then choose to place one of your hand cards down to increase your score further. 
+When you are finished with your turn you can end your turn, it will then become your opponents turn. 
+Or if you don't wish to risk getting another card you can Stand. This will take you out of the game and your opponent will take multiple turns until they also stand.
+
+Once both of you are standing, the winner will be whomever is score is closest to 20 without being over 20.
+
+Hand Cards: You recieve 4 hand cards that have to last you throughout the full game (max of 5 rounds).</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="instructionsBtn">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/instructionsBtn/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Instructions</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="medBtn">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/medBtn/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Medium</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="menuStartGame">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/menuStartGame/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Start Game</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="settingsBtn">
+				<NamedResource name="Content" uri="ms-resource://43030arnoldout.PazaakClone/Resources/settingsBtn/Content">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Settings</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="standTxt">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/standTxt/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Stand</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="txtDiff">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/txtDiff/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Difficulty</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="usrBlk">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/usrBlk/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>User</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="usrScr">
+				<NamedResource name="Text" uri="ms-resource://43030arnoldout.PazaakClone/Resources/usrScr/Text">
+					<Candidate qualifiers="Language-EN-GB" isDefault="true" type="String">
+						<Value>Score</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

@@ -607,10 +607,10 @@ namespace Pazaak
                 rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lost",
                 ResourceContext.GetForCurrentView());
                 string lost = rc.ValueAsString;
-
+                status = lost;
                 en.rndWn(en, this);
                 usrScrSwch();
-                status = lost;
+                
                 b = true;
             }
             //if user has filled up the table, automatic win if it has a valid score
@@ -619,10 +619,10 @@ namespace Pazaak
                 rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/win",
                 ResourceContext.GetForCurrentView());
                 string win = rc.ValueAsString;
-
+                status = win;
                 pl.rndWn(en, this);
                 usrScrSwch();
-                status = win;
+               
                 b = true;
             }
             //if enemy has gne over 20
@@ -631,11 +631,11 @@ namespace Pazaak
                 rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/win",
                 ResourceContext.GetForCurrentView());
                 string win = rc.ValueAsString;
-
+                status = win;
                 //user wins
                 pl.rndWn(en, this);
                 usrScrSwch();
-                status = win;
+                
                 b = true;
             }
             //if user has gone over 20
@@ -644,11 +644,11 @@ namespace Pazaak
                 rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/bust",
                 ResourceContext.GetForCurrentView());
                 string bust = rc.ValueAsString;
-
+                status = bust;
                 //enemy wins
                 en.rndWn(en, this);
                 enScrSwch();
-                status = bust;
+                
                 b = true;
             }
             //if both are standing
@@ -657,12 +657,13 @@ namespace Pazaak
                 if (en.CurrScr > pl.CurrScr)
                 {
                     //enemy Wins
-                    rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lose",
+                    rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lost",
                     ResourceContext.GetForCurrentView());
                     string lose = rc.ValueAsString;
+                    status = lose;
                     en.rndWn(en, this);
                     enScrSwch();
-                    status = lose;
+                    
                     b = true;
                 }
                 else if (pl.CurrScr > en.CurrScr)
@@ -672,9 +673,10 @@ namespace Pazaak
                     ResourceContext.GetForCurrentView());
                     string win = rc.ValueAsString;
                     //user wins
+                    status = win;
                     pl.rndWn(en, this);
                     usrScrSwch();
-                    status = win;
+                    
                     b = true;
                 }
                 //tie game

@@ -27,7 +27,7 @@
             <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="6*"></ColumnDefinition>
                     <ColumnDefinition Width="4*"></ColumnDefinition>
@@ -36,13 +36,12 @@
                 <Grid Grid.Column="1">
                     <Button x:ConnectionId='4' x:Uid="menuStartGame" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightGray"                      FontSize="20" />
                 </Grid>
-                <Grid Grid.Column="0">
+                <Grid Grid.Column="2">
                     <Button x:ConnectionId='3' x:Uid="settingsBtn" HorizontalAlignment="Center"  VerticalAlignment="Center" Background="LightGray"                       />
                 </Grid>
-                <Grid Grid.Column="2">
+                <Grid Grid.Column="0">
                     <Button x:ConnectionId='2' x:Uid="instructionsBtn" HorizontalAlignment="Center"  VerticalAlignment="Center" Background="LightGray"                        />
-                    
-                    </Grid>
+                </Grid>
             </Grid>
         
            

@@ -102,7 +102,7 @@ namespace Pazaak
             try
             {
                 ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-                localSettings.Values["usrName"] = App.gmDifficulty;
+                localSettings.Values["usrName"] = App.usrName;
             }
             catch (Exception usrNameNotFound)
             {

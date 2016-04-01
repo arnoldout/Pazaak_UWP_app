@@ -176,13 +176,7 @@ namespace Pazaak
             //the game is reset once the amount of rounds won by the current player is above 2
             if (this.rndsWn<2)
             {
-                ResourceCandidate rc;
-                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lost",
-                ResourceContext.GetForCurrentView());
-                string lost = rc.ValueAsString;
-
                 this.rndsWn++;
-                ig.status = lost;
             }
             else
             {

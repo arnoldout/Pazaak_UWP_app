@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type='text/xsl' href='C:\ProgramData\Windows App Certification Kit\results.xsl'?>
-<REPORT xml:lang="en-GB" OVERALL_RESULT="FAIL" VERSION="10.0" LATEST_VERSION="TRUE" UPDATE_DOWNLOAD_URL="" TOOLSET_ARCHITECTURE="x64" SecureBoot="FALSE" APP_TYPE="UapApp" PUBLISHER_DISPLAY_NAME="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" APP_NAME="" APP_VERSION="" OSVERSION="10.0.10586.0" OS="Microsoft Windows 10 Home" PER_USER_APPLICATION="" PARTIAL_RUN="FALSE" LCID="2057" VALIDATION_TYPE="UI" ReportGenerationTime="01/04/2016 11:52:11" ID="01dc62fb9e75b14abdfbeac43b7a8de7">
+<REPORT xml:lang="en-GB" OVERALL_RESULT="PASS" VERSION="10.0" LATEST_VERSION="TRUE" UPDATE_DOWNLOAD_URL="" TOOLSET_ARCHITECTURE="x64" SecureBoot="FALSE" APP_TYPE="UapApp" PUBLISHER_DISPLAY_NAME="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" APP_NAME="" APP_VERSION="" OSVERSION="10.0.10586.0" OS="Microsoft Windows 10 Home" PER_USER_APPLICATION="" PARTIAL_RUN="FALSE" LCID="2057" VALIDATION_TYPE="UI" ReportGenerationTime="01/04/2016 15:50:52" ID="296836789058eb99ac69b9a6e0ed4aac">
   <REQUIREMENTS>
     <REQUIREMENT NUMBER="1" TITLE="Clean reversible install test" RATIONALE="A clean, reversible, installation allows users to successfully manage (deploy, and remove) applications on their system." />
     <REQUIREMENT NUMBER="2" TITLE="Install to the correct folders test" RATIONALE="Windows provides specific locations in the file system to store programs and software components, shared application data, and application data specific to a user." />
@@ -12,130 +12,120 @@
     <REQUIREMENT NUMBER="8" TITLE="Safe mode test" RATIONALE="By default, most drivers and services that did not come preinstalled with Windows are not started in Safe Mode. They should remain disabled unless they are needed for basic operations of the system or for diagnostic and recovery purposes." />
     <REQUIREMENT NUMBER="9" TITLE="Multiuser session test" RATIONALE="Windows users should be able to run concurrent sessions without conflict or disruption.  Applications must ensure that when running in multiple sessions either locally or remotely, the normal functionality of the application should not be impacted. Application settings and data files should not be persisted across users. A user’s privacy and preferences should be isolated to the user’s session." />
     <REQUIREMENT NUMBER="10" TITLE="Deployment and launch tests" RATIONALE="Application failures such as crashes and hangs are a major disruption to users and cause frustration. Eliminating such failures improves application stability and reliability, and overall, provides users with a better application experience.">
-      <TEST INDEX="50" NAME="Bytecode generation" DESCRIPTION="Byte code generation should be able to complete successfully for packages containing an HTML5 Windows Store app." EXECUTIONTIME="00h:00m:01s.04ms">
+      <TEST INDEX="50" NAME="Bytecode generation" DESCRIPTION="Byte code generation should be able to complete successfully for packages containing an HTML5 Windows Store app." EXECUTIONTIME="00h:00m:00s.90ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="79" NAME="Background tasks cancelation handler" DESCRIPTION="App should implement event handler to handle background task cancelation request." EXECUTIONTIME="00h:00m:40s.91ms">
+      <TEST INDEX="79" NAME="Background tasks cancelation handler" DESCRIPTION="App should implement event handler to handle background task cancelation request." EXECUTIONTIME="00h:00m:31s.24ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="81" NAME="Platform version launch" DESCRIPTION="App should not mis-use OSVersionInfo API to provide users functionality that is specific to the OS." EXECUTIONTIME="00h:00m:21s.67ms">
+      <TEST INDEX="81" NAME="Platform version launch" DESCRIPTION="App should not mis-use OSVersionInfo API to provide users functionality that is specific to the OS." EXECUTIONTIME="00h:00m:21s.23ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="47" NAME="App launch" DESCRIPTION="App launch tests." EXECUTIONTIME="00h:00m:20s.20ms">
+      <TEST INDEX="47" NAME="App launch" DESCRIPTION="App launch tests." EXECUTIONTIME="00h:00m:24s.09ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="80" NAME="App prelaunch" DESCRIPTION="App should pass app prelaunch validation." EXECUTIONTIME="00h:01m:03s.74ms">
+      <TEST INDEX="80" NAME="App prelaunch" DESCRIPTION="App should pass app prelaunch validation." EXECUTIONTIME="00h:01m:00s.20ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="21" NAME="Crashes and hangs" DESCRIPTION="Do not crash or hang during the testing process." EXECUTIONTIME="00h:00m:02s.43ms">
+      <TEST INDEX="21" NAME="Crashes and hangs" DESCRIPTION="Do not crash or hang during the testing process." EXECUTIONTIME="00h:00m:02s.27ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="11" TITLE="Compatibility and resiliency test" RATIONALE="When Windows detects that an application has operated in an incompatible manner, it applies a compatibility fix that causes the application to behave correctly, ensuring a positive user experience. Applications should not rely on this behavior since it is only provided to allow legacy applications to work correctly on Windows." />
     <REQUIREMENT NUMBER="12" TITLE="Package compliance test" RATIONALE="The package manifest was missing one or more required attributes.">
-      <TEST INDEX="77" NAME="Application count" DESCRIPTION="One package should not define more than one app in the manifest." EXECUTIONTIME="00h:00m:01s.34ms">
+      <TEST INDEX="77" NAME="Application count" DESCRIPTION="One package should not define more than one app in the manifest." EXECUTIONTIME="00h:00m:00s.80ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="31" NAME="App manifest" DESCRIPTION="App manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:01s.05ms">
+      <TEST INDEX="31" NAME="App manifest" DESCRIPTION="App manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:00s.96ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="74" NAME="Bundle manifest" DESCRIPTION="Bundle manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:02s.33ms">
+      <TEST INDEX="74" NAME="Bundle manifest" DESCRIPTION="Bundle manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:02s.03ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="75" NAME="Package size" DESCRIPTION="Package file size should not be greater than 4 gigabytes." EXECUTIONTIME="00h:00m:01s.40ms">
+      <TEST INDEX="75" NAME="Package size" DESCRIPTION="Package file size should not be greater than 4 gigabytes." EXECUTIONTIME="00h:00m:01s.03ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="83" NAME="Restricted namespace" DESCRIPTION="Check if any restricted namespace is referenced in the appx manifest." EXECUTIONTIME="00h:00m:01s.10ms">
+      <TEST INDEX="83" NAME="Restricted namespace" DESCRIPTION="Check if any restricted namespace is referenced in the appx manifest." EXECUTIONTIME="00h:00m:00s.99ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="13" TITLE="Windows security best practices test" RATIONALE="An application should not change the default Windows security settings." />
     <REQUIREMENT NUMBER="14" TITLE="Windows security features test" RATIONALE="Applications must opt-into Windows security features.">
-      <TEST INDEX="33" NAME="Binary analyzer" DESCRIPTION="Analysis of security features enabled on binaries" EXECUTIONTIME="00h:00m:02s.06ms">
+      <TEST INDEX="33" NAME="Binary analyzer" DESCRIPTION="Analysis of security features enabled on binaries" EXECUTIONTIME="00h:00m:02s.79ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="70" NAME="Banned file analyzer" DESCRIPTION="Analysis of application to detect known insecure files" EXECUTIONTIME="00h:00m:00s.91ms">
+      <TEST INDEX="70" NAME="Banned file analyzer" DESCRIPTION="Analysis of application to detect known insecure files" EXECUTIONTIME="00h:00m:00s.94ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="62" NAME="Private code signing" DESCRIPTION="App should not package private code signing key files." EXECUTIONTIME="00h:00m:01s.07ms">
+      <TEST INDEX="62" NAME="Private code signing" DESCRIPTION="App should not package private code signing key files." EXECUTIONTIME="00h:00m:00s.97ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="15" TITLE="Supported API test" RATIONALE="The application should only refer to the APIs allowed by the Windows SDK for Windows Store Apps.">
-      <TEST INDEX="38" NAME="Supported APIs" DESCRIPTION="Windows Store App must only use supported platform APIs." EXECUTIONTIME="00h:00m:02s.61ms">
+      <TEST INDEX="38" NAME="Supported APIs" DESCRIPTION="Windows Store App must only use supported platform APIs." EXECUTIONTIME="00h:00m:02s.32ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="17" TITLE="Performance test" RATIONALE="The application should have a fast and responsive launch and suspend experience while consuming a reasonable amount of system resources (CPU, File IO, Memory etc.) to enable fast switching and multitasking between previously unopened applications." />
     <REQUIREMENT NUMBER="19" TITLE="App manifest resources tests" RATIONALE="The App Package Manifest should have valid resources defined in the resources.pri file, as per the App Packaging Specification and App Manifest Schema.">
-      <TEST INDEX="45" NAME="App resources" DESCRIPTION="The package should have valid resources defined in the resources.pri file." EXECUTIONTIME="00h:00m:01s.52ms">
-        <RESULT><![CDATA[FAIL]]></RESULT>
-        <MESSAGES>
-          <MESSAGE TEXT="Image reference &quot;Assets\BadgeLogo.png&quot;: The image &quot;C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_x64__rmt0gkmpkhxej\Assets\BadgeLogo.scale-200.png&quot; has an ABGR value &quot;0xFF1E1E95&quot; at position (0, 3) that is not valid. The pixel must be white (##FFFFFF) or transparent (00######)." />
-          <MESSAGE TEXT="Image reference &quot;Assets\BadgeLogo.png&quot;: The image &quot;C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_neutral_split.scale-100_rmt0gkmpkhxej\Assets\BadgeLogo.scale-100.png&quot; has an ABGR value &quot;0xFF1E1E95&quot; at position (0, 2) that is not valid. The pixel must be white (##FFFFFF) or transparent (00######)." />
-          <MESSAGE TEXT="Image reference &quot;Assets\BadgeLogo.png&quot;: The image &quot;C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_neutral_split.scale-125_rmt0gkmpkhxej\Assets\BadgeLogo.scale-125.png&quot; has an ABGR value &quot;0xFF1E1E95&quot; at position (0, 2) that is not valid. The pixel must be white (##FFFFFF) or transparent (00######)." />
-          <MESSAGE TEXT="Image reference &quot;Assets\BadgeLogo.png&quot;: The image &quot;C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_neutral_split.scale-150_rmt0gkmpkhxej\Assets\BadgeLogo.scale-150.png&quot; has an ABGR value &quot;0xFF1E1E95&quot; at position (0, 3) that is not valid. The pixel must be white (##FFFFFF) or transparent (00######)." />
-          <MESSAGE TEXT="Image reference &quot;Assets\BadgeLogo.png&quot;: The image &quot;C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_x64__rmt0gkmpkhxej\Assets\BadgeLogo.scale-200.png&quot; has an ABGR value &quot;0xFF1E1E95&quot; at position (0, 3) that is not valid. The pixel must be white (##FFFFFF) or transparent (00######)." />
-          <MESSAGE TEXT="Image reference &quot;Assets\BadgeLogo.png&quot;: The image &quot;C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_neutral_split.scale-400_rmt0gkmpkhxej\Assets\BadgeLogo.scale-400.png&quot; has an ABGR value &quot;0xFF1E1E95&quot; at position (0, 7) that is not valid. The pixel must be white (##FFFFFF) or transparent (00######)." />
-        </MESSAGES>
+      <TEST INDEX="45" NAME="App resources" DESCRIPTION="The package should have valid resources defined in the resources.pri file." EXECUTIONTIME="00h:00m:00s.77ms">
+        <RESULT><![CDATA[PASS]]></RESULT>
+        <MESSAGES />
       </TEST>
-      <TEST INDEX="61" NAME="Branding" DESCRIPTION="App should not use the default images packed by windows SDK samples or Visual Studio." EXECUTIONTIME="00h:00m:02s.77ms">
-        <RESULT><![CDATA[FAIL]]></RESULT>
-        <MESSAGES>
-          <MESSAGE TEXT="Image file StoreLogo.png is a default image." />
-          <MESSAGE TEXT="Image file Square44x44Logo.targetsize-24_altform-unplated.png is a default image." />
-        </MESSAGES>
+      <TEST INDEX="61" NAME="Branding" DESCRIPTION="App should not use the default images packed by windows SDK samples or Visual Studio." EXECUTIONTIME="00h:00m:02s.10ms">
+        <RESULT><![CDATA[PASS]]></RESULT>
+        <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="20" TITLE="Debug configuration test" RATIONALE="The App should not install any debug binaries.">
-      <TEST INDEX="46" NAME="Debug configuration" DESCRIPTION="The App should not install any debug binaries." EXECUTIONTIME="00h:00m:01s.27ms">
+      <TEST INDEX="46" NAME="Debug configuration" DESCRIPTION="The App should not install any debug binaries." EXECUTIONTIME="00h:00m:00s.95ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="21" TITLE="File encoding test" RATIONALE="Packages containing an HTML5 Windows Store app must have correct file encoding.">
-      <TEST INDEX="49" NAME="UTF-8 file encoding" DESCRIPTION="Packages containing an HTML5 Windows Store app must have correct file encoding." EXECUTIONTIME="00h:00m:01s.08ms">
+      <TEST INDEX="49" NAME="UTF-8 file encoding" DESCRIPTION="Packages containing an HTML5 Windows Store app must have correct file encoding." EXECUTIONTIME="00h:00m:01s.00ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="22" TITLE="Direct3D Feature Test" RATIONALE="App should use the Direct3D capability correctly.">
-      <TEST INDEX="51" NAME="Direct3D feature level support" DESCRIPTION="Applications must render content on Direct3D feature level 9.1 hardware." EXECUTIONTIME="00h:00m:23s.35ms">
+      <TEST INDEX="51" NAME="Direct3D feature level support" DESCRIPTION="Applications must render content on Direct3D feature level 9.1 hardware." EXECUTIONTIME="00h:00m:22s.06ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="71" NAME="Direct3D trim after suspend" DESCRIPTION="Applications must call IDXGIDevice3::Trim() on the Direct3D devices they create when handling a Suspend notification." EXECUTIONTIME="00h:00m:37s.22ms">
+      <TEST INDEX="71" NAME="Direct3D trim after suspend" DESCRIPTION="Applications must call IDXGIDevice3::Trim() on the Direct3D devices they create when handling a Suspend notification." EXECUTIONTIME="00h:00m:36s.95ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="23" TITLE="App Capabilities test" RATIONALE="Packages declaring special-use capabilities will have to provide justifications during the onboarding process.">
-      <TEST INDEX="52" NAME="Special use capabilities" DESCRIPTION="Packages declaring special-use capabilities will have to provide justifications during the onboarding process." EXECUTIONTIME="00h:00m:01s.01ms">
+      <TEST INDEX="52" NAME="Special use capabilities" DESCRIPTION="Packages declaring special-use capabilities will have to provide justifications during the onboarding process." EXECUTIONTIME="00h:00m:00s.90ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="24" TITLE="Windows Runtime metadata validation" RATIONALE="Metadata needs to be conformant and consistent across all generation sources.">
-      <TEST INDEX="56" NAME="ExclusiveTo attribute" DESCRIPTION="A class must not implement an interface that is marked ExclusiveTo another class." EXECUTIONTIME="00h:00m:09s.43ms">
+      <TEST INDEX="56" NAME="ExclusiveTo attribute" DESCRIPTION="A class must not implement an interface that is marked ExclusiveTo another class." EXECUTIONTIME="00h:00m:08s.44ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="57" NAME="Type location" DESCRIPTION="Types must be defined in the metadata file with the longest matching namespace." EXECUTIONTIME="00h:00m:01s.63ms">
+      <TEST INDEX="57" NAME="Type location" DESCRIPTION="Types must be defined in the metadata file with the longest matching namespace." EXECUTIONTIME="00h:00m:01s.52ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
@@ -147,7 +137,7 @@
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="58" NAME="General metadata correctness" DESCRIPTION="Metadata files must meet various requirements in order to be valid and correct." EXECUTIONTIME="00h:00m:06s.43ms">
+      <TEST INDEX="58" NAME="General metadata correctness" DESCRIPTION="Metadata files must meet various requirements in order to be valid and correct." EXECUTIONTIME="00h:00m:06s.18ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
@@ -157,18 +147,18 @@
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="25" TITLE="Package sanity test" RATIONALE="Validation of the app package contents to ensure correctness.">
-      <TEST INDEX="63" NAME="Platform appropriate files" DESCRIPTION="App should not install files that do not match the target processor architecture." EXECUTIONTIME="00h:00m:01s.09ms">
+      <TEST INDEX="63" NAME="Platform appropriate files" DESCRIPTION="App should not install files that do not match the target processor architecture." EXECUTIONTIME="00h:00m:00s.87ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
-      <TEST INDEX="66" NAME="Supported directory structure check" DESCRIPTION="Validate each file in the package for that the file name length should be less than MAX_PATH." EXECUTIONTIME="00h:00m:00s.95ms">
+      <TEST INDEX="66" NAME="Supported directory structure check" DESCRIPTION="Validate each file in the package for that the file name length should be less than MAX_PATH." EXECUTIONTIME="00h:00m:01s.08ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="26" TITLE="High-DPI support" RATIONALE="The application needs to set DPI-aware to make the UI look consistently good across a wide variety of high-DPI display settings." />
     <REQUIREMENT NUMBER="27" TITLE="Resource Usage Test" RATIONALE="WinJS background tasks need to call close() to free resource.">
-      <TEST INDEX="68" NAME="WinJS background task" DESCRIPTION="WinJS background tasks need to call close() to free resource." EXECUTIONTIME="00h:00m:02s.30ms">
+      <TEST INDEX="68" NAME="WinJS background task" DESCRIPTION="WinJS background tasks need to call close() to free resource." EXECUTIONTIME="00h:00m:02s.06ms">
         <RESULT><![CDATA[PASS]]></RESULT>
         <MESSAGES />
       </TEST>
@@ -176,12 +166,12 @@
   </REQUIREMENTS>
   <APPLICATIONS>
     <Installed_Programs>
-      <Program Name="43030arnoldout.PazaakClone" Type="Application" Source="AppxPackage" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.0.0" Language="1033" InstallDate="04/01/2016 10:47:34" RootDirPath="C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.0.0_x64__rmt0gkmpkhxej" Id="00001db9f447cdd89bb5abab34f06e08591f00000904">
+      <Program Name="43030arnoldout.PazaakClone" Type="Application" Source="AppxPackage" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.1.0" Language="1033" InstallDate="04/01/2016 14:46:35" RootDirPath="C:\Program Files\WindowsApps\43030arnoldout.PazaakClone_1.1.1.0_x64__rmt0gkmpkhxej" Id="0000a7cb3f51fd5c2caf9b041c0133b9920c00000904">
         <Indicators>
           <WindowsStoreAppManifestIndicators>
-            <PackageManifest PackageFullName="43030arnoldout.PazaakClone_1.1.0.0_x64__rmt0gkmpkhxej">
+            <PackageManifest PackageFullName="43030arnoldout.PazaakClone_1.1.1.0_x64__rmt0gkmpkhxej">
               <Package>
-                <Identity Name="43030arnoldout.PazaakClone" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.0.0" ProcessorArchitecture="x64" />
+                <Identity Name="43030arnoldout.PazaakClone" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.1.0" ProcessorArchitecture="x64" />
                 <PhoneIdentity PhoneProductId="8264506a-6e70-4299-a917-a341f72c7a77" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
                 <Properties>
                   <DisplayName>Pazaak Clone</DisplayName>
@@ -195,19 +185,13 @@
                   <PackageDependency Name="Microsoft.NET.Native.Runtime.1.1" MinVersion="1.1.23406.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
                 </Dependencies>
                 <Resources>
-                  <Resource Language="EN-US" />
                   <Resource Language="EN-GB" />
                   <Resource Scale="200" />
                 </Resources>
                 <Applications>
                   <Application Id="App" Executable="Pazaak.exe" EntryPoint="Pazaak.App">
                     <VisualElements DisplayName="Pazaak Clone" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Pazaak" BackgroundColor="transparent" ForegroundText="light">
-                      <LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
-                      <DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\Square71x71Logo.png" Square310x310Logo="Assets\Square310x310Logo.png">
-                        <ShowNameOnTiles>
-                          <ShowOn Tile="square310x310Logo" />
-                        </ShowNameOnTiles>
-                      </DefaultTile>
+                      <DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\Square71x71Logo.png" />
                       <SplashScreen Image="Assets\SplashScreen.png" />
                     </VisualElements>
                   </Application>
@@ -219,50 +203,47 @@
             </PackageManifest>
             <BundleManifest PackageFamilyName="43030arnoldout.PazaakClone_rmt0gkmpkhxej">
               <Bundle SchemaVersion="2.0">
-                <Identity Name="43030arnoldout.PazaakClone" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.0.0" />
+                <Identity Name="43030arnoldout.PazaakClone" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.1.0" />
                 <Packages>
-                  <Package Type="application" Version="1.1.0.0" Architecture="x86" FileName="Pazaak_1.1.0.0_x86.appx" Offset="3068124" Size="1162344">
+                  <Package Type="application" Version="1.1.1.0" Architecture="x86" FileName="Pazaak_1.1.1.0_x86.appx" Offset="2994662" Size="1196058">
                     <Resources>
-                      <Resource Language="EN-US" />
                       <Resource Language="EN-GB" />
                       <Resource Scale="200" />
                     </Resources>
                   </Package>
-                  <Package Type="application" Version="1.1.0.0" Architecture="x64" FileName="Pazaak_1.1.0.0_x64.appx" Offset="1825273" Size="1242774">
+                  <Package Type="application" Version="1.1.1.0" Architecture="x64" FileName="Pazaak_1.1.1.0_x64.appx" Offset="1718154" Size="1276431">
                     <Resources>
-                      <Resource Language="EN-US" />
                       <Resource Language="EN-GB" />
                       <Resource Scale="200" />
                     </Resources>
                   </Package>
-                  <Package Type="application" Version="1.1.0.0" Architecture="arm" FileName="Pazaak_1.1.0.0_ARM.appx" Offset="53" Size="1215456">
+                  <Package Type="application" Version="1.1.1.0" Architecture="arm" FileName="Pazaak_1.1.1.0_ARM.appx" Offset="53" Size="1249819">
                     <Resources>
-                      <Resource Language="EN-US" />
                       <Resource Language="EN-GB" />
                       <Resource Scale="200" />
                     </Resources>
                   </Package>
-                  <Package Type="resource" Version="1.1.0.0" ResourceId="split.language-fr" FileName="Pazaak_1.1.0.0_language-fr.appx" Offset="1215594" Size="5884">
+                  <Package Type="resource" Version="1.1.1.0" ResourceId="split.language-fr" FileName="Pazaak_1.1.1.0_language-fr.appx" Offset="1249957" Size="5906">
                     <Resources>
                       <Resource Language="fr-fr" />
                     </Resources>
                   </Package>
-                  <Package Type="resource" Version="1.1.0.0" ResourceId="split.scale-100" FileName="Pazaak_1.1.0.0_scale-100.appx" Offset="1221561" Size="48368">
+                  <Package Type="resource" Version="1.1.1.0" ResourceId="split.scale-100" FileName="Pazaak_1.1.1.0_scale-100.appx" Offset="1255946" Size="39355">
                     <Resources>
                       <Resource Scale="100" />
                     </Resources>
                   </Package>
-                  <Package Type="resource" Version="1.1.0.0" ResourceId="split.scale-125" FileName="Pazaak_1.1.0.0_scale-125.appx" Offset="1270012" Size="67108">
+                  <Package Type="resource" Version="1.1.1.0" ResourceId="split.scale-125" FileName="Pazaak_1.1.1.0_scale-125.appx" Offset="1295384" Size="50694">
                     <Resources>
                       <Resource Scale="125" />
                     </Resources>
                   </Package>
-                  <Package Type="resource" Version="1.1.0.0" ResourceId="split.scale-150" FileName="Pazaak_1.1.0.0_scale-150.appx" Offset="1337203" Size="87804">
+                  <Package Type="resource" Version="1.1.1.0" ResourceId="split.scale-150" FileName="Pazaak_1.1.1.0_scale-150.appx" Offset="1346161" Size="65109">
                     <Resources>
                       <Resource Scale="150" />
                     </Resources>
                   </Package>
-                  <Package Type="resource" Version="1.1.0.0" ResourceId="split.scale-400" FileName="Pazaak_1.1.0.0_scale-400.appx" Offset="1425090" Size="400106">
+                  <Package Type="resource" Version="1.1.1.0" ResourceId="split.scale-400" FileName="Pazaak_1.1.1.0_scale-400.appx" Offset="1411353" Size="306724">
                     <Resources>
                       <Resource Scale="400" />
                     </Resources>
@@ -273,19 +254,19 @@
           </WindowsStoreAppManifestIndicators>
         </Indicators>
         <StaticProperties>
-          <Files Id="00009994eb43819f9d06cc1a3392f175f6b04ea44257">
-            <File Name="resources.pri" Id="0000aa8ad24293059702f816e9a0f1a46c98216fb9b1" Size="0x4a90" BinaryType="DATA_ONLY" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.0.0_x64__rmt0gkmpkhxej\resources.pri" LongPathHash="00004b93854b6fe8f508dcec9fffb195ca8b6a8d939a" />
-            <File Name="S-1-5-21-3017538471-3676178841-1046917900-1001-MergedResources-0.pri" Id="00007efe2ab1340ea13b612445cf2262c359563ef69f" Size="0x15f0" BinaryType="DATA_ONLY" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.0.0_x64__rmt0gkmpkhxej\microsoft.system.package.metadata\s-1-5-21-3017538471-3676178841-1046917900-1001-mergedresources-0.pri" LongPathHash="0000446f43608421f9cabb0f4e7d49e3746baa3e33d3" />
-            <File Name="Pazaak.exe" Id="0000ebbbe0e56ec790941717f9a13273bc1bdab596f4" ProductName="Pazaak" ProductVersion="1.0.0.0" VerLanguage="0" SwitchBackContext="0x0100000000000602" FileVersion="1.0.0.0" Size="0x3c00" SizeOfImage="0x7000" PeHeaderHash="0101dc5c048e587d39a334fece28c1a6d52adbf5ef3a" PeChecksum="0x0" BinProductVersion="1.0.0.0" BinFileVersion="1.0.0.0" FileDescription="Pazaak" InternalName="Pazaak.exe" LegalCopyright="Copyright ©  2016" LinkDate="04/01/2016 10:42:53" BinaryType="PE64_AMD64" OriginalFileName="Pazaak.exe" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.0.0_x64__rmt0gkmpkhxej\pazaak.exe" LongPathHash="0000c7c382aecabdc59b3d05ccf5d0c8a0f05ef6aa7a" />
-            <File Name="Pazaak.dll" Id="0000d87efe7410313cd03559551cadc49170641485fc" ProductName="Pazaak" ProductVersion="1.0.0.0" VerLanguage="0" SwitchBackContext="0x0100000000000602" FileVersion="1.0.0.0" Size="0x20ca00" SizeOfImage="0x210000" PeHeaderHash="0101e52d58111ee0fa8afb33c57fb1570526180ba467" PeChecksum="0x0" BinProductVersion="1.0.0.0" BinFileVersion="1.0.0.0" FileDescription="Pazaak" InternalName="Pazaak.exe" LegalCopyright="Copyright ©  2016" LinkDate="04/01/2016 10:42:53" BinaryType="PE64_AMD64" OriginalFileName="Pazaak.exe" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.0.0_x64__rmt0gkmpkhxej\pazaak.dll" LongPathHash="000073d032ec77c03cbf9ef7c8a96bb4c6c83916ebf0" />
-            <File Name="ClrCompression.dll" Id="00003e0ead7458e4ad4ec0ca220a18be2728eae6ea20" ProductName="Microsoft® .NET Framework" CompanyName="Microsoft Corporation" ProductVersion="1.0.23123.00 built by: PROJECTKREL" VerLanguage="1033" SwitchBackContext="0x0100000000000602" FileVersion="1.0.23123.00 built by: PROJECTKREL" Size="0xff58" SizeOfImage="0x11000" PeHeaderHash="010180133b75799bcf35dee08546b18ddf87cb3a3b7d" PeChecksum="0x15e25" BinProductVersion="1.0.23123.0" BinFileVersion="1.0.23123.0" FileDescription="ClrCompression" InternalName="ClrCompression" LegalCopyright="© Microsoft Corporation.  All rights reserved." LinkDate="07/23/2015 04:01:33" BinaryType="PE64_AMD64" OriginalFileName="ClrCompression" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.0.0_x64__rmt0gkmpkhxej\clrcompression.dll" LongPathHash="00000cc8f3301316951ef13f2fb6e15bc3a3a275f2b8" />
+          <Files Id="0000af695ccb7284ab2bd473dabe4e0453ec195aedc5">
+            <File Name="ClrCompression.dll" Id="00003e0ead7458e4ad4ec0ca220a18be2728eae6ea20" ProductName="Microsoft® .NET Framework" CompanyName="Microsoft Corporation" ProductVersion="1.0.23123.00 built by: PROJECTKREL" VerLanguage="1033" SwitchBackContext="0x0100000000000602" FileVersion="1.0.23123.00 built by: PROJECTKREL" Size="0xff58" SizeOfImage="0x11000" PeHeaderHash="010180133b75799bcf35dee08546b18ddf87cb3a3b7d" PeChecksum="0x15e25" BinProductVersion="1.0.23123.0" BinFileVersion="1.0.23123.0" FileDescription="ClrCompression" InternalName="ClrCompression" LegalCopyright="© Microsoft Corporation.  All rights reserved." LinkDate="07/23/2015 04:01:33" BinaryType="PE64_AMD64" OriginalFileName="ClrCompression" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.1.0_x64__rmt0gkmpkhxej\clrcompression.dll" LongPathHash="00002e576a968ca46ce588fd857aa08cbbfcee63d287" />
+            <File Name="S-1-5-21-3017538471-3676178841-1046917900-1001-MergedResources-0.pri" Id="000054661cfe494d1e66e71702ef17b25cf8f7ff295f" Size="0x1650" BinaryType="DATA_ONLY" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.1.0_x64__rmt0gkmpkhxej\microsoft.system.package.metadata\s-1-5-21-3017538471-3676178841-1046917900-1001-mergedresources-0.pri" LongPathHash="0000af85112dbb9214fe82c1120f9e89dfd8659f1e69" />
+            <File Name="resources.pri" Id="0000b6ce6d7965219ca58677c0e1f66610ce5ca69590" Size="0x4b08" BinaryType="DATA_ONLY" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.1.0_x64__rmt0gkmpkhxej\resources.pri" LongPathHash="0000e260bc92f366b8cee547a2fb47ad0e109b8c1c98" />
+            <File Name="Pazaak.exe" Id="00008875f2763cc91f5cc7244ce0773f7cc289150725" ProductName="Pazaak" ProductVersion="1.0.0.0" VerLanguage="0" SwitchBackContext="0x0100000000000602" FileVersion="1.0.0.0" Size="0x3c00" SizeOfImage="0x7000" PeHeaderHash="0101b4dcbaff48e1e28a3beb311f1aa4ac2f87b58a67" PeChecksum="0x0" BinProductVersion="1.0.0.0" BinFileVersion="1.0.0.0" FileDescription="Pazaak" InternalName="Pazaak.exe" LegalCopyright="Copyright ©  2016" LinkDate="04/01/2016 14:43:10" BinaryType="PE64_AMD64" OriginalFileName="Pazaak.exe" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.1.0_x64__rmt0gkmpkhxej\pazaak.exe" LongPathHash="00002fee096a08589aa9dc1724ccd6210d728aadb6b0" />
+            <File Name="Pazaak.dll" Id="0000a973263fc4a69e660b4544c37544903e9ea2620d" ProductName="Pazaak" ProductVersion="1.0.0.0" VerLanguage="0" SwitchBackContext="0x0100000000000602" FileVersion="1.0.0.0" Size="0x20c800" SizeOfImage="0x210000" PeHeaderHash="0101edbbb5aba57412458735f516d3c85111013d0488" PeChecksum="0x0" BinProductVersion="1.0.0.0" BinFileVersion="1.0.0.0" FileDescription="Pazaak" InternalName="Pazaak.exe" LegalCopyright="Copyright ©  2016" LinkDate="04/01/2016 14:43:10" BinaryType="PE64_AMD64" OriginalFileName="Pazaak.exe" LowerCaseLongPath="c:\program files\windowsapps\43030arnoldout.pazaakclone_1.1.1.0_x64__rmt0gkmpkhxej\pazaak.dll" LongPathHash="0000c55b6b9f3fb08f650fc788e224e28835622e4f89" />
           </Files>
         </StaticProperties>
       </Program>
     </Installed_Programs>
   </APPLICATIONS>
   <DEPENDENCY_INFORMATION>
-    <AitStaticAnalysis ProgramId="00001db9f447cdd89bb5abab34f06e08591f00000904" AnalysisVersion="1.60" DictionaryVersion="3.0" Type="Package" Id="43030arnoldout.PazaakClone_1.1.0.0_x64__rmt0gkmpkhxej">
+    <AitStaticAnalysis ProgramId="0000a7cb3f51fd5c2caf9b041c0133b9920c00000904" AnalysisVersion="1.60" DictionaryVersion="3.0" Type="Package" Id="43030arnoldout.PazaakClone_1.1.1.0_x64__rmt0gkmpkhxej">
       <AitFile ErrorCode="0" Name="ClrCompression.dll" Id="00003e0ead7458e4ad4ec0ca220a18be2728eae6ea20">
         <AitCategory Id="ApiStatic">
           <AitFeature Name="api-ms-win-core-profile-l1-1-0.dll!QueryPerformanceCounter" />
@@ -297,7 +278,8 @@
           <AitFeature Name="api-ms-win-core-processthreads-l1-1-0.dll!GetCurrentThreadId" />
         </AitCategory>
       </AitFile>
-      <AitFile ErrorCode="0" Name="Pazaak.dll" Id="0000d87efe7410313cd03559551cadc49170641485fc">
+      <AitFile ErrorCode="0" Name="Pazaak.exe" Id="00008875f2763cc91f5cc7244ce0773f7cc289150725" />
+      <AitFile ErrorCode="0" Name="Pazaak.dll" Id="0000a973263fc4a69e660b4544c37544903e9ea2620d">
         <AitCategory Id="Com">
           <AitFeature Name="{00020401-0000-0000-c000-000000000046}" />
           <AitFeature Name="{00020402-0000-0000-c000-000000000046}" />
@@ -850,7 +832,6 @@
           <AitFeature Name="Windows.Security.Cryptography.Certificates.CertificateQuery" />
         </AitCategory>
       </AitFile>
-      <AitFile ErrorCode="0" Name="Pazaak.exe" Id="0000ebbbe0e56ec790941717f9a13273bc1bdab596f4" />
     </AitStaticAnalysis>
   </DEPENDENCY_INFORMATION>
 </REPORT>

@@ -3,4 +3,4 @@
 "ResourceDimensions"		"language-fr-fr"
 
 [Files]
-"C:\Users\Olivr\Desktop\Pazaak\Pazaak\obj\x86\Release\split.language-fr.pri"			"resources.pri"
+"C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\obj\x86\Release\split.language-fr.pri"			"resources.pri"

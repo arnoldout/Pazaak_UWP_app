@@ -49,6 +49,11 @@
 						<Value>Assets\LockScreenLogo.scale-200.png</Value>
 					</Candidate>
 				</NamedResource>
+				<NamedResource name="LSplashScreen.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/LSplashScreen.png">
+					<Candidate type="Path">
+						<Value>Assets\LSplashScreen.png</Value>
+					</Candidate>
+				</NamedResource>
 				<NamedResource name="SplashScreen.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/SplashScreen.png">
 					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
 						<Value>Assets\SplashScreen.scale-200.png</Value>
@@ -90,6 +95,9 @@
 					</Candidate>
 				</NamedResource>
 				<NamedResource name="StoreLogo.png" uri="ms-resource://43030arnoldout.PazaakClone/Files/Assets/StoreLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\StoreLogo.scale-200.png</Value>
+					</Candidate>
 					<Candidate type="Path">
 						<Value>Assets\StoreLogo.png</Value>
 					</Candidate>

@@ -1,7 +1,7 @@
-MainPackage=C:\Users\Olivr\Desktop\Pazaak\Pazaak\bin\ARM\Release\Upload\Pazaak_1.1.0.0_ARM.appx
-SymbolPackage=C:\Users\Olivr\Desktop\Pazaak\Pazaak\AppPackages\Pazaak_1.1.0.0\Pazaak_1.1.0.0_ARM.appxsym
-ResourcePack=C:\Users\Olivr\Desktop\Pazaak\Pazaak\_language-fr.appx
-ResourcePack=C:\Users\Olivr\Desktop\Pazaak\Pazaak\_scale-100.appx
-ResourcePack=C:\Users\Olivr\Desktop\Pazaak\Pazaak\_scale-125.appx
-ResourcePack=C:\Users\Olivr\Desktop\Pazaak\Pazaak\_scale-150.appx
-ResourcePack=C:\Users\Olivr\Desktop\Pazaak\Pazaak\_scale-400.appx
+MainPackage=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\bin\ARM\Release\Upload\Pazaak_1.1.1.0_ARM.appx
+SymbolPackage=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\AppPackages\Pazaak_1.1.1.0\Pazaak_1.1.1.0_ARM.appxsym
+ResourcePack=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\_language-fr.appx
+ResourcePack=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\_scale-100.appx
+ResourcePack=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\_scale-125.appx
+ResourcePack=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\_scale-150.appx
+ResourcePack=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\_scale-400.appx

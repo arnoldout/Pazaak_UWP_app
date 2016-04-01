@@ -23,11 +23,16 @@ namespace Pazaak
     /// </summary>
     sealed partial class App : Application
     {
+        //global sources for the car images
         public static BitmapImage posCard;
         public static BitmapImage negCard;
         public static BitmapImage deckCard;
+        //a global Random object
         public static Random randomizer = new Random();
-        public static int gmDifficulty = 4;
+        //default difficulty is set to easy
+        public static int gmDifficulty;
+        //default user name is set to "usrName"
+        public static String usrName;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

@@ -126,7 +126,7 @@
   <data name="enBlk.Text" xml:space="preserve">
     <value>AI</value>
   </data>
-  <data name="endBtn.Content" xml:space="preserve">
+  <data name="endTurnTxt.Text" xml:space="preserve">
     <value>End Turn</value>
   </data>
   <data name="enScr.Text" xml:space="preserve">
@@ -144,9 +144,6 @@
   <data name="settingsBtn.Content" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="stndBtn.Content" xml:space="preserve">
-    <value>Stand</value>
-  </data>
   <data name="txtDiff.Text" xml:space="preserve">
     <value>Difficulty</value>
   </data>
@@ -155,5 +152,44 @@
   </data>
   <data name="usrScr.Text" xml:space="preserve">
     <value>Score</value>
+  </data>
+  <data name="bust" xml:space="preserve">
+    <value>You Bust</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="lost" xml:space="preserve">
+    <value>You Lost</value>
+  </data>
+  <data name="newGm" xml:space="preserve">
+    <value>New Game?</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="standTxt.Text" xml:space="preserve">
+    <value>Stand</value>
+  </data>
+  <data name="tie" xml:space="preserve">
+    <value>It's A Tie</value>
+  </data>
+  <data name="win" xml:space="preserve">
+    <value>You Won!</value>
+  </data>
+  <data name="instructions.Text" xml:space="preserve">
+    <value>Aim: The aim of Pazaak is to get a higher score than your opponent, while still having a score below or equal to 20.
+
+Rules: A game is broken down into turns, when its a your turn, you will be given a card from the deck, which will increase your score.
+You can then choose to place one of your hand cards down to increase your score further. 
+When you are finished with your turn you can end your turn, it will then become your opponents turn. 
+Or if you don't wish to risk getting another card you can Stand. This will take you out of the game and your opponent will take multiple turns until they also stand.
+
+Once both of you are standing, the winner will be whomever is score is closest to 20 without being over 20.
+
+Hand Cards: You recieve 4 hand cards that have to last you throughout the full game (max of 5 rounds).</value>
+  </data>
+  <data name="instructionsBtn.Content" xml:space="preserve">
+    <value>Instructions</value>
   </data>
 </root>

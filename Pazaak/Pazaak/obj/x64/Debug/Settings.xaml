@@ -7,13 +7,60 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Uid="txtDiff" HorizontalAlignment="Left" Margin="272,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:ConnectionId='1' x:Uid ="easyBtn" HorizontalAlignment="Left" Margin="282,160,0,0" VerticalAlignment="Top"                          />
-        <Button x:ConnectionId='2' x:Uid="medBtn" HorizontalAlignment="Left" Margin="272,197,0,0" VerticalAlignment="Top"                           />
-        <Button x:ConnectionId='3' x:Uid="hrdBtn" HorizontalAlignment="Left" Margin="279,234,0,0" VerticalAlignment="Top"                           />
-        <Button x:ConnectionId='4' x:Uid="bckBtn" HorizontalAlignment="Left" Margin="75,266,0,0" VerticalAlignment="Top"                   />
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Image x:ConnectionId='1' x:Name="bkGround" Stretch="Fill" Source="/Resources/Background.png"></Image>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock x:Uid="txtDiff"  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="RedFive" FontWeight="Bold" FontSize="24" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Button x:ConnectionId='6' x:Uid ="easyBtn" HorizontalAlignment="Center" Background="LightGray"  VerticalAlignment="Bottom"                          />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Button x:ConnectionId='5' x:Uid="medBtn" HorizontalAlignment="Center" Background="LightGray" VerticalAlignment="Center"                           />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Button x:ConnectionId='4' x:Uid="hrdBtn" HorizontalAlignment="Center" Background="LightGray" VerticalAlignment="Top"                           />
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Button x:ConnectionId='3' x:Uid="bckBtn" HorizontalAlignment="Left" Background="LightGray" VerticalAlignment="Bottom"                   />
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="4*"></ColumnDefinition>
+                        <ColumnDefinition Width ="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBlock Text="Enter Name: "></TextBlock>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:ConnectionId='2' x:Name="nmEnter"                                  />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
 

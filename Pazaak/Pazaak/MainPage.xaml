@@ -13,6 +13,10 @@
     *   at: http://www.1001fonts.com/redfive-font.html
     *
     -->
+
+    <!--
+        French translation for the instructions page was found at: http://www.sden.org/IMG/pdf/Le_jeu_du_PAZAAK.pdf    
+    -->
     <Grid>
         <Image x:Name="bkGround" Stretch="Fill" Source="/Resources/backgroundMenu.png"></Image>
     
@@ -25,16 +29,20 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <Button x:Uid="menuStartGame" HorizontalAlignment="Center" VerticalAlignment="Center" Click="button_Click"/>
-                </Grid>
                 <Grid Grid.Column="1">
-                    <Button x:Uid="settingsBtn" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="button_Click_1"/>
-                    
+                    <Button x:Uid="menuStartGame" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightGray" Click="button_Click" FontSize="20" />
                 </Grid>
+                <Grid Grid.Column="0">
+                    <Button x:Uid="settingsBtn" HorizontalAlignment="Center"  VerticalAlignment="Center" Background="LightGray" Click="button_Click_1"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Uid="instructionsBtn" HorizontalAlignment="Center"  VerticalAlignment="Center" Background="LightGray" Click="Button_Click_2" />
+                    
+                    </Grid>
             </Grid>
         
            

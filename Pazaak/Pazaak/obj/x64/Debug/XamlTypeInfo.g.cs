@@ -132,19 +132,21 @@ namespace Pazaak.Pazaak_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[6];
             _typeNameTable[0] = "Pazaak.InGame";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Pazaak.MainPage";
-            _typeNameTable[4] = "Pazaak.Settings";
+            _typeNameTable[3] = "Pazaak.Instructions";
+            _typeNameTable[4] = "Pazaak.MainPage";
+            _typeNameTable[5] = "Pazaak.Settings";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[6];
             _typeTable[0] = typeof(global::Pazaak.InGame);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Pazaak.MainPage);
-            _typeTable[4] = typeof(global::Pazaak.Settings);
+            _typeTable[3] = typeof(global::Pazaak.Instructions);
+            _typeTable[4] = typeof(global::Pazaak.MainPage);
+            _typeTable[5] = typeof(global::Pazaak.Settings);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -180,8 +182,9 @@ namespace Pazaak.Pazaak_XamlTypeInfo
         }
 
         private object Activate_0_InGame() { return new global::Pazaak.InGame(); }
-        private object Activate_3_MainPage() { return new global::Pazaak.MainPage(); }
-        private object Activate_4_Settings() { return new global::Pazaak.Settings(); }
+        private object Activate_3_Instructions() { return new global::Pazaak.Instructions(); }
+        private object Activate_4_MainPage() { return new global::Pazaak.MainPage(); }
+        private object Activate_5_Settings() { return new global::Pazaak.Settings(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -208,16 +211,23 @@ namespace Pazaak.Pazaak_XamlTypeInfo
                 xamlType = new global::Pazaak.Pazaak_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Pazaak.MainPage
+            case 3:   //  Pazaak.Instructions
                 userType = new global::Pazaak.Pazaak_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
+                userType.Activator = Activate_3_Instructions;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Pazaak.Settings
+            case 4:   //  Pazaak.MainPage
                 userType = new global::Pazaak.Pazaak_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_Settings;
+                userType.Activator = Activate_4_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Pazaak.Settings
+                userType = new global::Pazaak.Pazaak_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_Settings;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

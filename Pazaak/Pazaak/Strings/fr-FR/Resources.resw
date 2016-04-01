@@ -126,8 +126,8 @@
   <data name="enBlk.Text" xml:space="preserve">
     <value>AI</value>
   </data>
-  <data name="endBtn.Content" xml:space="preserve">
-    <value>Arrêtez</value>
+  <data name="endTurnTxt.Text" xml:space="preserve">
+    <value>Fin Du Tour</value>
   </data>
   <data name="enScr.Text" xml:space="preserve">
     <value>Score</value>
@@ -144,8 +144,8 @@
   <data name="settingsBtn.Content" xml:space="preserve">
     <value>Paramètres</value>
   </data>
-  <data name="stndBtn.Content" xml:space="preserve">
-    <value>Je reste</value>
+  <data name="standTxt.Text" xml:space="preserve">
+    <value>Servi</value>
   </data>
   <data name="txtDiff.Text" xml:space="preserve">
     <value>Difficulté</value>
@@ -155,5 +155,53 @@
   </data>
   <data name="usrScr.Text" xml:space="preserve">
     <value>Score</value>
+  </data>
+  <data name="bust" xml:space="preserve">
+    <value>Perdu</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="lost" xml:space="preserve">
+    <value>Perdu</value>
+  </data>
+  <data name="newGm" xml:space="preserve">
+    <value>encore?</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="tie" xml:space="preserve">
+    <value>Ils ont fait match nul</value>
+  </data>
+  <data name="win" xml:space="preserve">
+    <value>Tu as gagné</value>
+  </data>
+  <data name="instructions.Text" xml:space="preserve">
+    <value>Règles :
+Conditions de victoire : La valeur cumulée de vos cartes retournées doit être supérieure à celle de votre adversaire, sans pour autant excéder un total de
+20. Lorsque l'un des deux joueurs obtient un total supérieur à 20, il perd automatiquement la manche. Il faut remporter un total de trois manches pour
+empocher la mise.
+Débuter la partie : Lorsque la partie commence, quatre cartes du paquet secondaire sont tirées aléatoirement pour former la main du joueur pendant la
+partie.
+Le premier joueur lance le générateur de pazaak qui définit une carte principale (de la pioche) et la pose sur la table face visible, ce qui débute son tour.
+La valeur des cartes de la pioche est comprise entre 1 et 10 avec des disponibilités variables et aléatoires elles aussi. C’est automatique.
+Après que chaque carte est jouée, une carte supplémentaire peut être jouée en faisant glisser la carte vers la zone où les cartes jaunes (principales) déjà
+jouées sont affichées.
+Vous n’êtes pas obligé de jouer une carte sortie de la MAIN. Cette action est optionnelle.
+Vous ne pouvez jouer qu’une carte de la main par tour.
+Fin d’un tour : Quand le joueur a fini de jouer, il dit FIN DU TOUR pour permettre à ses adversaires de prendre la main. Cela continue jusqu’à ce que
+quelqu’un remporte la manche. Les égalités ne comptent pas. Les cartes de la main du joueur ne peuvent être utilisées qu’une fois, les quatre cartes
+doivent donc durer toute la partie.
+20 : Si un personnage obtient 20, il s’arrête là et n’est plus distribué. Le jeu continue pendant un tour ou plusieurs tours pour son adversaire (= 1 carte
+principale + 1 carte secondaire optionnelle à jouer à chaque tour) qui semble alors jouer seul pour tenter de l’égaler ou perdre.
+Servi : Un personnage approchant de 20 (ex : 18) peut choisir d’en rester là, il dit alors SERVI et n’est plus distribué. Le jeu continue pendant un tour ou
+plusieurs tours pour son adversaire qui doit tenter de l’égaler ou de le dépasser
+sans aller au-delà de 20.
+Astuce : Si le total est supérieur à 20 après le tirage principal et que vous avez une carte négative dans le paquet secondaire, vous pouvez la jouer pour
+ramener votre total sous 20</value>
+  </data>
+  <data name="instructionsBtn.Content" xml:space="preserve">
+    <value>Mode d'emploi</value>
   </data>
 </root>

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -44,6 +45,8 @@ namespace Pazaak
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            //arrays containing various controls created at design time
+            //helps to greatly improve efficiency when searching for control values 
             usrImgs = new Image[9] { usrCrdImg1, usrCrdImg2, usrCrdImg3, usrCrdImg4, usrCrdImg5, usrCrdImg6, usrCrdImg7, usrCrdImg8, usrCrdImg9 };
             enImgs = new Image[9] { enCrdImg1, enCrdImg2, enCrdImg3, enCrdImg4, enCrdImg5, enCrdImg6, enCrdImg7, enCrdImg8, enCrdImg9 };
             enTxtBlks = new TextBlock[9] { enCrd1, enCrd2, enCrd3, enCrd4, enCrd5, enCrd6, enCrd7, enCrd8, enCrd9 };
@@ -51,31 +54,40 @@ namespace Pazaak
             enHndImgs = new Image[4] { enHnd1, enHnd2, enHnd3, enHnd4 };
             enTbHnds = new TextBlock[4] { tbEnHnd1, tbEnHnd2, tbEnHnd3, tbEnHnd4 };
 
-
+            //boolean values control access to buttons in game
             endTurnTapped = false;
             standTapped = false;
             usedCard = false;
+            //take in a parameter of the two player objects created in the previous page.
+            //I chose to take parameters to display my knowledge of multiple ways to pass data between pages
             Player[] arr = e.Parameter as Player[];
             if (arr != null)
             {
+                //setting the players 
                 en = (SkyNet)arr[0];
                 pl = (User)arr[1];
-                pl.TrnCnt = pl.TrnCnt;
+
                 usrScrSwch();
                 enScrSwch();
+                //display name of object on screen
                 enBlk.Text = en.Name;
                 usrBlk.Text = pl.Name;
                 //make hands for the user and en
                 popHndCrds();
+                //initialize the hand images
                 initHands();
+                //create an actual deck of cards
                 mkDeck();
                 //initially gives user a card
                 pl.deckCall(false, usrScr, this, deck);
+                //animates the user's deck card on screen
                 await srchGrid(pl);
             }
         }
         public void initHands()
         {
+            //display hand cards at correct positions 
+            //with correct image source 
             setCardCol(tbHnd1.Text, usrHnd1);
             setCardCol(tbHnd2.Text, usrHnd2);
             setCardCol(tbHnd3.Text, usrHnd3);
@@ -84,10 +96,10 @@ namespace Pazaak
             setCardCol(tbEnHnd2.Text, enHnd2);
             setCardCol(tbEnHnd3.Text, enHnd3);
             setCardCol(tbEnHnd4.Text, enHnd4);
-
         }
         public void setCardCol(String val, Image i)
         {   
+            //sets card source dependent on card value
             if (validateStrNum(val))
             {
                 int digit = Convert.ToInt16(val);
@@ -103,6 +115,7 @@ namespace Pazaak
         }
         public Boolean validateStrNum(String s)
         {
+            //discovers if value is able to be converted to an integer 
             try
             {
                 Convert.ToInt16(s);
@@ -113,6 +126,7 @@ namespace Pazaak
                 return false;
             }
         }
+        //search Images to find str value as a name
         public Image srchImg(String str, Image[] crds)
         {
             for (int i = 0; i < crds.Length; i++)
@@ -130,26 +144,38 @@ namespace Pazaak
                 11 12 13
                 21 22 23
                 31 32 33
+
+                Basis of the card animation, this method tracks the position of the card as it moves through the grid
+                it moves the card horizontally and vertically through the grid, animating the card after every grid shift
+
+                i.e: if the card is moving left, starting at 33 and wants to get to position 11 as shown above, 
+                the card will animate at 33, then shift to 22, where it will animate again, and finally move to 11, 
+                where it will be given an image source and become a static image
             */
             int currPos = 0;
 
+            //the user card moves left from 33
             if (p.GetType() == typeof(User))
             {
                 currPos = 33;
             }
+            //the AI moves right from 31
             else if (p.GetType() == typeof(SkyNet))
             {
                 currPos = 31;
             }
-
+            
+            //the final position the image needs to move toward
             int finalPos = getCurrGridSq(p.TrnCnt, p);
 
             if (finalPos != 0)
             {
                 while (currPos != finalPos)
                 {
+                    //animate card to current position
                     if (p.GetType() == typeof(User))
                     {
+                        
                         await animateCard("usrCrdImg" + getImgSq(currPos), p);
                     }
                     else if (p.GetType() == typeof(SkyNet))
@@ -157,23 +183,27 @@ namespace Pazaak
                         int y = getImgSq(currPos);
                         await animateCard("enCrdImg" + getImgSq(currPos), p);
                     }
+
                     if (currPos % 10 != finalPos % 10)
                     {
-                        //mvLeft
+                        //user needs a left shift
                         if (p.GetType() == typeof(User))
                         {
                             currPos--;
                         }
+                        //AI needs a right shift
                         else if (p.GetType() == typeof(SkyNet))
                         {
                             currPos++;
                         }
                     }
+                    //both card types need to move up
                     if ((int)currPos / 10 > (int)finalPos / 10)
                     {
                         currPos -= 10;
                     }
                 }
+                //grab image source
                 Image img;
                 if (p.GetType() == typeof(User))
                 {
@@ -186,11 +216,13 @@ namespace Pazaak
 
                 if (img != null)
                 {
+                    //display card image
                     img.Opacity = 2;
-                    img.Source = App.deckCard;
+                    //img.Source = App.deckCard;
                 }
             }
         }
+        //gets the appropraite array based on the Player type
         public Image[] getImgArr(Player p)
         {
             if (p.GetType() == typeof(User))
@@ -202,6 +234,8 @@ namespace Pazaak
                 return enImgs;
             }
         }
+
+        //converts the grid square into a table positioin
         public int getImgSq(int gridSq)
         {
             /*
@@ -233,6 +267,7 @@ namespace Pazaak
                     return 0;
             }
         }
+        //converts a table position into a grid square position
         public int getCurrGridSq(int trnCnt, Player p)
         {
             /*
@@ -264,6 +299,8 @@ namespace Pazaak
                     return 0;
             }
         }
+        
+        //a dynamic story board that uses tasks to auto complete themselves when the duration is complete
         private async Task animateCard(String imageNm, Player p)
         {
             Storyboard sb = new Storyboard();
@@ -281,6 +318,8 @@ namespace Pazaak
             await Task.Delay((int)da.Duration.TimeSpan.TotalMilliseconds);
             sb.Stop();
         }
+
+        //create a deck of 40 cards that have randomized shuffled positions
         private void mkDeck()
         {
             int[] deckVals = new int[40] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -292,6 +331,7 @@ namespace Pazaak
             }
         }
 
+        //shuffle array
         public int[] Shuffle(int[] crdVals)
         {
             Random r = new Random();
@@ -310,11 +350,14 @@ namespace Pazaak
             }
             return crdVals;
         }
+
+        //display hand value on hand card
         public void showUsrCardValue(TextBlock tb, Player p, int placer)
         {
             tb.Text = p.Hand[placer].Val.ToString();
         }
 
+        //draw all hand cards to screen
         public void popHndCrds()
         {
             for (int usrHndLoop = 0; usrHndLoop < pl.Hand.Length; usrHndLoop++)
@@ -326,6 +369,8 @@ namespace Pazaak
                 drawEnHand(enHndLoop);
             }
         }
+
+        //draw card at corresponding position
         public void drawUsrHand(int i)
         {
             TextBlock tBlock;
@@ -352,11 +397,8 @@ namespace Pazaak
             {
                 showUsrCardValue(tBlock, pl, i);
             }
-            else
-            {
-                String s = "boskdof";
-            }
         }
+        //draw enemy card to corresponding position
         public void drawEnHand(int i)
         {
             TextBlock hand;
@@ -384,19 +426,25 @@ namespace Pazaak
             }
             
         }
+
+        //tap event to end turn
         private async void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            //if its user's turn and end turn hasnt already been tapped this turn
             if (!endTurnTapped&&!(pl.Stndng))
             {
-                usedCard = false;
+                //lock access to button
                 endTurnTapped = true;
+                //stop user's round if true
                 if (pl.autoBust(this))
                 {
+                    //show end round message if both parties are done
                     if (chkScrs())
                     {
                         await showMsg();
                         newFrme();
                     }
+                    //otherwise stand and wait for opponent to complete their move
                     else
                     {
                         await stand();
@@ -404,12 +452,17 @@ namespace Pazaak
                 }
                 else
                 {
+                    //otherwise just end the turn
                     await endTurn();
+                    //once AI is finished their turn, give user another card
                     pl.deckCall(false, usrScr, this, deck);
                 }
+                //unlock access to button
                 endTurnTapped = false;
+                usedCard = false;
             }
         }
+        //this resets the players and starts a new round
         private async void newFrme()
         {
             await Task.Delay(500);
@@ -438,20 +491,39 @@ namespace Pazaak
         public async Task showMsg()
         {
             /*
-            * I got a lot of help on the content dialog boxes from here
-            *    http://www.reflectionit.nl/blog/2015/windows-10-xaml-tips-messagedialog-and-contentdialog
+            * I got some of the following code about the content dialog boxes from here
+            * http://www.reflectionit.nl/blog/2015/windows-10-xaml-tips-messagedialog-and-contentdialog
             */
 
+            //using localisation to retrieve strings that will be displayed in the end round/game message
+
+            ResourceCandidate rc;
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/ok",
+                ResourceContext.GetForCurrentView());
+            string ok = rc.ValueAsString;
             var message = new ContentDialog()
             {
-                Title = status + "\nUsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr,
-                PrimaryButtonText = "OK",
+                Title = status + "\n"+App.usrName+": " + pl.CurrScr + " AI: " + en.CurrScr,
+                PrimaryButtonText = ok,
                 
             };
-            if (status.Equals("New Game? "))
+
+            rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/newGm",
+            ResourceContext.GetForCurrentView());
+            string newGame = rc.ValueAsString;
+
+            //if the message asks for a new game, the user is given an extra option 
+            //they can select cancel, which will return them to the main menu
+            if (status.Equals(newGame))
             {
-                message.SecondaryButtonText = "Cancel";
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/cancel",
+                ResourceContext.GetForCurrentView());
+                string cancel = rc.ValueAsString;
+                //secondary button added to message dialog
+                message.SecondaryButtonText = cancel;
+                //store which button was pressed
                 var result = await message.ShowAsync();
+                //if user wants another game, reset and start a new game
                 if (result == ContentDialogResult.Primary)
                 {
                     resetScrCircles();
@@ -459,6 +531,7 @@ namespace Pazaak
                     pl.hardReset();
                     newFrme();
                 }
+                //otherwise return user to main page
                 else if(result == ContentDialogResult.Secondary)
                 {
                     //navigate to home page
@@ -467,15 +540,20 @@ namespace Pazaak
             }
             else
             {
+                //show message normally if not end of game
+                //await feedback and start a new round
                 await message.ShowAsync();
                 newFrme();
             }
         }
+        //tap event for stand button
         private async void stnd_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            //standTapped controls access to button after its been tapped
             if (pl.IsTrn&&!standTapped)
             {
                 standTapped = true;
+                //user is bust if score is over 20
                 if(pl.CurrScr>20)
                 {
                     pl.IsBust = true;
@@ -483,91 +561,143 @@ namespace Pazaak
                 pl.GotDk = false;
                 pl.IsTrn = false;
                 pl.Stndng = true;
+                //await the stand method
                 await stand();
+                //unlock access to button
                 standTapped = false;
             }
         }
 
+        //stand method will simulate the AI's moves until it sticks or busts
         public async Task stand()
         {
             Boolean over = false;
+            //loop until the round is over
             while (!over)
             {
+                //await 1000 milliseconds to give illusion that AI is thinking
                 await Task.Delay(1000);
+                //AI makes move
                 await en.mkMove(pl, enScr, this, deck);
+                //check if round is over
                 over = chkScrs();
             }
+            //when loop exits, display the message
             await showMsg();
             
         }
 
+        //check all the possible outcomes
+        //return a boolean to indicate if round is over
         public Boolean chkScrs()
         {
             Boolean b = false;
-            if(!en.IsBust&&!pl.IsBust&&!en.Stndng&&!pl.Stndng)
+            ResourceCandidate rc;
+
+            if (!en.IsBust&&!pl.IsBust&&!en.Stndng&&!pl.Stndng)
             {
-                status = "UsrScr: " + pl.CurrScr + " EnScr: " + en.CurrScr;
+                //alter status string with a message to be displayed
+                status = App.usrName +": " + pl.CurrScr + " AI: " + en.CurrScr;
                 b = false;
             }
+            //if enemy has filled up the table, it wins automatically if it has a valid score
             else if (en.TrnCnt > 8&&en.CurrScr<21)
             {
+                
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lost",
+                ResourceContext.GetForCurrentView());
+                string lost = rc.ValueAsString;
+
                 en.rndWn(en, this);
                 usrScrSwch();
-                status = "You Lost";
+                status = lost;
                 b = true;
             }
+            //if user has filled up the table, automatic win if it has a valid score
             else if (pl.TrnCnt > 8&&pl.CurrScr<21)
             {
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/win",
+                ResourceContext.GetForCurrentView());
+                string win = rc.ValueAsString;
+
                 pl.rndWn(en, this);
                 usrScrSwch();
-                status = "You Win";
+                status = win;
                 b = true;
             }
+            //if enemy has gne over 20
             else if (en.IsBust)
             {
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/win",
+                ResourceContext.GetForCurrentView());
+                string win = rc.ValueAsString;
+
                 //user wins
                 pl.rndWn(en, this);
                 usrScrSwch();
-                status = "You Win";
+                status = win;
                 b = true;
             }
+            //if user has gone over 20
             else if (pl.IsBust)
             {
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/bust",
+                ResourceContext.GetForCurrentView());
+                string bust = rc.ValueAsString;
+
                 //enemy wins
                 en.rndWn(en, this);
                 enScrSwch();
-                status = "You Bust";
+                status = bust;
                 b = true;
             }
+            //if both are standing
             else if (en.Stndng && pl.Stndng)
             {
                 if (en.CurrScr > pl.CurrScr)
                 {
                     //enemy Wins
+                    rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lose",
+                    ResourceContext.GetForCurrentView());
+                    string lose = rc.ValueAsString;
                     en.rndWn(en, this);
                     enScrSwch();
-                    
+                    status = lose;
                     b = true;
                 }
                 else if (pl.CurrScr > en.CurrScr)
                 {
                     //user wins
+                    rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/win",
+                    ResourceContext.GetForCurrentView());
+                    string win = rc.ValueAsString;
+                    //user wins
                     pl.rndWn(en, this);
                     usrScrSwch();
-                    status = "You Win";
+                    status = win;
                     b = true;
                 }
+                //tie game
                 else
                 {
+                    rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/tie",
+                    ResourceContext.GetForCurrentView());
+                    string tie = rc.ValueAsString;
+
                     //draw
-                    status = "It's A Tie";
+                    status = tie;
                     b = true;
                 }
             }
+            //tie game
             if(en.CurrScr==20&&pl.CurrScr==20)
             {
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/tie",
+                    ResourceContext.GetForCurrentView());
+                string tie = rc.ValueAsString;
+
                 //draw
-                status = "It's A Tie";
+                status = tie;
                 b = true;
             }
            
@@ -576,6 +706,7 @@ namespace Pazaak
 
         private void usrScrSwch()
         {
+            //colour rounds won circle
             SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
             switch (pl.RndsWn)
             {
@@ -593,8 +724,10 @@ namespace Pazaak
                     break;
             }
         }
+
         private void enScrSwch()
         {
+            //colour rounds won circle
             SolidColorBrush scb = new SolidColorBrush(Windows.UI.Colors.DarkGreen);
             //using code numbers to identify who's score has incremented was the easiest way i found to update the round ellipses
             switch (en.RndsWn)
@@ -627,6 +760,7 @@ namespace Pazaak
        
          public void printHandCard(int trnCnt, int crdVal, Player p)
          {
+            //print hand cards to table
             BitmapSource bmS = chkCardSign(crdVal);
             Type t = chkImgTurn(p);
             if (t == typeof(User))
@@ -643,6 +777,8 @@ namespace Pazaak
                 rmvEnHnd(crdVal.ToString());
             }
         }
+
+        //remove hand from side
         public void rmvEnHnd(String crd)
         {
             for(int i = 0; i< enTbHnds.Length; i++)
@@ -654,11 +790,14 @@ namespace Pazaak
                 }
             }
         }
+        //display an image 
         public void setImg(Image i, BitmapSource bms)
         {
             i.Source = bms;
             i.Opacity = 2;
         }
+
+
         public Type chkImgTurn(Player p)
         {
             if (p.GetType() == typeof(User))
@@ -670,6 +809,8 @@ namespace Pazaak
                 return typeof(SkyNet);
             }
         }
+
+        //check the sign of the selected card
         public BitmapSource chkCardSign(int crdVal)
         {
             if (crdVal > 0)
@@ -682,6 +823,7 @@ namespace Pazaak
             }
         }
        
+        //match the textblock to the name
         public TextBlock srchTxtBlks(String block, TextBlock[] blocks)
         {
             for(int counter = 0; counter<blocks.Length; counter++)
@@ -693,6 +835,9 @@ namespace Pazaak
             }
             return null;
         }
+
+        //during animation, the moving card image is set to an animation image
+        //i.e the App.deckCard source
         public void txtCardVal(Int16 val, Player p)
         {
             if (!p.Stndng)
@@ -710,9 +855,14 @@ namespace Pazaak
             }
         }
 
+
+        /*
+            Events to move hand card onto table
+            and also remove card from hand
+        */
         private async void crd1_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn && usedCard == true)
+            if (usedCard == false)
             {
                 usedCard = true;
                 TextBlock b = tbHnd1;
@@ -722,7 +872,7 @@ namespace Pazaak
         }
         private async void crd2_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn && usedCard == true)
+            if (usedCard == false)
             {
                 usedCard = true;
                 TextBlock b = tbHnd2;
@@ -732,7 +882,7 @@ namespace Pazaak
         }
         private async void crd3_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn && usedCard == true)
+            if (usedCard == false)
             {
                 usedCard = true;
                 TextBlock b = tbHnd3;
@@ -742,7 +892,7 @@ namespace Pazaak
         }
         private async void crd4_tap(object sender, TappedRoutedEventArgs e)
         {
-            if (pl.IsTrn && usedCard == true)
+            if (usedCard == false)
             {
                 usedCard = true;
                 TextBlock b = tbHnd4;

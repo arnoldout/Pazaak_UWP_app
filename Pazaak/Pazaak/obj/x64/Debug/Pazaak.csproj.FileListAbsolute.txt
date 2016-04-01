@@ -116,7 +116,6 @@ C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileApp
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x64\Debug\System.Xml.XDocument.dll
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x64\Debug\System.Xml.XmlDocument.dll
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x64\Debug\System.Xml.XmlSerializer.dll
-C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\Pazaak.csprojResolveAssemblyReference.cache
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\App.g.i.cs
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\App.g.cs
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\InGame.g.i.cs
@@ -203,3 +202,9 @@ C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileApp
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\bin\x64\Debug\Instructions.xbf
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\Pazaak.csprojResolveAssemblyReference.cache
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\Instructions.g.i.cs
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\Instructions.g.cs
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\Instructions.xaml
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject\Pazaak\Pazaak\obj\x64\Debug\Instructions.xbf

@@ -7,12 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Uid="txtDiff" HorizontalAlignment="Left" Margin="272,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Uid ="easyBtn" HorizontalAlignment="Left" Margin="282,160,0,0" VerticalAlignment="Top" Click="button_Copy_Click"/>
-        <Button x:Uid="medBtn" HorizontalAlignment="Left" Margin="272,197,0,0" VerticalAlignment="Top" Click="button_Copy1_Click"/>
-        <Button x:Uid="hrdBtn" HorizontalAlignment="Left" Margin="279,234,0,0" VerticalAlignment="Top" Click="button_Copy2_Click"/>
-        <Button x:Uid="bckBtn" HorizontalAlignment="Left" Margin="75,266,0,0" VerticalAlignment="Top" Click="Back_Click"/>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Image x:Name="bkGround" Stretch="Fill" Source="/Resources/Background.png"></Image>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock x:Uid="txtDiff"  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="RedFive" FontWeight="Bold" FontSize="24" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Button x:Uid ="easyBtn" HorizontalAlignment="Center" Background="LightGray"  VerticalAlignment="Bottom" Click="button_Copy_Click"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Button x:Uid="medBtn" HorizontalAlignment="Center" Background="LightGray" VerticalAlignment="Center" Click="button_Copy1_Click"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Button x:Uid="hrdBtn" HorizontalAlignment="Center" Background="LightGray" VerticalAlignment="Top" Click="button_Copy2_Click"/>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Button x:Uid="bckBtn" HorizontalAlignment="Left" Background="LightGray" VerticalAlignment="Bottom" Click="Back_Click"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                    <RowDefinition Height="20*" ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="4*"></ColumnDefinition>
+                        <ColumnDefinition Width ="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBlock Text="Enter Name: "></TextBlock>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="nmEnter" TextChanged="nmEnter_TextChanged"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

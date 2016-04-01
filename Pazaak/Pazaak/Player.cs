@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources.Core;
 using Windows.UI.Xaml.Controls;
 
 namespace Pazaak
@@ -154,8 +155,10 @@ namespace Pazaak
             }
         }
 
+        //constructor for a player, it needs a card pool and an identifier
         public Player(Card[] crdPool, String name) {
             this.crdPool = crdPool;
+            //hand is populated randomly from the card pool
             this.hand = genHnd(crdPool);
             this.onBrd = new Card[9];
             this.rndsWn = 0;
@@ -167,22 +170,33 @@ namespace Pazaak
             this.isTrn = true;
             this.isBust = false;
         }
+        //method that keeps track of the game loop
         public void rndWn(Player p, InGame ig)
         {
-            //wassup wit dat?
-            if(this.rndsWn<2)
+            //the game is reset once the amount of rounds won by the current player is above 2
+            if (this.rndsWn<2)
             {
+                ResourceCandidate rc;
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/lost",
+                ResourceContext.GetForCurrentView());
+                string lost = rc.ValueAsString;
+
                 this.rndsWn++;
-                ig.status = "You Lost";
+                ig.status = lost;
             }
             else
             {
+                ResourceCandidate rc;
+                rc = ResourceManager.Current.MainResourceMap.GetValue("Resources/newGm",
+                ResourceContext.GetForCurrentView());
+                string newGm = rc.ValueAsString;
+
                 this.rndsWn++;
-                ig.status = "New Game? ";
+                ig.status = newGm;
                 this.gmsWn++;
-                HighScore h = new HighScore(this.gmsWn, p.gmsWn);
- //               h.readScores();
-   //             h.writeScores();
+                //HighScore h = new HighScore(this.gmsWn, p.gmsWn);
+                //h.readScores();
+                //h.writeScores();
                 
             }
         }
@@ -190,6 +204,7 @@ namespace Pazaak
         {
             Card[] pool = crdPool;
             Card[] hand = new Card[4];
+            //4 random cards are pulled from the card pool
             for (int genLoop = 0; genLoop<4; genLoop++)
             {
                 int card = App.randomizer.Next(0, pool.Length);
@@ -201,10 +216,12 @@ namespace Pazaak
         }
         public void addCrd(Card c)
         {
+            //the card is added to the table
             onBrd[this.trnCnt] = c;    
         }
         public void reset()
         {
+            //reset non crucial variables
             this.onBrd = new Card[9];
             this.trnCnt = 0;
             this.currScr = 0;
@@ -216,17 +233,11 @@ namespace Pazaak
         }
         public void hardReset()
         {
+            //hand and rounds won are reset
+            //as well as non crucial variables
             reset();
             this.rndsWn = 0;
             this.hand = genHnd(this.crdPool);
-        }
-        public Card[] copyHnd(Card[] hnd2)
-        {
-            for(int i = 0; i<Hand.Length; i++)
-            {
-                hnd2[i] = new Card(Hand[i].Val);
-            }
-            return hnd2;
         }
     }
 }

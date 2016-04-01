@@ -1,4 +1,4 @@
-﻿    <Page
+﻿<Page
     x:Class="Pazaak.InGame"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -190,10 +190,14 @@
                                 <TextBlock x:Name="usrScr" x:Uid="usrScr" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                                <Button x:Name="endBtn" x:Uid="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="button_Tapped"/>
+                                <Button x:Name="endBtn" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="button_Tapped">
+                                    <TextBlock x:Uid="endTurnTxt" TextWrapping="Wrap" />
+                                </Button>
                             </Grid>
                             <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="2">
-                                <Button x:Name="stndBtn" x:Uid="stndBtn"  Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="stnd_Tapped"/>
+                                <Button x:Name="stndBtn" x:Uid="stndBtn"  Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="stnd_Tapped">
+                                    <TextBlock x:Uid="standTxt" TextWrapping="Wrap" />
+                                </Button>
                             </Grid>
                         </Grid>
                     </Grid>

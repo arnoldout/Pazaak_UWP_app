@@ -1,1 +1,1 @@
-C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\AppPackages\Pazaak_1.1.1.0\Pazaak_1.1.1.0_x86_x64_arm.appxbundle
+C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\AppPackages\Pazaak_1.1.2.0\Pazaak_1.1.2.0_x86_x64_arm.appxbundle

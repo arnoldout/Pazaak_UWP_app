@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\bin\x86\Release\Pazaak_1.1.1.0_x86.appx
-SymbolPackage=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\AppPackages\Pazaak_1.1.1.0_Test\Pazaak_1.1.1.0_x86.appxsym
+MainPackage=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\bin\x86\Release\Pazaak_1.1.2.0_x86.appx
+SymbolPackage=C:\Users\Olivr\Documents\Visual Studio 2015\Projects\mobileAppsProject\mobileAppsProject1\Pazaak\Pazaak\AppPackages\Pazaak_1.1.2.0_Test\Pazaak_1.1.2.0_x86.appxsym

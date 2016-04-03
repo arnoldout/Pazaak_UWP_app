@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="43030arnoldout.PazaakClone" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.1.0" ProcessorArchitecture="x64" />
+  <Identity Name="43030arnoldout.PazaakClone" Publisher="CN=FF35FEA9-CADF-4FA8-A551-0BA32D9D6DD6" Version="1.1.2.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="8264506a-6e70-4299-a917-a341f72c7a77" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Pazaak Clone</DisplayName>
